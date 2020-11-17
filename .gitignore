@@ -9,6 +9,8 @@
 # Ignore bundler config.
 /.bundle
 bundle.*
+bundle.js*
+/public/assets
 
 # Ignore all logfiles and tempfiles.
 /log/*
