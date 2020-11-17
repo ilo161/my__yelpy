@@ -14,6 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // const store = configureStore();
     console.log("hola")
     // ReactDOM.render(<Root store={store}/>, root)
-    // ReactDOM.render(<Root/>, root)  
-    ReactDOM.render(<h1>Hello from h1</h1>, root)  
+    ReactDOM.render(<Root/>, root)  
+    // ReactDOM.render(<h1>Hello from h1</h1>, root)  
 });
