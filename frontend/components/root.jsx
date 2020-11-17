@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
+import Modal from "./users/modal"
 
 const Root = () => {
 
@@ -8,6 +9,7 @@ const Root = () => {
         <div>
 
         <p>Welcome to My Yelpy</p>
+        <Modal/>
         
         </div>
     )
