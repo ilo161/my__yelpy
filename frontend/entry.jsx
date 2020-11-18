@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
+import {signupUser} from "./util/user_api_util"
+import {loginSession, logoutSession} from "./util/session_api_util"
 // import configureStore from './store/store';
+
 
 
 /*
@@ -15,6 +18,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // const store = configureStore();
     console.log("hola")
     // ReactDOM.render(<Root store={store}/>, root)
+
+    window.signupUser = signupUser;
+    window.loginSession = loginSession;
+    window.logoutSession = logoutSession;
+
+
+
     ReactDOM.render(<Root/>, root)  
     // ReactDOM.render(<h1>Hello from h1</h1>, root)  
 });

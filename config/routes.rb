@@ -39,6 +39,7 @@ Rails.application.routes.draw do
       resources :users, except: [:new]
       resources :reviews, except: [:new]
       resources :businesses, except: [:new]
+      resource :session, only:[:create,:destroy]
   end
 
   resources :users, only:[:index, :new]

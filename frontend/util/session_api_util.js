@@ -9,9 +9,9 @@ export const loginSession = (session) => {
     });
 }
 
-export const logoutSession = (sessionId) => {
+export const logoutSession = () => {
     return $.ajax({
-        url:`/api/businesses/${sessionId}`,
+        url:`/api/session`,
         method: "DELETE"
     })
 }
