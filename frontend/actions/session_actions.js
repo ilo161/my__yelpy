@@ -30,6 +30,9 @@ export const requestLogin = user => dispatch => {
     .then(user => {
         debugger
         dispatch(receiveCurrentUser(user))
+    }, errors => {
+        debugger
+        dispatch(receiveErrors(errors))
     })
 }
 
@@ -40,5 +43,12 @@ export const requestLogout = () => dispatch => {
 
 export const requestSignupUser = user => dispatch => {
     return SessionApiUtil.signupUser(user)
-    .then(user => dispatch(receiveCurrentUser(user)))
+    .then(user => {
+        debugger
+        dispatch(receiveCurrentUser(user))
+    },
+    errors => {
+        debugger
+        dispatch(receiveErrors(errors.responseJSON))
+    })
 }

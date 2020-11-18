@@ -22,8 +22,6 @@ const sessionReducer = (state = _nullUser, action) => {
 
             case LOGOUT_CURRENT_USER:
                 return _nullUser;
-            case RECEIVE_SESSION_ERRORS:
-                debugger;
             default:
                 return state;
        }

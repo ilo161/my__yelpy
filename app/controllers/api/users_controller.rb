@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
             render :show
         else
             # debugger
-            render json: @user.errors.full_messages
+            render json: @user.errors.full_messages, status: 422
         end
     end
     
