@@ -1,6 +1,7 @@
 
 
 export const loginSession = (session) => {
+    debugger
     return $.ajax({
         url:`/api/session`,
         method: "POST",

@@ -8,19 +8,15 @@ import merge from "lodash/merge"
 
 
 
-const usersReducer = (state = _nullUser, action) => {
+const usersReducer = (state = {}, action) => {
        Object.freeze(state);
 
        let newState = {};
        switch(action.type){
+           //replacing key in case user has updated information???
             case RECEIVE_CURRENT_USER:
                 return Object.assign({}, state, 
                     {[action.currentUser.id]: action.currentUser})
-
-            case LOGOUT_CURRENT_USER:
-                return _nullUser;
-            case RECEIVE_SESSION_ERRORS:
-
             default:
                 return state;
        }

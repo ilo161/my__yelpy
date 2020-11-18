@@ -14,7 +14,7 @@ class Api::SessionsController < ApplicationController
         if @user
             login!(@user)
 
-            render json: { yay: ["Logged In!"]}
+            render "api/users/show"
         else
 
             render json: { base: ['invalid credentials', "username already exists"] }, status: 401

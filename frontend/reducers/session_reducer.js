@@ -16,14 +16,14 @@ const sessionReducer = (state = _nullUser, action) => {
        let newState = {};
        switch(action.type){
             case RECEIVE_CURRENT_USER:
-                let prevState = merge({}, oldState);
+                let prevState = merge({}, state);
                 prevState.id = action.currentUser.id;
                 return prevState;
 
             case LOGOUT_CURRENT_USER:
                 return _nullUser;
             case RECEIVE_SESSION_ERRORS:
-
+                debugger;
             default:
                 return state;
        }
