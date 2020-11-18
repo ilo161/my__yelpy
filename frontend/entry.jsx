@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
-import {signupUser} from "./util/user_api_util"
-import {loginSession, logoutSession} from "./util/session_api_util"
+import {loginSession, logoutSession, signupUser} from "./util/session_api_util"
 // import configureStore from './store/store';
 
 

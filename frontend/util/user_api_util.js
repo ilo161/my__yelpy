@@ -13,22 +13,22 @@ export const fetchUser = (userId) => {
     });
 }
 
-export const signupUser = (user) => {
-    return $.ajax({
-        url:`/api/users`,
-        method: "POST",
-        data: {user},
-        contentType: "application/json"
-        // success: yes => {
-        //     debugger
-        //     console.log(yes)
-        // },
-        // error: no => {
-        //     debugger
-        //     console.log(no)
-        // }
-    });
-}
+// export const signupUser = (user) => {
+//     return $.ajax({
+//         url:`/api/users`,
+//         method: "POST",
+//         data: {user},
+//         contentType: "application/json"
+//         // success: yes => {
+//         //     debugger
+//         //     console.log(yes)
+//         // },
+//         // error: no => {
+//         //     debugger
+//         //     console.log(no)
+//         // }
+//     });
+// }
 
 export const updateUser = (user) => {
     return $.ajax({
