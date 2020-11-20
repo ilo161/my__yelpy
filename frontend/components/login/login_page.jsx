@@ -13,7 +13,7 @@ class LoginPage extends React.Component {
         return (
             <div className="login-page-container">
                 <nav className="red-yelp-stripe">
-                    <img className="center-nav-image" src="assets/yelp_icon_red.jpg" alt="Yelp Icon"></img>
+                    <img className="center-nav-image" src={window.yelp_red_sm} alt="Yelp Icon"></img>
                 </nav>
                 <div className="login-left-image-right">
                     <div className="login-slash-login">

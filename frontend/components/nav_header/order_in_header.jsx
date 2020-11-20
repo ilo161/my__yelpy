@@ -14,7 +14,7 @@ class OrderInHeader extends React.Component {
 
                 <nav className="order-in-nav-container">
                     <div className="nav-content-container">
-                        <img src="assets/food_delivery_icon_2x.png"></img>
+                        <img src={window.foodbag}></img>
                         <div className="content-separator"></div>
                         <Link to="/login" className="small-nav-link-text"/><p>Deliver</p>
                         <Link to="/" className="small-nav-link-text"> Pizza Delivery </Link>

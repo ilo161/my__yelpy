@@ -12,11 +12,11 @@ class GreetingJumboTron extends React.Component{
 
         return(
             <div className="greeting-jumbotron">
-                <img className="img-jumbotron" src="assets/rachael-gorjestani-fs9MXZo-k1o-unsplash-md.jpg"/>
+                <img className="img-jumbotron" src={window.jumbotron}/>
                 <div className="jumbotron-nav">
                     <p>Some TExt</p>
                 </div>
-                <img className="yelp-static center" src="assets/yelp_icon_white.png"></img>
+                <img className="yelp-static center" src={window.yelp_white_sm}></img>
 
                     {/* //Search Bar */}
                 <input type="text" placeholder="Search..."></input>
