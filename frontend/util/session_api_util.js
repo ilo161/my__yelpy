@@ -22,14 +22,6 @@ export const signupUser = (user) => {
         method: "POST",
         data: {user},
         contentType: "application/json"
-        // success: yes => {
-        //     debugger
-        //     console.log(yes)
-        // },
-        // error: no => {
-        //     debugger
-        //     console.log(no)
-        // }
     });
 }
 

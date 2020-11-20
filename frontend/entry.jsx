@@ -17,8 +17,6 @@ prop passed in, inside the div with id 'root'.
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
     const store = configureStore();
-    console.log("hola")
-    // ReactDOM.render(<Root store={store}/>, root)
 
 
     //Testing Start
