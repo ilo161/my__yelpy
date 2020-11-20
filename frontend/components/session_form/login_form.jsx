@@ -40,9 +40,9 @@ class LoginForm extends React.Component {
                     <p>By logging in, you agree to Yelp’s Terms of Service and <br/>Privacy Policy.</p>
 
                     <div className="button-logins-box">
-                        <button type="text" disabled="true" className="facebook-button lb">Continue with Facebook</button> <br/>
-                        <button type="text" disabled="true" className="google-button lb">Continue with Google</button> <br/>
-                        <button type="text" disabled="true" className="apple-button lb">Continue with Apple</button> <br/>
+                        <button type="text" disabled={true} className="facebook-button lb">Continue with Facebook</button> <br/>
+                        <button type="text" disabled={true} className="google-button lb">Continue with Google</button> <br/>
+                        <button type="text" disabled={true} className="apple-button lb">Continue with Apple</button> <br/>
                     </div>
                     <br/>
                     <label>

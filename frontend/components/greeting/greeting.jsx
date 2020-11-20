@@ -6,6 +6,9 @@ import LoginFormContainer from "../session_form/login_form_container"
 import { requestLogin } from '../../actions/session_actions';
 import  OrderInContainer  from "../nav_header/order_in_header_container";
 
+// JumboTron
+import GreetingJumboTronContainer from "./greeting_jumbotron_container"
+
 
 
 class Greeting extends React.Component {
@@ -52,7 +55,7 @@ class Greeting extends React.Component {
 
         const sessionLinks = () => {
             return (
-            <div>
+            <div className="session-links-container">
                 {this.state.orderInNav ? <OrderInContainer/> : null}
 
                 <p>In Greeting Component - Session</p>
@@ -67,7 +70,7 @@ class Greeting extends React.Component {
                 <div className="which-form">
                     {signLoginArray[this.state.signLogin]}
                 </div>
-
+                <GreetingJumboTronContainer/>
             </div>
             )
         }
@@ -75,17 +78,18 @@ class Greeting extends React.Component {
 
         const personalGreeting = () => {
             return (
-
-                <nav className="personal-greeting">
-                    <p>In Greeting Component - Personal</p>
-                    <ul>
-                        <li> Welcome {currentUser.username}</li>
-                        <li> <button onClick={requestLogout}>Logout!</button>
-                        {currentUser.username}
-                        </li>
-                    </ul>
-                </nav>
-                
+                <div className="personal-greeting-container">
+                    <nav className="personal-greeting">
+                        <p>In Greeting Component - Personal</p>
+                        <ul>
+                            <li> Welcome {currentUser.username}</li>
+                            <li> <button onClick={requestLogout}>Logout!</button>
+                            {currentUser.username}
+                            </li>
+                        </ul>
+                    </nav>
+                    <GreetingJumboTronContainer/>
+                </div>
             )
         }
         return currentUser ? personalGreeting() : sessionLinks();
@@ -93,6 +97,6 @@ class Greeting extends React.Component {
 }
     
 
-// return (<div></div>)
+
 
 export default Greeting;
