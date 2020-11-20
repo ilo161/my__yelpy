@@ -1,17 +1,18 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
-import Modal from "./users/modal"
+import App from "./app"
 
-const Root = () => {
+
+const Root = ( {store} ) => {
 
     return (
-        <div>
+        <Provider store={store}>
+            <HashRouter>
+                <App/>
+            </HashRouter>        
+        </Provider>
 
-        <p>Welcome to My Yelpy</p>
-        <Modal/>
-        
-        </div>
     )
 }
 

@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from "./store/store"
-// import {loginSession, logoutSession, signupUser} from "./util/session_api_util"
+
 import {requestLogin, requestLogout, requestSignupUser} from "./actions/session_actions"
-// import configureStore from './store/store';
+
 
 
 
@@ -20,14 +20,16 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("hola")
     // ReactDOM.render(<Root store={store}/>, root)
 
+
+    //Testing Start
     window.getState = store.getState;
     window.dispatch = store.dispatch;
     window.requestSignupUser = requestSignupUser;
     window.requestLogin = requestLogin;
     window.requestLogout = requestLogout;
+    // Testing End
 
 
-
-    ReactDOM.render(<Root/>, root)  
+    ReactDOM.render(<Root store={store}/>, root)  
     // ReactDOM.render(<h1>Hello from h1</h1>, root)  
 });

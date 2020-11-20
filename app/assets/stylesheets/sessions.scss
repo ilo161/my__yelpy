@@ -1,3 +1,30 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.login-signup{
+    display:flex;
+
+    justify-content: flex-end;
+}
+.personal-greeting{
+    background-color: teal;
+}
+
+.session-view-container{
+    // height: 738px;
+    // width: 465px;
+    height: 60%;
+    width: 30%;
+    margin-left: 5%;
+    // background: rgb(255, 255, 255);
+    background: rgb(140, 35, 45)
+}
+// d32323
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+

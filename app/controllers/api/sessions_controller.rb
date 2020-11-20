@@ -9,15 +9,16 @@ class Api::SessionsController < ApplicationController
             params[:session][:password]
         )
 
-        # debugger
+
 
         if @user
+
             login!(@user)
 
             render "api/users/show"
         else
 
-            render json: { base: ['invalid credentials', "username already exists"] }, status: 401
+            render json: {base: ['invalid credentials', "username already exists"]}, status: 401
         end
 
     end

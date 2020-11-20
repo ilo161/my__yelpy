@@ -13,3 +13,224 @@
  *= require_tree .
  *= require_self
  */
+
+
+ /* RESET */
+ /* PHASE 0: Reset */
+
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  /* width: 100%; */
+  height: auto;
+}
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+  /*
+  Get rid of native styling. Read more here:
+  http://css-tricks.com/almanac/properties/a/appearance/
+  */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+/* Clearfix */
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/* END RESET */
+
+    html,body {
+        height: 100%;
+        margin: 0;
+    }
+
+    #root{
+        height:100%;
+        width:100%;
+    }
+
+    p{
+        margin:0
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .login-page-container{
+        height: inherit;
+        width: inherit;
+    }
+
+    .red-yelp-stripe{
+        height: 64px;
+        display: flex;
+        justify-content: center;
+        background-color: rgb(205, 31, 32);
+    }
+
+    /* Content Body Below holds loginForm and image on right */
+    .login-left-image-right{
+        display: flex;
+        justify-content: flex-start;
+
+    }
+    /* ends */
+
+    /* div for LoginForm */
+    .login-slash-login{
+        display: flex ;
+        justify-content: center;
+        width: 50vw;
+        height: 100%;
+        /* padding: 20%; */
+    }
+    .button-logins-box{
+        margin-top: 10px;
+    }
+
+    .button-logins-box .lb{
+        margin: 5px;
+        padding: 10px 13px;
+    }
+
+    .lb{
+        width: 100%
+    }
+
+    .facebook-button{
+        color: white;
+        background-color: rgb(22, 108, 240);
+    }
+
+    .google-button{
+        background-color: white;
+        color: rgb(91, 91, 91);
+        border: 1px solid rgb(91, 91, 91);
+    }
+
+    .apple-button{
+        color: white;
+        background-color: black;
+    }
+
+    /* ends */
+
+    /* In LoginFormContainer */
+    .login-form{
+        text-align: center;
+        width: 50%;
+        /* margin-top: 20vh; */
+        margin: 40% auto 0;
+    }
+    .top-login-form-text{
+
+        color:rgb(205, 31, 32);
+        font-size: 1.5rem;
+    }
+    .sec-header-login-form{
+        color: black;
+        font-size: 1.0rem;
+    }
+
+    .forgot-password-small{
+        font-size: 0.8rem;
+        text-align: right;
+        color: rgb(0, 104, 179);
+        margin-bottom: 12px;
+    }
+
+    .sub-text-box{
+        margin-top: 12px;
+    }
+    .small-text{
+        font-size: 0.8rem;
+        text-align: right;
+        margin-bottom: 12px;
+    }
+
+    .red-login-button{
+        color: white;
+        background-color:rgb(205, 31, 32);
+        padding: 10px 13px;
+    }
+
+    .sign-up-link{
+        font-size: inherit;
+        color: rgb(0, 104, 179);
+    }
+
+    /* ENDS login Form */
+
+
+    
+
+    /* Login page Image on right */
+    .image-slash-login{
+        display: flex;
+        justify-content: center;
+        width: 50vw;
+        height: 70vw;
+        /* padding: 20%; */
+
+    }
+
+    .fun-login-page-img{
+        margin: auto;
+    }
+
+    input{
+         border: 1px solid #999;
+         text-align: left;
+         padding:2px;
+         margin-bottom:9px;
+         /* margin-left: auto;
+         margin-right: auto; */
+         width: 100%;
+         border-radius: 2px;
+    }
+
+    /* .center-nav-image{
+        margin: auto;
+    } */
+
+    /* div {
+        display: block;
+    } */

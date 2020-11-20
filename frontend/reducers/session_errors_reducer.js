@@ -10,9 +10,9 @@ const sessionErrorsReducer = (state =[], action) => {
 
     switch(action.type){
         case RECEIVE_SESSION_ERRORS:
-            debugger
+
            return action.errors
-            // errors.session
+
 
         case RECEIVE_CURRENT_USER:
             return [];
