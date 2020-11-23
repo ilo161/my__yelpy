@@ -19,7 +19,7 @@ class GreetingJumboTron extends React.Component{
                 <img className="yelp-static center" src={window.yelp_white_sm}></img>
 
                     {/* //Search Bar */}
-                <input type="text" placeholder="Search..."></input>
+                <input className="jumbotron-search" type="text" placeholder="Search..."></input>
 
             </div>
         )

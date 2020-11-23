@@ -14,17 +14,18 @@ export const fetchBusiness = (businessId) => {
 }
 
 export const createBusiness = (business) => {
+
     return $.ajax({
         url:`/api/businesses`,
         method: "POST",
         data:{business},
-        contentType: "application/json"
+        contentType: "application/json",
     });
 }
 
 export const updateBusiness = (business) => {
     return $.ajax({
-        url:`/api/businesses`,
+        url:`/api/businesses/${business.id}`,
         method: "PATCH",
         data: {business},
         contentType: "application/json"

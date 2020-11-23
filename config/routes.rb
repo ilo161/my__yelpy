@@ -42,7 +42,7 @@ Rails.application.routes.draw do
       resource :session, only:[:create,:destroy]
   end
 
-  resources :users, only:[:index, :new]
+  # resources :users, only:[:index]
 
   root to: "static_pages#root"
 end

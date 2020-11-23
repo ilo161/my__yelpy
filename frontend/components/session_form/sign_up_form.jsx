@@ -29,6 +29,7 @@ class SignUpForm extends React.Component {
 
         return (
             <div>
+                <p>work in progress</p>
                 <form onSubmit={this.handleSubmit}>
                     
                     <label>Username:

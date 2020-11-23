@@ -5,6 +5,14 @@ import configureStore from "./store/store"
 
 import {requestLogin, requestLogout, requestSignupUser} from "./actions/session_actions"
 
+import {
+    requestSignupBusiness, 
+    requestDeleteBusiness, 
+    requestBusiness, 
+    requestBusinesses,
+requestUpdateBusiness
+ } from "./actions/business_actions"
+
 
 
 
@@ -25,6 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
     window.requestSignupUser = requestSignupUser;
     window.requestLogin = requestLogin;
     window.requestLogout = requestLogout;
+
+    //Biz
+    window.requestSignupBusiness = requestSignupBusiness;
+    window.requestDeleteBusiness = requestDeleteBusiness;
+    window.requestBusiness = requestBusiness;
+    window.requestBusinesses = requestBusinesses;
+    window.requestUpdateBusiness = requestUpdateBusiness;
     // Testing End
 
 

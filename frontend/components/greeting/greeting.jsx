@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 // import { requestLogin } from '../../actions/session_actions';
 
 import SignUpFormContainer from "../session_form/sign_up_form_container"
@@ -62,8 +63,10 @@ class Greeting extends React.Component {
                 <p>{errors ? listOErrors[0] : null}</p>
                 <nav className="login-signup">
                     <ul>
-                        <li> <button onClick={() => this.switchRender(1)}>Login!</button></li>
-                        <li> <button onClick={() => this.switchRender(0)}>Sign UP</button></li>
+                        <li><Link to="/login">Login!</Link></li>
+                        <li><Link to="/signup">Sign Up!</Link></li>
+                        {/* <li> <button onClick={() => this.switchRender(1)}>Login!</button></li>
+                        <li> <button onClick={() => this.switchRender(0)}>Sign UP</button></li> */}
                         <li> <button onClick={() => requestLogin({username: "DemoUser", password:"123456"}) }>Demo User - Login</button></li>
                     </ul>
                 </nav>

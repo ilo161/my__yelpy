@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginFormContainer from '../session_form/login_form_container'
 
+
 class LoginPage extends React.Component {
     constructor(props){
         super(props)
@@ -20,7 +21,7 @@ class LoginPage extends React.Component {
                         <LoginFormContainer/>
                     </div>
                     <div className="image-slash-login">
-                        <img className="fun-login-page-img" src="assets/signup_illustration.png" alt="Red Carpet Photo"></img>
+                        <img className="fun-login-page-img" src={window.signup_illustration} alt="Red Carpet Photo"></img>
                     </div>
                 </div>
 

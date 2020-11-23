@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
+
 User.destroy_all;
 Business.destroy_all;
 Review.destroy_all;
@@ -14,7 +16,7 @@ demoUSer = User.create({
           first_name: "Demo",
           last_name: "User",
           email: "demo@user.com",
-          zip_code: "98765",
+          zip_code: "98177",
           password:"123456"
         })
 
@@ -24,7 +26,7 @@ demoUSer = User.create({
 #         first_name: "Bethany",
 #         last_name: "Smith",
 #         email: "garden_pixie@gmail.com",
-#         zip_code: "90253-1210"
+#         zip_code: "98177"
 #       },
 #       {
 #         "id": 22,
@@ -32,10 +34,16 @@ demoUSer = User.create({
 #         "firstName": "Jim",
 #         "lastName": "Jones",
 #         "email": "jimrocks@gmail.com",
-#         "zipCode": "32412-2143"
+#         "zipCode": "98177"
 #       }
 #     }
 # ])
+
+# file = open('https://my-yelpy-dev.us-west-1.amazonaws.com/<optional_folder_name>/<some_file>.jpg')
+# file = open('https://my-yelpy-dev.us-west-1.amazonaws.com/<optional_folder_name>/<some_file>.jpg')
+
+# demo_user.avatar.attach(io: file, filename: 'some_file.jpg')
+
 businesses = Business.create([
     {
         id: 101,  
