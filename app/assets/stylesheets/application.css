@@ -227,6 +227,110 @@ input[type="submit"] {
          border-radius: 2px;
     }
 
+    .icon-box-nav{
+        width: 145px;
+    }
+
+    /* Search Bar Nav */
+    .search-city-nav-container{
+        width: 51vw;
+        height: 48px;
+    }
+
+    .search-bar{
+        width: 43vw;
+        /* height: 2rem; */
+        padding: 13px 16px;
+        border-radius: 4px 0 0 4px;
+    }
+
+    .city-search-bar{
+        width: 43vw;
+        /* height: 2rem; */
+        padding: 13px 16px;
+        border-radius: 4px 0 0 4px;
+    }
+    .red-search-submit-button{
+        display:block;
+        width: 15%;
+        height: 46px;
+        background-color: #f43939;
+        position: relative;
+        margin-right: 24px;
+    }
+
+    .icon {
+        position: absolute;
+        color: white;
+        top: 50%;
+        left: 50%;
+        height: 50%;
+        transform: translate(-50%, -50%);
+    }
+    /* Search BAr End */
+
+    .flex-row-start{
+        display: flex;
+        justify-content: flex-start;
+    }
+    .biz-review-nav-text{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header-link{
+        padding: 13px 16px;
+    }
+    /* Buttons Container */
+
+    .login-signup-buttons-container{
+        /* height: 100px; */
+        margin-left: 20px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+        .login-button{
+            /* height: 40px; */
+            color: rgb(38, 55, 53);
+            border: 1px solid rgb(39, 55, 53);
+            padding: 8px 16px;
+            border-radius: 4px;
+            margin-right: 15px;
+        }
+
+        .signup-clear{
+            /* height: 40px; */
+            color: white;
+            background-color: #f43939;
+            border: 1px solid #f43939;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+    /* End Buttons Container */
+
+    /* Second Nav */
+    .search-nav-dropdowns-container{
+        height: 60px;
+    }
+
+    .invisidiv-nav{
+        width: 144px;
+        /* border: 3px solid red; */
+    }
+
+    .one-button-container{
+        height: 60px;
+        display:flex;
+        align-items: center;
+    }
+
+        .search-nav-dropdowns{
+            padding: 16px;
+        }
+
     /* .center-nav-image{
         margin: auto;
     } */
