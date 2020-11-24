@@ -7,7 +7,24 @@
 .business-show-information-container{
     margin: 0px 142px;
     padding: 0px 40px;
+    display: flex;
+    justify-content: flex-start;
 }
+
+.show-left-column{
+    width: 763px;
+}
+
+.show-right-column{
+    width: 381px;
+    border-top: 1px solid red;
+}
+
+    .order-delivery-takeout{
+        padding: 24px;
+        height: 268px;
+        border: 2px solid  green; 
+    }
 
 .show-photo-scroller{
     height: 253px;

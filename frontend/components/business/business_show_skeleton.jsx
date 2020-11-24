@@ -60,6 +60,7 @@ class BusinessShowSkeleton extends React.Component {
                                 <Link to="/" className="search-nav-dropdowns">Home Services</Link>
                                 {arrowDownIcon}
                             </nav>
+                            {/* Auto Services */}
                             <nav className="one-button-container">
                             <Link to="/" className="search-nav-dropdowns">Auto Services</Link>
                                 {arrowDownIcon}
@@ -75,7 +76,18 @@ class BusinessShowSkeleton extends React.Component {
                 {/* PhotoScroller HERE */}
                 <div className="show-photo-scroller"></div>
                 <div className="business-show-information-container">
-                    {business ? <BusinessHeaderBox business={business} /> : null }
+                    {/* Flexx Start */}
+                    <section className="show-left-column">
+                        { business ? <BusinessHeaderBox business={business} /> : null }
+                    </section>
+                    <section className="show-right-column">
+                        <div className="order-delivery-takeout">
+                            <p>Order Deliver - Takeout</p>
+
+
+                        </div>
+
+                    </section>
 
 
                 </div>
