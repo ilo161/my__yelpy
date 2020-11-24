@@ -33,8 +33,71 @@
 }
 
 .business-title{
-    font-family: poppins;
+    font-family: 'Poppins', sans-serif;
     font-size: 48px;
-    font-weight: 400;
+    font-weight: 900;
 
 }
+
+    .bottom-m-8{
+        margin-bottom: 8px;
+    }
+
+    .checked-claimed{
+        font-size: 1rem;
+        font-family: "Open Sans";
+        font-size: 14px;
+
+        color: rgb(0, 104, 179);
+        padding: 35px 0 0 0;
+        margin-left: 15px;
+    }
+
+    .star-background{
+        position: relative;
+        width: 32px;
+        height: 32px;
+        background-color: RGB(255, 72, 54);
+        border-radius: 25%;
+        margin: 0 4px;
+    }
+
+        .rating-icons{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 50%;
+            color:white;
+            transform: translate(-50%, -50%);   
+        }
+
+        .icon-space{
+            margin: 0px 1px;
+        }
+
+
+        .business-num-reviews{
+            margin:0px 5px;
+        }
+
+        .business-details-reviews{
+            padding: 0px 8px;
+            font-family: "Open Sans";
+            font-size: 12px;
+            background-color: rgb(236, 235, 237);
+            border-radius: 4px;
+            margin-left: 5px;
+        }
+
+        .business-details-category-text{
+            margin: 0px 16px;
+        }
+
+        .small-edit-category-business-button{
+            padding: 0px 6px;
+            border: 1px solid #ccc;
+            font-size: 12px;
+            line-height: 18px;
+            color: rgb(106, 103, 117);
+            background: transparent;
+        }

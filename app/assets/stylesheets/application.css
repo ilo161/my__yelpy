@@ -273,6 +273,11 @@ input[type="submit"] {
         display: flex;
         justify-content: flex-start;
     }
+
+    .flex-row-align{
+        align-items: center;
+    }
+
     .biz-review-nav-text{
         display: flex;
         justify-content: center;
