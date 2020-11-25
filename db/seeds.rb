@@ -14,7 +14,7 @@ ActiveRecord::Base.transaction do
   Business.destroy_all;
   Review.destroy_all;
 
-demoUSer = User.create!([
+demoUsers = User.create!([
     {
         username: "DemoUser",
         first_name: "Demo",
@@ -40,9 +40,19 @@ demoUSer = User.create!([
         password:"password"
       }
     ])
+
+demoUsers.each do |user|
+  p "adding users..."
+    url = "https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/user_avatars/empty_avatar_frame.png"
+    temp_file = open("https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/user_avatars/empty_avatar_frame.png")
+
+    arr = url.split("user_avatars/")
+
+      user.avatar.attach(io: temp_file, filename: arr[1])
+end
     # p demoUSer[0]
     # p demoUSer[1]
-    p "adding users"
+    
 
 
 
@@ -251,7 +261,11 @@ reviews = Review.create!([
     business_id: 2,
     user_id: 1,
     title: "Medium Roast",
-    body: "The quality of these beans make for an excellent latte",
+    body: "The quality of these beans make for an excellent latte. I stayed and chatted for a while
+    only to learn that the owner Esteban has travled the world in search for the perfect bean. He's camped on
+    mountaintops just to wait for a coffee bean fruit to sprout. He's nuts about coffee! But he's even
+    more nuts about making sure you get the BEST cup of morning...or errr BEST cup of evening
+    if you're a programmer like me and don't sleep!",
     rating: 5
     },
     {

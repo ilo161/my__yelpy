@@ -336,6 +336,10 @@ input[type="submit"] {
             padding: 16px;
         }
 
+    .small-data{
+        margin: 0 0 16px;
+    }
+
     /* .center-nav-image{
         margin: auto;
     } */

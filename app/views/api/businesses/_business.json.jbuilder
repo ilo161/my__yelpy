@@ -6,4 +6,8 @@ json.photoUrl url_for(business.photos[0])
 
 json.reviews business.reviews do |review|
     json.extract! review, :business_id, :user_id, :title, :body, :rating 
+
+    user = User.find(review.user_id)
+    
+    json.userAvatarUrl url_for(user.avatar)
 end

@@ -26,8 +26,18 @@ class BusinessShowSkeleton extends React.Component {
     }
 
     render() {
+        debugger
         const { business } = this.props;
 
+        let allReviews = [];
+
+        if (business){
+            allReviews = business.reviews.map((review) => {
+                return <ReviewIndexItem review={review} key={review.id}/> 
+            })
+        }
+
+        debugger
         const arrowDownIcon = <FontAwesomeIcon icon={faAngleDown}/>
 
         return (
@@ -113,7 +123,8 @@ class BusinessShowSkeleton extends React.Component {
                         <section className="show-divider-section website-menu">
                             <p>Recommended Reviews</p>
                         </section>
-                        {business ? <ReviewIndexItem business={business} key={business.id}/> : "banana"}
+                        { business ? allReviews : null}
+                        {/* {business ? <ReviewIndexItem business={business} key={business.id}/> : "banana"} */}
                         {/* Flex Column end below */}
                     </section>
                     
