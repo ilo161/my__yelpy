@@ -77,9 +77,42 @@ class BusinessShowSkeleton extends React.Component {
                 <div className="show-photo-scroller"></div>
                 <div className="business-show-information-container">
                     {/* Flexx Start */}
-                    <section className="show-left-column">
+                    <section className="show-left-column flex-col">
+                        {/* Flex Column Start */}
                         { business ? <BusinessHeaderBox business={business} /> : null }
+
+                        <section className="show-divider-section covid">
+                            <p> I am text</p>
+                        </section>
+                        <section className="show-divider-section on-the-menu">
+                            <p>On the Menu</p>
+                        </section>
+                        {/* Website Menu Component */}
+                        <section className="show-divider-section website-menu">
+                            <p>Website menu</p>
+                            <p>will contain menu links from the owner</p>
+                        </section>
+                        {/* Location and Hours COMPONENT HERE!!! WITH MAP! */}
+                        <section className="show-divider-section website-menu">
+                            <p>Location Hours</p>
+                        </section>
+                        {/* Amenitites and More */}
+                        <section className="show-divider-section website-menu">
+                            <p>Amenities and More</p>
+                        </section>
+                        {/* Ask the community */}
+                        <section className="show-divider-section website-menu">
+                            <p>Ask the Community</p>
+                        </section>
+                        {/* Recommended Reviews */}
+                        <section className="show-divider-section website-menu">
+                            <p>Recommended Reviews</p>
+                        </section>
+                        
+                        {/* Flex Column end below */}
                     </section>
+                    
+                    {/* Flexx End ^^ */}
                     <section className="show-right-column">
                         <div className="order-delivery-takeout">
                             <p>Order Deliver - Takeout</p>

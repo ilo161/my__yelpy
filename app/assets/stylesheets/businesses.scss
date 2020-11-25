@@ -5,14 +5,19 @@
 
 // business Show Skeleton
 .business-show-information-container{
+
     margin: 0px 142px;
     padding: 0px 40px;
     display: flex;
     justify-content: flex-start;
 }
 
-.show-left-column{
+.show-left-column, .flex-col{
     width: 763px;
+    padding: 0 48px 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .show-right-column{
@@ -81,7 +86,7 @@
         }
 
         .business-details-reviews{
-            padding: 0px 8px;
+            padding: 3px 8px;
             font-family: "Open Sans";
             font-size: 12px;
             background-color: rgb(236, 235, 237);
@@ -93,11 +98,91 @@
             margin: 0px 16px;
         }
 
+        .open-sans{
+            font-family: Open Sans, Helvetica Neue, Helvetica,Arial, sans-serif;
+            // font-family: 'Arial';
+            font-size: 16px;
+            // border: 1px solid red;
+
+        }
+
         .small-edit-category-business-button{
             padding: 0px 6px;
             border: 1px solid #ccc;
             font-size: 12px;
             line-height: 18px;
+            border-radius: 3px;
             color: rgb(106, 103, 117);
             background: transparent;
         }
+
+        .red-button-long{
+            background-color: #f43939;
+            width: 160px;
+            padding: 8px 16px;
+            color: white;
+            border-radius: 4px;
+            font-size:17px;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+
+            .starOutline-button{
+                color: white;
+                margin-right: 10px;
+            }
+        
+        .white-button-med{
+            background-color: white;
+            width: 114px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 17px;
+            font-weight: 600;
+            margin-right: 10px;
+            border: 1px solid #bbbac0;
+        }
+
+        .white-button-sm{
+            background-color: white;
+            width: 75px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 17px;
+            font-weight: 600;
+            margin-right: 10px;
+            border: 1px solid #bbbac0;
+        }
+
+        .white-button-sm:hover, .white-button-med:hover {
+            background-color: whitesmoke;
+        }
+
+
+            .icon-outline{
+                color: black;
+                margin-right: 10px;
+            }
+
+    .show-divider-section{
+        padding-top: 32px;
+        margin-top: 32px;
+        
+        border-top: 1px solid #eeeeef
+    }
+
+    .covid{
+        height: 121px;
+        border: 1px solid fuchsia;
+    }
+
+    .on-the-menu{
+        height: 121px;
+        border: 1px solid green;
+    }
+
+    .website-menu{
+        height: 121px;
+        border: 1px solid teal;
+    }
