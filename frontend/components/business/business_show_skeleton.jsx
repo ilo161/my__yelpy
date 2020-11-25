@@ -4,17 +4,19 @@ import SearchCityNavContainer from "../search/search_city_nav_container"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import ReviewIndexItem from "../reviews/review_index_item"
 
 class BusinessShowSkeleton extends React.Component {
     constructor(props){
         super(props)
 
-        // this.state = this.props.business;
+
 
     }
 
     componentDidMount() {
         this.props.requestBusinesses().then( () => this.props.requestBusiness(this.props.id));
+
         
         // this.props.requestBusiness(this.props.id)
     }
@@ -25,7 +27,7 @@ class BusinessShowSkeleton extends React.Component {
 
     render() {
         const { business } = this.props;
-        debugger
+
         const arrowDownIcon = <FontAwesomeIcon icon={faAngleDown}/>
 
         return (
@@ -74,7 +76,10 @@ class BusinessShowSkeleton extends React.Component {
                     </div>
                 </div> 
                 {/* PhotoScroller HERE */}
-                <div className="show-photo-scroller"></div>
+                <div className="show-photo-scroller">
+
+                    {/* <img src={business ? business.photoUrl : null}></img> */}
+                </div>
                 <div className="business-show-information-container">
                     {/* Flexx Start */}
                     <section className="show-left-column flex-col">
@@ -108,7 +113,7 @@ class BusinessShowSkeleton extends React.Component {
                         <section className="show-divider-section website-menu">
                             <p>Recommended Reviews</p>
                         </section>
-                        
+                        {business ? <ReviewIndexItem business={business} key={business.id}/> : "banana"}
                         {/* Flex Column end below */}
                     </section>
                     

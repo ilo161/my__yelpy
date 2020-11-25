@@ -5,7 +5,7 @@ import BusinessShowSkeleton from "./business_show_skeleton";
 const mSTP = (state, url) => {
 
     const id = url.match.params.bizId;
-    debugger
+
     return {
         id,
         business: state.entities.businesses[id]

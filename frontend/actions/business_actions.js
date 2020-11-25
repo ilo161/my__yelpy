@@ -56,7 +56,10 @@ export const requestBusinesses = () => dispatch => {
 export const requestBusiness = (bizId) => dispatch => {
     return BusinessApiUtil.fetchBusiness(bizId)
     .then(
-    business => dispatch(receiveBusiness(business)),
+    business => {
+        debugger
+        dispatch(receiveBusiness(business))
+    },
     errors => dispatch(receiveErrors(errors.statusText))
     )
 }
