@@ -35,7 +35,7 @@ class Api::BusinessesController < ApplicationController
     def update
         
         @biz = Business.find(params[:id])
-        debugger
+        
         if @biz.update(business_params)
             render :show
         else
@@ -53,7 +53,7 @@ class Api::BusinessesController < ApplicationController
             render :destroy
             # if current_user.id === @biz.owner_id
         else
-            debugger
+            
             render json: {base:["Unable to delete business at this time"] }, status: 401
         end
     end

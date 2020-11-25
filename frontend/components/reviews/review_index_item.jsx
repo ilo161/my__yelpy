@@ -8,7 +8,7 @@ const ReviewIndexItem = props =>  {
     const ratingGiven = review.rating;
 
     const star = <FontAwesomeIcon icon={faStar} />
-    debugger
+    
 
     const starField = () => (
                     <div className="star-background">
@@ -26,7 +26,7 @@ const ReviewIndexItem = props =>  {
     starGenerate();
 
 
-    debugger
+    
     return(
         <section className="review-item-biz-show flex-row-start">
             <div className="review-avatar">

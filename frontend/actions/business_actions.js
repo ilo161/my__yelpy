@@ -57,7 +57,7 @@ export const requestBusiness = (bizId) => dispatch => {
     return BusinessApiUtil.fetchBusiness(bizId)
     .then(
     business => {
-        debugger
+        
         dispatch(receiveBusiness(business))
     },
     errors => dispatch(receiveErrors(errors.statusText))
@@ -76,7 +76,7 @@ export const requestDeleteBusiness = (bizId) => dispatch => {
     return BusinessApiUtil.deleteBusiness(bizId)
     .then(bizDeleteId => dispatch(removeBusiness(bizDeleteId)),
     errors => {
-        debugger
+        
         return dispatch(receiveErrors(errors.statusText))
     })
 }

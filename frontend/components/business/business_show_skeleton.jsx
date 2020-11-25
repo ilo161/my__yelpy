@@ -26,7 +26,7 @@ class BusinessShowSkeleton extends React.Component {
     }
 
     render() {
-        debugger
+        
         const { business } = this.props;
 
         let allReviews = [];
@@ -37,7 +37,7 @@ class BusinessShowSkeleton extends React.Component {
             })
         }
 
-        debugger
+        
         const arrowDownIcon = <FontAwesomeIcon icon={faAngleDown}/>
 
         return (
