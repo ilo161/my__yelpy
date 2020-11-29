@@ -76,6 +76,51 @@
             transform: translate(-50%, -50%);   
         }
 
+    .star-background-md{
+        position: relative;
+        width: 20px;
+        height: 20px;
+        background-color: RGB(255, 72, 54);
+        border-radius: 25%;
+        margin: 0 4px;
+    }
+        .rating-icons-md{
+            position: absolute;
+            font-size: 11px;
+            top: 50%;
+            left: 50%;
+            height: 50%;
+            color:white;
+            transform: translate(-50%, -50%);   
+        }
+
+        .grey{
+            color: grey;
+        }
+        
+
+        .star-background-grey-sm{
+            position: relative;
+            background-color: gray;
+            margin-right: 4px;
+            color: white;
+            width: 12px;
+            height: 12px;
+            border-radius: 25%;
+        }
+
+            .rating-icons-grey-sm{
+            position: absolute;
+            font-size: 7px;
+            top: 50%;
+            left: 50%;
+            height: 65%;
+            color:white;
+            transform: translate(-50%, -50%);   
+        }
+
+    
+
         .icon-space{
             margin: 0px 1px;
         }
@@ -100,10 +145,17 @@
 
         .open-sans{
             font-family: Open Sans, Helvetica Neue, Helvetica,Arial, sans-serif;
-            // font-family: 'Arial';
             font-size: 16px;
-            // border: 1px solid red;
+        }
 
+        .open-sans-md{
+            font-family: Open Sans, Helvetica Neue, Helvetica,Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .open-sans-sm{
+            font-family: Open Sans, Helvetica Neue, Helvetica,Arial, sans-serif;
+            font-size: 12px;
         }
 
         .small-edit-category-business-button{

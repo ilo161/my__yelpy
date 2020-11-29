@@ -347,3 +347,12 @@ input[type="submit"] {
     /* div {
         display: block;
     } */
+
+    .bold{
+        font-weight: bold;
+    }
+
+    .m-r-4{
+        padding-left: 1px;
+        margin-right: 4px;
+    }

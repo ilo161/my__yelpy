@@ -15,7 +15,74 @@ const businessHeaderBox = props => {
     const shareOutline = <FontAwesomeIcon icon={faShareSquare} />
     const bookmarkOutline = <FontAwesomeIcon icon={faBookmark} />
 
+    let openTime;
+    let closeTime;
+    let isOpen = <span>null</span>;
+    // Business Hours dissect
+    if (props.business.open_time){
+        let dateNow = new Date();
+        const currHr = dateNow.getHours();
+        if( currHr >= props.business.open_time && currHr < props.business.close_time ){
+            isOpen = <span className="open-green">Open </span>;
+        } else {
+            isOpen = <span className="closed-red">Closed </span>;
+        }
 
+
+        openTime = props.business.open_time.toString()+":00 "
+        let amPm  = props.business.open_time >= 12 ? "PM" : "AM"
+        openTime += amPm 
+        openTime = <span>{openTime}</span>
+
+        if (props.business.close_time < 11){
+            closeTime = props.business.close_time.toString()+":00 "
+        } else {
+            closeTime = (props.business.close_time - 12).toString()+":00 "
+        }
+
+        amPm  = props.business.close_time >= 12 ? "PM" : "AM"
+        closeTime += amPm
+        closeTime = <span>{closeTime}</span>
+
+    }
+
+    // Method(s) to extract Average Review for a Business
+    const getAverage = () => {
+        let ratingSum = 0;
+
+        props.business.reviews.forEach(review => {
+            ratingSum += review.rating
+        })
+
+        return (Math.floor(ratingSum / props.business.total_business_reviews))
+        
+    }
+
+    // Logic to set Average Rating for a Business
+    let averageBusinessRating;
+    if (props.business.reviews.length > 0){
+        averageBusinessRating = getAverage();
+    }
+
+
+    const starField = () => (
+                    <div className="star-background">
+                        <div className="rating-icons"><span>{star}</span></div>
+                    </div>
+    )
+
+    let starContainerArr = [];
+
+    const starGenerate = () => {
+        for (let i = 0; i < averageBusinessRating; i++){
+            starContainerArr.push(starField())
+        }
+    }
+
+    starGenerate();
+
+    const category = ["Coffee Shop", "Restaurant"]
+    debugger
     // helpemethod...to get stars
     return (
         <div className="business-header-container"> 
@@ -27,23 +94,9 @@ const businessHeaderBox = props => {
             {/* Flexx End ^^ */}
             <div className="flex-row-start flex-row-align bottom-m-8">
                 {/* FlexxBox Start */}
-                <div className="star-background">
-                    <div className="rating-icons"><span>{star}</span></div>
-                </div>
-                <div className="star-background">
-                    <div className="rating-icons"><span>{star}</span></div>
-                </div>
-                <div className="star-background">
-                    <div className="rating-icons"><span>{star}</span></div>
-                </div>
-                <div className="star-background">
-                    <div className="rating-icons"><span>{star}</span></div>
-                </div>
-                <div className="star-background">
-                    <div className="rating-icons"><span>{star}</span></div>
-                </div>
+                {starContainerArr.length > 0 ? starContainerArr : <div className="invisidiv-review"></div>}
 
-                <p className="business-num-reviews">500 Reviews</p>
+                <p className="business-num-reviews"><span>{props.business.total_business_reviews}</span> Reviews</p>
                 <p className="business-details-reviews">Details</p>
             </div>
             {/* Flex End ^^ */}
@@ -55,13 +108,14 @@ const businessHeaderBox = props => {
                 <div className="icon-space">{dollar}</div>
                 <div className="icon-space">{dollar}</div>
 
-                <p className="business-details-category-text"> Place holder Text of Category</p>
+                <p className="business-details-category-text">{category[props.business.category]}</p>
                 <button className="small-edit-category-business-button">Edit</button>
             </div>
             {/* Flexx End ^^ */}
             <div className="flex-row-start bottom-m-8">
-                <p className="open-sans">Open/Closed...</p>
-                <p className="open-sans"> ##:00 AM- ##:00 PM</p>
+                {/* Flex Row Start */}
+                <p className="open-sans">{isOpen}</p>
+                <p className="open-sans grey-text"> {props.business.open_time ? openTime : "hours unavailable"} - {props.business.open_time ? closeTime : "close time unavailable"} </p>
             </div>
             {/* Flex End ^^ */}
             <div className="flex-row-start bottom-m-8">

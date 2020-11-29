@@ -4,7 +4,8 @@ import SearchCityNavContainer from "../search/search_city_nav_container"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import ReviewIndexItem from "../reviews/review_index_item"
+// import ReviewIndexItem from "../reviews/review_index_item"
+import ReviewIndexItemContainer from "../reviews/review_index_item_container"
 
 class BusinessShowSkeleton extends React.Component {
     constructor(props){
@@ -28,13 +29,16 @@ class BusinessShowSkeleton extends React.Component {
     render() {
         
         const { business } = this.props;
+        debugger
 
         let allReviews = [];
 
         if (business){
-            allReviews = business.reviews.map((review) => {
-                return <ReviewIndexItem review={review} key={review.id}/> 
-            })
+            if (business.reviews){
+                allReviews = business.reviews.map((review) => {
+                    return <ReviewIndexItemContainer key={review.id} review={review} /> 
+                })
+            }
         }
 
         

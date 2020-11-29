@@ -2,21 +2,81 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-    .review-avatar{
-        width: 233px;
-        height: 160px;
-        border: 1px solid purple;
+    .review-item-biz-show{
         margin-top: 8px;
+        margin-bottom: 8px;
+        // border-top: 1px solid rgb(236, 235, 237);
+    }
+
+    .review-avatar-container{
+        width: 233px;
+        height: 116px;
+        margin-top: 8px;
+    }
+
+    .border-line{
+        padding: 0 0 24px 0;
+        margin: 0 0 24px 0;
+        border-bottom: 1px solid rgb(236, 235, 237);
+    }
+
+    .avatar-review-item{
+        width: 58px;
+        height: 58px;
+        margin-right: 10px;
+        border-radius:4px;
     }
 
     .review-text-box-container{
         width:466px;
-        
         margin-top: 8px;
+    }
+
+    .review-show{
+        margin-bottom: 12px;
+    }
+
+    .reaction{
+        font-size: 12px;
+        margin-right: 14px;
+        font-weight: bolder;
+        padding: 6px 12px;
+        border: 1px solid rgb(177, 179, 184);
+        border-radius: 4px;
+    }
+
+    .reaction:hover{
+        background-color: lightgrey;
     }
 
     .flex-col-full{
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+    }
+
+    .align-content-center{
+        align-items: center;
+    }
+
+    .open-green{
+        color: #05a882;
+        font-weight: bold;
+        margin-right: 11px;
+    }
+
+    .closed-red{
+        color: red;
+        font-weight: bold;
+        margin-right: 11px;
+    }
+
+    .grey-text{
+        color: #757280;
+        font-weight: 500;
+    }
+
+    .invisidiv-review{
+        width: 191px;
+
     }

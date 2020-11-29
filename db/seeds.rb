@@ -38,8 +38,33 @@ demoUsers = User.create!([
         email: "jimrocks@gmail.com",
         zip_code: 98177,
         password:"password"
+      },
+      {
+        username: "CoffeeGuru",
+        first_name: "JT",
+        last_name: "Funman",
+        email: "JTknowscode@gmail.com",
+        zip_code: 98177,
+        password:"password"
+      },
+      {
+        username: "FoodieJunkie",
+        first_name: "Toby",
+        last_name: "Mcquire",
+        email: "mediafrenzy@gmail.com",
+        zip_code: 98177,
+        password:"password"
       }
     ])
+
+ avatarsURL = 
+      ["https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/user_avatars/empty_avatar_frame.png",
+        "https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/user_avatars/adventure-sm.png",
+        "https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/user_avatars/shilouette-sm.png",
+        "https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/user_avatars/lepro-sm.png",
+        "https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/user_avatars/thought-sm.png"
+      ]
+
 
 demoUsers.each do |user|
   p "adding users..."
@@ -49,6 +74,17 @@ demoUsers.each do |user|
     arr = url.split("user_avatars/")
 
       user.avatar.attach(io: temp_file, filename: arr[1])
+end
+
+demoUsers.each_with_index do |user, idx|
+    p "adding users"
+
+    url = avatarsURL[idx]
+    temp_file = open(url)
+
+    arr = url.split("user_avatars/")
+
+    user.avatar.attach(io: temp_file, filename: arr[1])
 end
     # p demoUSer[0]
     # p demoUSer[1]
@@ -246,7 +282,6 @@ end
 
 reviews = Review.create!([
     {
-    id: 1,
     business_id: 3,
     user_id: 1,
     title: "Amazing COLDBREW!!!",
@@ -257,7 +292,6 @@ reviews = Review.create!([
     rating: 5
     },
     {
-    id: 2,
     business_id: 2,
     user_id: 1,
     title: "Medium Roast",
@@ -269,15 +303,88 @@ reviews = Review.create!([
     rating: 5
     },
     {
-    id:3,
     business_id: 1,
-    user_id: 1,
+    user_id: 2,
     title: "Coffeetopia coffee warms the heart!",
     body: "I highly recommend all
     coffee lovers go here! The barista does a little dance everytime you say the word
     LATTE. Go there and say LATTE FIVE TIMES! So Funny!",
     rating: 5
+    },
+    {
+    business_id: 1,
+    user_id: 5,
+    title: "Cold coffee",
+    body: "Meh. Cold Coffee. I went in thinking this place was all the rave. I sure thought it was
+    because they have a giant coffee cup outside their building. I was like oh well... this place
+    means business! So I got in.... yes it was raining. I order a cup of joe and proceed to go 
+    on a walk down the street. I take the lid off, I hear my favorite song and I put my coffee
+    down and begin dancing. 10 minutes go by and I notice my coffee overflowing. I take my first sip
+    and.... IT WAS COLD! They serve cold coffee there. Just sayin. Or wait....I left my lid off.
+    Nah They should have used better hard to remove lids. 2 STARS!!",
+    rating: 2
+    },
+    {
+    business_id: 2,
+    user_id: 3,
+    title: "JAVA!!!",
+    body: "The atmosphere was clean, the smell of fresh coffee was in the air. The Baristas were
+    smiling. The merchandise table was well stocked. Even my latte, complete with latte art was Beautiful!!
+    So why 3 stars??? Well, the bathroom was messy. Everything matters. I don't wanna step in a pool of coffee
+    when I go fix my hair up in the bathroom. I wear Gucci shoes after all. If they update their bathroom
+    protocol, then I'll change this to 5 stars",
+    rating: 3
+    },
+    {
+    business_id: 3,
+    user_id: 3,
+    title: "Strong",
+    body: "Wow now this stuff is puckeriffic! I mean nice delicious bitter coldbrew coffee. The kind of
+    coldbrew that makes you go WOW! I would honestly go here every day for the organic pastries which
+    are made by the local bakery down the street...except, the coffee here isn't 100% organic. Still a nice
+    treat and the best coffee on the block, but those chemicals ... gotta keep those out of my system",
+    rating: 4
+    },
+    {
+    business_id: 2,
+    user_id: 2,
+    title: "New Here",
+    body: "I'm still new here. Am I doing this right? I liked this place. I clicked 5 stars.",
+    rating: 5
+    },
+    {
+    business_id: 3,
+    user_id: 4,
+    title: "Coffeetopia coffee warms the heart!",
+    body: "I never knew what coldbrew was before this place showed up. Now I'm hooked! It
+    does make you go to the bathroom a lot though. But that's ok! I'm a Janitor and proud of it!",
+    rating: 5
+    },
+    {
+    business_id: 1,
+    user_id: 3,
+    title: "Coffeetopia sells beer!",
+    body: "Haha do this coffee place sells beer!!! Who knew! Now I never have to kick the
+    habit! Woo hoo! CoffeeTopia! If they start selling my favorite beer I'll add the last
+    star",
+    rating: 4
+    },
+    {
+    business_id: 1,
+    user_id: 5,
+    title: "Coffeetopia coffee warms the heart!",
+    body: "Holy Cow! Where there is Coffeetopia there is ME! I'm so glad this place
+    showed up in my neighborhood. I used to have to drive allllllll the way (total of 5 blocks)
+    to Drip n' Save just to get my daily coffee. Now I can literaly just walk (total of 1 block)
+    to Coffeetopia for great drip! 5 Stars!!!",
+    rating: 5
+    },
+    {
+    business_id: 1,
+    user_id: 4,
+    title: "Coffeetopia!!!",
+    body: "For a nice $2.50 drip, you can't go wrong! I make sure to stop by on Sundays",
+    rating: 3
     }
-    
 ])
   end

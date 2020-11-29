@@ -21,7 +21,7 @@ class LoginForm extends React.Component {
         e.preventDefault();
 
     this.props.action(this.state).then(this.props.history.push("/"));
-
+    
     // this.props.action(this.state).then(<Route path="/login" render={() => <Redirect to="/" />} />);
     }
 
