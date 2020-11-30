@@ -30,7 +30,7 @@ class BusinessShowSkeleton extends React.Component {
     render() {
         
         const { business } = this.props;
-        debugger
+        
 
         let allReviews = [];
         let allPhotosImg;
@@ -60,7 +60,7 @@ class BusinessShowSkeleton extends React.Component {
                     <ul className="flex-row-start">
                         {/* Items are flexxed */}
                         <div className="icon-box-nav">
-                            <img src={window.yelp_white_sm} width="80vw" height="80vh"></img>
+                            <Link to="/" ><img src={window.yelp_white_sm} width="80vw" height="80vh"></img></Link>
                         </div>
                         <SearchCityNavContainer/>
                         <div className="biz-review-nav-text">

@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter} from "react-router-dom";
+// import ReviewAddFormContainer from "../reviews/review_add_form_container";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faCheckCircle, faDollarSign, faCameraRetro } from '@fortawesome/free-solid-svg-icons';
 import { faStar as starOut }  from '@fortawesome/free-regular-svg-icons';
@@ -81,8 +82,16 @@ const businessHeaderBox = props => {
 
     starGenerate();
 
+
+    //Method to redirect to Review/new
+    const redirectTo = () => {
+        return (
+            props.history.push({pathname:"/review/new", prevBiz: [props.business] })
+        )
+    }
+
     const category = ["Coffee Shop", "Restaurant"]
-    debugger
+    
     // helpemethod...to get stars
     return (
         <div className="business-header-container"> 
@@ -119,7 +128,9 @@ const businessHeaderBox = props => {
             </div>
             {/* Flex End ^^ */}
             <div className="flex-row-start bottom-m-8">
-                <button className="open-sans red-button-long"> <i className="starOutline-button" >{starOutline}</i>Write a Review</button>
+                <button onClick={() => redirectTo() }className="open-sans red-button-long"> <i className="starOutline-button" >{starOutline}</i>
+                Write a Review
+                </button>
                 <button className="open-sans white-button-med"> <i className="icon-outline">{cameraOutline}</i>Add Photo</button>
                 <button className="open-sans white-button-sm"> <i className="icon-outline">{shareOutline}</i>Share</button>
                 <button className="open-sans white-button-sm"> <i className="icon-outline">{bookmarkOutline}</i>Save</button>
@@ -132,4 +143,4 @@ const businessHeaderBox = props => {
     )
 }
 
-export default businessHeaderBox;
+export default withRouter(businessHeaderBox);
