@@ -178,10 +178,11 @@ coffeePhotosArr = [
 
 biz1 = Business.create!({
         business_name: "CoffeeTopia",
-        address: "1235 Bean St",
+        address: "14419 Greenwood Ave N",
         city: "Seattle",
         state: "WA",
-        zip_code: 98177,
+        zip_code: 98113,
+        phone: 2062136748,
         first_class: false,
         website: "www.coffeetopia.com",
         category: 0,
@@ -202,10 +203,11 @@ biz1 = Business.create!({
 
 biz2 = Business.create!({ 
         business_name: "Java Bean",
-        address: "5321 java Ave",
+        address: "11335 Roosevelt Way NE",
         city: "Seattle",
         state: "WA",
-        zip_code: 98177,
+        zip_code: 98125,
+        phone: 2063218567,
         first_class: false,
         website: "www.javabeans.com",
         category: 0,
@@ -221,12 +223,14 @@ biz2 = Business.create!({
 
 # biz2.photos.attach(io: file2, filename:"birds_eye_make_lattee_VT.jpg")
 
+
 biz3 = Business.create!({
         business_name: "Coldbrew Planet",
-        address: "5321 coldbrew Ave",
+        address: "518 N 85th St",
         city: "Seattle",
         state: "WA",
-        zip_code: 98177,
+        zip_code: 98103,
+        phone: 2061235678,
         first_class: false,
         website: "www.coldbrewup.com",
         category: 0,

@@ -6,7 +6,7 @@
 // business Show Skeleton
 .business-show-information-container{
 
-    margin: 0px 142px;
+    margin: 12px 142px 0;
     padding: 0px 40px;
     display: flex;
     justify-content: flex-start;
@@ -22,20 +22,40 @@
 
 .show-right-column{
     width: 381px;
-    border-top: 1px solid red;
 }
 
     .order-delivery-takeout{
         padding: 24px;
-        height: 268px;
-        border: 2px solid  green; 
+        // height: 268px;
+        height: auto;
+        border: 1px solid  rgb(236, 235, 237); 
+        border-radius: 4px;
+        margin-top: 17px;
     }
+
+        
+
+    .order-info-item{
+        padding: 12px 0;
+        border-bottom: 1px solid rgb(236, 235, 237);
+        width: 331px;
+    }
+    
+    .no-border{
+            border-bottom: none;
+        }
 
 .show-photo-scroller{
     height: 253px;
     width: 100%;
-    border: 4px solid green;
+    // border: 4px solid green;
 }
+
+    .show-photo-scroller-item{
+        width: 25%;
+        height: auto;
+        margin-right: 2px;
+    }
 
 .business-title{
     font-family: 'Poppins', sans-serif;
@@ -237,4 +257,10 @@
     .website-menu{
         height: 121px;
         border: 1px solid teal;
+    }
+
+    .blackish-icon{
+        color: rgb(38, 35, 53);
+        margin-right: 20px;
+        font-size: 20px;
     }

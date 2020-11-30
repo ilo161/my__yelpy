@@ -2,7 +2,11 @@ json.extract! business, :id, :business_name, :address, :city, :state, :zip_code,
 :first_class, :website, :category, :open_time, :close_time, :open_time_sat,
 :close_time_sat, :open_time_sun, :close_time_sun
 
-json.photoUrl url_for(business.photos[0])
+# json.photoUrl url_for(business.photos[0])
+
+json.photos business.photos do |photo|
+    json.photoUrl url_for(photo)
+end
 
 biz_total_reviews = Review.where(business_id: "#{business.id}").count
 

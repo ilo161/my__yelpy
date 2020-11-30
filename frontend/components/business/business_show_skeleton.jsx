@@ -1,11 +1,12 @@
 import React from "react";
-import BusinessHeaderBox from "./business_header_box"
-import SearchCityNavContainer from "../search/search_city_nav_container"
+import BusinessHeaderBox from "./business_header_box";
+import SearchCityNavContainer from "../search/search_city_nav_container";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 // import ReviewIndexItem from "../reviews/review_index_item"
-import ReviewIndexItemContainer from "../reviews/review_index_item_container"
+import ReviewIndexItemContainer from "../reviews/review_index_item_container";
+import BusinessInfoBox from "./business_info_box";
 
 class BusinessShowSkeleton extends React.Component {
     constructor(props){
@@ -32,6 +33,7 @@ class BusinessShowSkeleton extends React.Component {
         debugger
 
         let allReviews = [];
+        let allPhotosImg;
 
         if (business){
             if (business.reviews){
@@ -39,7 +41,15 @@ class BusinessShowSkeleton extends React.Component {
                     return <ReviewIndexItemContainer key={review.id} review={review} /> 
                 })
             }
+            //Prepare slideShow images for Resizing
+            if (business.photos){
+                allPhotosImg = business.photos.map((image) => {
+                    return <img className="show-photo-scroller-item" src={image.photoUrl}></img>
+                })
+            }
         }
+
+
 
         
         const arrowDownIcon = <FontAwesomeIcon icon={faAngleDown}/>
@@ -90,9 +100,8 @@ class BusinessShowSkeleton extends React.Component {
                     </div>
                 </div> 
                 {/* PhotoScroller HERE */}
-                <div className="show-photo-scroller">
-
-                    {/* <img src={business ? business.photoUrl : null}></img> */}
+                <div className="show-photo-scroller flex-row-start">
+                    {business ? allPhotosImg : null }
                 </div>
                 <div className="business-show-information-container">
                     {/* Flexx Start */}
@@ -133,13 +142,9 @@ class BusinessShowSkeleton extends React.Component {
                     </section>
                     
                     {/* Flexx End ^^ */}
+                    {/* Business Informationals */}
                     <section className="show-right-column">
-                        <div className="order-delivery-takeout">
-                            <p>Order Deliver - Takeout</p>
-
-
-                        </div>
-
+                        { business ? <BusinessInfoBox business={business} /> : null }
                     </section>
 
 
