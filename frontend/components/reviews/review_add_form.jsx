@@ -19,6 +19,7 @@ class ReviewAddForm extends React.Component {
         // let num = parseInt(numStr)
         this.props.action(this.state).then(action => {
             debugger
+            
             this.props.history.push(`/biz/${action.review.business_id}`)
         })
 
