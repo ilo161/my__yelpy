@@ -15,7 +15,8 @@ const App = () => (
     <Route exact path="/" component={GreetingContainer}/>
     <Route exact path="/login" component={LoginPageContainer}/>
     <Route exact path="/biz/:bizId" component={BusinessShowContainer}/>
-    <Route exact path="/review/new" component={ReviewAddFormContainer}/>
+    <Route exact path="/biz/:bizId/review/new" component={ReviewAddFormContainer}/>
+    {/* <Route exact path="/review/new" component={ReviewAddFormContainer}/> */}
     <Route path="/signup" component={SignUpFormContainer}/>
   </Switch>
   </div>

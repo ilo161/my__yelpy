@@ -9,10 +9,10 @@ require 'open-uri'
 
 ActiveRecord::Base.transaction do
   
-
-  User.destroy_all;
+# // most dependent thing first
+  Review.destroy_all; 
   Business.destroy_all;
-  Review.destroy_all;
+  User.destroy_all;
 
 demoUsers = User.create!([
     {
