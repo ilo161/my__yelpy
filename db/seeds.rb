@@ -286,8 +286,8 @@ end
 
 reviews = Review.create!([
     {
-    business_id: 3,
-    user_id: 1,
+    business_id: allBiz[2].id,
+    user_id: demoUsers[0].id,
     title: "Amazing COLDBREW!!!",
     body: "OMG this coldbrew is so clean and pure! In the beginning you go for cofeee,
     then you realize they have the good stuff. So... you try a lil, then a lil more and then
@@ -296,8 +296,8 @@ reviews = Review.create!([
     rating: 5
     },
     {
-    business_id: 2,
-    user_id: 1,
+    business_id: allBiz[1].id,
+    user_id: demoUsers[0].id,
     title: "Medium Roast",
     body: "The quality of these beans make for an excellent latte. I stayed and chatted for a while
     only to learn that the owner Esteban has travled the world in search for the perfect bean. He's camped on
@@ -307,8 +307,8 @@ reviews = Review.create!([
     rating: 5
     },
     {
-    business_id: 1,
-    user_id: 2,
+    business_id: allBiz[0].id,
+    user_id: demoUsers[1].id,
     title: "Coffeetopia coffee warms the heart!",
     body: "I highly recommend all
     coffee lovers go here! The barista does a little dance everytime you say the word
@@ -316,8 +316,8 @@ reviews = Review.create!([
     rating: 5
     },
     {
-    business_id: 1,
-    user_id: 5,
+    business_id: allBiz[0].id,
+    user_id: demoUsers[4].id,
     title: "Cold coffee",
     body: "Meh. Cold Coffee. I went in thinking this place was all the rave. I sure thought it was
     because they have a giant coffee cup outside their building. I was like oh well... this place
@@ -329,8 +329,8 @@ reviews = Review.create!([
     rating: 2
     },
     {
-    business_id: 2,
-    user_id: 3,
+    business_id: allBiz[1].id,
+    user_id: demoUsers[2].id,
     title: "JAVA!!!",
     body: "The atmosphere was clean, the smell of fresh coffee was in the air. The Baristas were
     smiling. The merchandise table was well stocked. Even my latte, complete with latte art was Beautiful!!
@@ -340,8 +340,8 @@ reviews = Review.create!([
     rating: 3
     },
     {
-    business_id: 3,
-    user_id: 3,
+    business_id: allBiz[2].id,
+    user_id: demoUsers[2].id,
     title: "Strong",
     body: "Wow now this stuff is puckeriffic! I mean nice delicious bitter coldbrew coffee. The kind of
     coldbrew that makes you go WOW! I would honestly go here every day for the organic pastries which
@@ -350,23 +350,23 @@ reviews = Review.create!([
     rating: 4
     },
     {
-    business_id: 2,
-    user_id: 2,
+    business_id: allBiz[1].id,
+    user_id: demoUsers[1].id,
     title: "New Here",
     body: "I'm still new here. Am I doing this right? I liked this place. I clicked 5 stars.",
     rating: 5
     },
     {
-    business_id: 3,
-    user_id: 4,
+    business_id: allBiz[2].id,
+    user_id: demoUsers[3].id,
     title: "Coffeetopia coffee warms the heart!",
     body: "I never knew what coldbrew was before this place showed up. Now I'm hooked! It
     does make you go to the bathroom a lot though. But that's ok! I'm a Janitor and proud of it!",
     rating: 5
     },
     {
-    business_id: 1,
-    user_id: 3,
+    business_id: allBiz[0].id,
+    user_id: demoUsers[2].id,
     title: "Coffeetopia sells beer!",
     body: "Haha do this coffee place sells beer!!! Who knew! Now I never have to kick the
     habit! Woo hoo! CoffeeTopia! If they start selling my favorite beer I'll add the last
@@ -374,8 +374,8 @@ reviews = Review.create!([
     rating: 4
     },
     {
-    business_id: 1,
-    user_id: 5,
+    business_id: allBiz[0].id,
+    user_id: demoUsers[4].id,
     title: "Coffeetopia coffee warms the heart!",
     body: "Holy Cow! Where there is Coffeetopia there is ME! I'm so glad this place
     showed up in my neighborhood. I used to have to drive allllllll the way (total of 5 blocks)
@@ -384,8 +384,8 @@ reviews = Review.create!([
     rating: 5
     },
     {
-    business_id: 1,
-    user_id: 4,
+    business_id: allBiz[0].id,
+    user_id: demoUsers[3].id,
     title: "Coffeetopia!!!",
     body: "For a nice $2.50 drip, you can't go wrong! I make sure to stop by on Sundays",
     rating: 3
