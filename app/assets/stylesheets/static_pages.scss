@@ -32,28 +32,105 @@
 }
 
 .greeting-jumbotron{
-    display: flex;
     height: 600px;
     width:100%;
-    flex-direction: column;
-    justify-content: center;
+    // flex-direction: column;
+    // justify-content: center;
     align-items: center;
-    // align-content: flex-start;
-}
-
-.img-jumbotron{
-    z-index: -1;
-    // display:block;
-    width: 100%;
-    height: 100%;
+    padding-top: 30px;
+    background-image: url(https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/coffee_shops/tamper_LS.jpg);
     opacity: 0.75;
+    background-size: cover;
+    background-position: 100% 70%;
 
 }
+
+.jumbotron-hero-container{
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.trans-nav-container{
+    display: block;
+}
+
+
+
+.header-nav{
+    width: 755px;
+}
+
+.nav-header-link{
+    color: #fff;
+    padding: 9px 12px 10px;
+    font-size: 14px;
+    line-height: 1.28571em;
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-header-link:hover{
+    border-bottom: 2px solid white;
+    cursor: pointer;
+}
+
+.nav-header-link.signup-trans{
+    padding: 7px 24px 8px;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.nav-header-link.signup-trans:hover{
+    transition: all .6s;
+    color: #666;
+    background: #FFF;
+}
+
+.mr-12{
+    margin-right: 12px;
+}
+
+
+// .img-jumbotron{
+//     z-index: -1;
+//     // background-size: cover;
+//     height: 600px;
+//     object-fit: cover;
+//     object-position: 100% 30%;
+//     // height:100%;
+//     // background-position: 50%;
+//     // background-position-x: 50%;
+//     // background-position-y: center;
+//     width: 100%;
+//     // object-fit: cover;
+//     // display:block;
+//     // height: 100%;
+
+//     // padding-top: 30px; 
+//     // height: 570px; 
+//     // background-color: #333; 
+//     // background-size: cover; 
+//     // background-position: 50%;
+//     opacity: 0.75;
+//     border: 2px solid red;
+
+// }
 
 .yelp-static{
-    position: absolute;
-    margin: 20% auto 5%;
+    // border: 2px solid red;
+    width: 180px;
+    height: 100px;
+    // background: url(https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/logos/yelp-logo-clear-clean.png);
+    // object-fit: contain;
+    // position: absolute;
+    // background-size: cover;
+    // // margin: 20% auto 5%;
     
+}
+
+.inner-jumbotron-container{
+    padding-top: 80px;
 }
 
 .jumbotron-search{
@@ -68,4 +145,15 @@
     width: 100%;
     background-color: #fff;
     padding: 24px 40px 0px;
+}
+
+.flex-col-start{
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-col-row-center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

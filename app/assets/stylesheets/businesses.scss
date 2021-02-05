@@ -53,6 +53,7 @@
 
     .show-photo-scroller-item{
         width: 25%;
+        object-fit: cover;
         height: auto;
         margin-right: 2px;
     }
