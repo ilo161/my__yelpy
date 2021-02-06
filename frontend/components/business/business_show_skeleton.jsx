@@ -46,6 +46,7 @@ class BusinessShowSkeleton extends React.Component {
                 allPhotosImg = business.photos.map((image) => {
                     return <img className="show-photo-scroller-item" src={image.photoUrl}></img>
                 })
+                allPhotosImg = allPhotosImg.slice(0,4)
             }
         }
 

@@ -78,8 +78,10 @@ class Greeting extends React.Component {
                 <div className="top-show-nav">
                     <ul className="flex-row-start">
                         {/* Items are flexxed */}
-                        <div className="icon-box-nav">
-                            <Link to="/" ><img src={window.yelp_white_sm} width="80vw" height="80vh"></img></Link>
+                        <div className="logo-arrange-unit">
+                            <div className="icon-box-nav">
+                                <Link to="/" ><img src={window.yelp_white_sm} width="80px" height="80px"></img></Link>
+                            </div>
                         </div>
                         <SearchCityNavContainer/>
                         <div className="biz-review-nav-text">
@@ -120,8 +122,10 @@ class Greeting extends React.Component {
                     <div className="top-show-nav">
                         <ul className="flex-row-start">
                             {/* Items are flexxed */}
-                            <div className="icon-box-nav">
-                                <img src={window.yelp_white_sm} width="80vw" height="80vh"></img>
+                            <div className="logo-arrange-unit">
+                                <div className="icon-box-nav">
+                                    <img src={window.yelp_white_sm} width="80px" height="80px"></img>
+                                </div>
                             </div>
                             <SearchCityNavContainer/>
                             <div className="biz-review-nav-text">
