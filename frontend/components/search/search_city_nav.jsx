@@ -13,7 +13,8 @@ class SearchCityNav extends React.Component{
 
         const searchIcon = <FontAwesomeIcon className="icon search-icon" size="1x" icon={faSearch}/>
         return (
-            <div className="flex-row-start">
+            <div className="testCont">
+            {/* <div className="flex-row-start"> */}
                 <div className={isSplash ? "search-city-nav-container" : "search-city-nav-container search-shadow search-nav-max-width"}>
                     <nav className="flex-row-start" >
                         {/* Flexx Start */}
@@ -31,6 +32,7 @@ class SearchCityNav extends React.Component{
                 <button className="red-search-submit-button">
                             {searchIcon}
                 </button>
+            {/* </div> */}
             </div>
         )
     }

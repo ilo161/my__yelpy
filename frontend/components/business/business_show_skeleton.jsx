@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 // import ReviewIndexItem from "../reviews/review_index_item"
 import ReviewIndexItemContainer from "../reviews/review_index_item_container";
 import BusinessInfoBox from "./business_info_box";
+import RightHeaderNavContainer from "../nav_header/right_header_nav_container"
 
 class BusinessShowSkeleton extends React.Component {
     constructor(props){
@@ -64,14 +65,17 @@ class BusinessShowSkeleton extends React.Component {
                             <Link to="/" ><img src={window.yelp_white_sm} width="80vw" height="80vh"></img></Link>
                         </div>
                         <SearchCityNavContainer/>
-                        <div className="biz-review-nav-text">
-                            <Link className="header-link" to="/">For Businesses!</Link>
-                            <Link className="header-link" to="/">Write a Review</Link>
-                        </div>
-                        <div className="login-signup-buttons-container">
-                            <Link to="/login" className="login-button">Login</Link>
-                            <Link to="/signup" className="signup-clear">Signup</Link>
-                        </div>
+                        {/* <div className="right-header-nav">
+                            <div className="biz-review-nav-text">
+                                <Link className="header-link" to="/">For Businesses!</Link>
+                                <Link className="header-link" to="/">Write a Review</Link>
+                            </div>
+                            <div className="login-signup-buttons-container">
+                                <Link to="/login" className="login-button">Login</Link>
+                                <Link to="/signup" className="signup-clear">Signup</Link>
+                            </div>
+                        </div> */}
+                        <RightHeaderNavContainer/>
                         {/* End Flexx */}
                     </ul>
                     <div className="search-nav-dropdowns-container">

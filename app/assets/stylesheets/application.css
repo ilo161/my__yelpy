@@ -230,13 +230,16 @@ input[type="submit"] {
     }
 
     .logo-arrange-unit{
-        min-width: 123px; 
-        max-width: 10%;
+        /* min-width: 123px;  */
+        min-width: 16%; 
+        /* max-width: 10%; */
         /* margin-right: -5px; */
     }
 
     .icon-box-nav{
-        width: 123px;
+        min-width: 16%;
+        /* max-width: 292px; */
+        /* width: 123px; */
     }
 
     .fade-gray{
@@ -254,8 +257,21 @@ input[type="submit"] {
         border-radius: 5px 0px 0px 5px;
     }
     .search-nav-max-width{
-        min-width: 731px;
-        max-width: 731px;
+        /* min-width: 731px; */
+        min-width: 5%;
+        /* max-width: 831px; */
+        max-width: 66%;
+    }
+    .testCont{
+        display: flex;
+        /* min-width: 5%; */
+        max-width: 53%;
+    }
+    .right-header-nav{
+        display: flex;
+        justify-content: flex-end;
+        min-width: 31%;
+        max-width: 18%;
     }
 
     .search-shadow{
@@ -349,6 +365,7 @@ input[type="submit"] {
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-left: 3%;
     }
 
     .header-link{

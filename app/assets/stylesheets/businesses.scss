@@ -6,7 +6,9 @@
 // business Show Skeleton
 .business-show-information-container{
 
-    margin: 12px 142px 0;
+    // margin: 12px 142px 0;
+    margin: 12px auto;
+    max-width: 1200px;
     padding: 0px 40px;
     display: flex;
     justify-content: flex-start;

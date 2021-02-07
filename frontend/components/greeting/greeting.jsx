@@ -10,6 +10,7 @@ import SearchCityNavContainer from "../search/search_city_nav_container";
 
 // JumboTron
 import GreetingJumboTronContainer from "./greeting_jumbotron_container"
+import RightHeaderNavContainer from "../nav_header/right_header_nav_container"
 
 
 
@@ -84,15 +85,7 @@ class Greeting extends React.Component {
                             </div>
                         </div>
                         <SearchCityNavContainer/>
-                        <div className="biz-review-nav-text">
-                            <Link className="header-link" to="/">For Businesses!</Link>
-                            <Link className="header-link" to="/">Write a Review</Link>
-                        </div>
-                        <div className="login-signup-buttons-container">
-                            <Link to="/login" className="login-button">Login</Link>
-                            <Link to="/signup" className="signup-clear">Signup</Link>
-                            <button onClick={() => requestLogin({username: "DemoUser", password:"123456"}) }>Demo User - Login</button>
-                        </div>
+                        <RightHeaderNavContainer/>
                         {/* End Flexx */}
                     </ul>
                     {/* End Header NAV */}
@@ -128,15 +121,7 @@ class Greeting extends React.Component {
                                 </div>
                             </div>
                             <SearchCityNavContainer/>
-                            <div className="biz-review-nav-text">
-                                <Link className="header-link" to="/">For Businesses!</Link>
-                                <Link className="header-link" to="/">Write a Review</Link>
-                            </div>
-                            <div className="login-signup-buttons-container">
-                                <Link to="/login" className="login-button">Login</Link>
-                                <Link to="/signup" className="signup-clear">Signup</Link>
-                                <button onClick={() => requestLogin({username: "DemoUser", password:"123456"}) }>Demo User - Login</button>
-                            </div>
+                            <RightHeaderNavContainer/>
                             {/* End Flexx */}
                         </ul>
                     </div>
