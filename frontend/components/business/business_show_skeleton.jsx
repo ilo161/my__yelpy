@@ -65,16 +65,6 @@ class BusinessShowSkeleton extends React.Component {
                             <Link to="/" ><img src={window.yelp_white_sm} width="80vw" height="80vh"></img></Link>
                         </div>
                         <SearchCityNavContainer/>
-                        {/* <div className="right-header-nav">
-                            <div className="biz-review-nav-text">
-                                <Link className="header-link" to="/">For Businesses!</Link>
-                                <Link className="header-link" to="/">Write a Review</Link>
-                            </div>
-                            <div className="login-signup-buttons-container">
-                                <Link to="/login" className="login-button">Login</Link>
-                                <Link to="/signup" className="signup-clear">Signup</Link>
-                            </div>
-                        </div> */}
                         <RightHeaderNavContainer/>
                         {/* End Flexx */}
                     </ul>

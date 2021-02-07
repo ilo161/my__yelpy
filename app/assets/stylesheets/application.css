@@ -262,7 +262,7 @@ input[type="submit"] {
         /* max-width: 831px; */
         max-width: 66%;
     }
-    .testCont{
+    .header-container{
         display: flex;
         /* min-width: 5%; */
         max-width: 53%;
@@ -406,7 +406,8 @@ input[type="submit"] {
     }
 
     .invisidiv-nav{
-        width: 144px;
+        /* width: 144px; */
+        min-width: 15%;
         /* border: 3px solid red; */
     }
 
