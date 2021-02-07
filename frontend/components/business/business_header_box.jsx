@@ -85,8 +85,10 @@ const businessHeaderBox = props => {
 
     //Method to redirect to Review/new
     const redirectTo = () => {
+
         return (
-            props.history.push({pathname:"/review/new", prevBiz: [props.business] })
+            props.history.push({pathname:`/biz/${props.business.id}/review/new`, prevBiz: [props.business] })
+            
         )
     }
 

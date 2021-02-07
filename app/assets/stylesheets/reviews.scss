@@ -84,12 +84,21 @@
     .hyperlink-teal{
         color: #00838F
     }
+    .review-form-container{
+        border-top: 1px solid rgb(236, 235, 237);
+    }
+
+    .review-content-container{
+        margin:0 auto;
+        max-width: 960px;
+        padding: 0 15px;
+    }
 
     .review-form-itself-container{
-        width: 649px;
+        max-width: 625px;
         height: 613px;
-        margin: 0 283px;
-        border: 1px solid black;
+        // margin: 0 283px;
+        // border: 1px solid black;
 
     }
 
