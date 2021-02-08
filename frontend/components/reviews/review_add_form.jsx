@@ -169,7 +169,7 @@ class ReviewAddForm extends React.Component {
     return (
         <>
         <div className="top-show-nav">
-                    <ul className="flex-row-start">
+                    <ul className="flex-row-space-btwn">
                         {/* Items are flexxed */}
                         <div className="icon-box-nav">
                             <Link to="/" ><img src={window.yelp_white_sm} width="80vw" height="80vh"></img></Link>

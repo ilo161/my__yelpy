@@ -36,6 +36,20 @@
         margin-bottom: 12px;
     }
 
+    .rating-text-container{
+        display: flex;
+        align-items: center;
+        margin-left: 12px; 
+    }
+
+    .rating-text-content{
+        color: #757280;
+        font-family: Open Sans, Helvetica Neue, Helvetica,Arial,sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+
+    }
+
     .reaction{
         font-size: 12px;
         margin-right: 14px;
@@ -85,6 +99,7 @@
         color: #00838F
     }
     .review-form-container{
+        margin-top: 26px;
         border-top: 1px solid rgb(236, 235, 237);
     }
 

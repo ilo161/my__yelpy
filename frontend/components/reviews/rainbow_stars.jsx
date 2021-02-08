@@ -26,9 +26,12 @@ class RainbowStars extends React.Component {
 
      updateStars(e){
         let starIdx;
+        // debugger
+        // let starsArray;
         // console.log(e.currentTarget.attributes[1].nodeValue)
         if(e.type !== "mouseleave"){
             starIdx = parseInt(e.currentTarget.attributes[1].nodeValue);
+            
         }
 
         if(e.type === "mouseover"){
@@ -51,6 +54,9 @@ class RainbowStars extends React.Component {
         const allColors = ["", "bg-rate-1", "bg-rate-2", "bg-rate-3", "bg-rate-4", "bg-rate-5"]
         const padLeft = "rate-pl-4"
         const {isReviewForm} = this.props;
+        let myStars;
+        let ratingText;
+        // let colorizedStarsArray;
 
         const starFieldGrey = (color, i, padding = "") => (
 
@@ -60,9 +66,30 @@ class RainbowStars extends React.Component {
                     </li>
          )
 
+        // const colorizeStars = (howMany) => {
+        //     // colorizedStarsArray = document.getElementsByClassName("stars-array")[0].childNodes;
+        //     colorizedStarsArray = document.getElementsByClassName("star-background-lt-grey-md");
+        //     let newArray = []
+        //     for(let i = 0; i < 5; i++){
+        //             colorizedStarsArray[i].classList.remove(...allColors)
+                    
+        //         }
+        //     let allColorsCopy = allColors.slice(0);
+        //     let paintThisColor = allColorsCopy.splice(howMany, 1);
+
+            
+
+        //         for(let i = 0; i <= howMany; i++){
+        //             colorizedStarsArray[i].classList.add(paintThisColor)
+        //             newArray.push(colorizedStarsArray[i])
+        //         }
+
+        //     return newArray;
+        // }
+
         const generateAllStars = (howMany) => {
             let collectionStars = [];
-
+            // debugger
             switch(howMany){
                 case 0:
                     // debugger
@@ -145,9 +172,24 @@ class RainbowStars extends React.Component {
             return collectionStars;
         }
 
-        const myStars = generateAllStars(this.state.starNum);
+        const generateRatingText = (howMany) => {
+            let text = "";
+            let starIdx;
+            if(howMany === undefined) starIdx = 0;
+            text = this.state.ratingText[starIdx === 0 ? starIdx : (howMany + 1)];
+            debugger
+            debugger
+            return (<div className="rating-text-container">
+                        <p className="rating-text-content">{text}</p>
+                    </div>
+                    )
+        }
 
-        // const ratingText = generateRatingText(this.state.)
+        // let myStars = this.state.starNum ? colorizeStars(this.state.starNum)  : generateAllStars(this.state.starNum);
+        myStars = generateAllStars(this.state.starNum);
+
+
+        ratingText = isReviewForm ? generateRatingText(this.state.starNum) : null;
 
         return(
             <div className="stars-text-container">
@@ -155,6 +197,7 @@ class RainbowStars extends React.Component {
                     <ul onMouseLeave={this.updateStars} className="stars-array flex-row-start">
                         {myStars}
                     </ul>
+                    { isReviewForm ? ratingText : null}
                 </div>
             </div>
         )
