@@ -38,7 +38,11 @@ class RainbowStars extends React.Component {
             this.setState({starNum: starIdx})
         }
         if(e.type === "click"){
-            this.setState({starNum: starIdx, rating: (starIdx + 1)})
+            this.setState({starNum: starIdx, rating: (starIdx + 1)}, () => {
+                const rating = starIdx + 1
+                // debugger
+                this.props.update("rating", rating)
+            })
         }
         if(e.type === "mouseleave"){
             this.setState({starNum: (this.state.rating - 1)})
@@ -177,8 +181,7 @@ class RainbowStars extends React.Component {
             let starIdx;
             if(howMany === undefined) starIdx = 0;
             text = this.state.ratingText[starIdx === 0 ? starIdx : (howMany + 1)];
-            debugger
-            debugger
+
             return (<div className="rating-text-container">
                         <p className="rating-text-content">{text}</p>
                     </div>

@@ -242,15 +242,18 @@
             background: transparent;
         }
 
-        .red-button-long{
+        .red-button{
             background-color: #f43939;
-            width: 160px;
             padding: 8px 16px;
             color: white;
             border-radius: 4px;
             font-size:17px;
             font-weight: 600;
             margin-right: 10px;
+        }
+
+        .long-160{
+            width: 160px;
         }
 
 

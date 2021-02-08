@@ -130,7 +130,7 @@ const businessHeaderBox = props => {
             </div>
             {/* Flex End ^^ */}
             <div className="flex-row-start bottom-m-8">
-                <button onClick={() => redirectTo() }className="open-sans red-button-long"> <i className="starOutline-button" >{starOutline}</i>
+                <button onClick={() => redirectTo() }className="open-sans red-button long-160"> <i className="starOutline-button" >{starOutline}</i>
                 Write a Review
                 </button>
                 <button className="open-sans white-button-med"> <i className="icon-outline">{cameraOutline}</i>Add Photo</button>

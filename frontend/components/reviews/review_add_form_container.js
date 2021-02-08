@@ -9,7 +9,7 @@ const mSTP = (state, url) => {
     return {
         id,
         business: state.entities.businesses[id],
-        form: {title: "", body: "", business_id: null, user_id: 1, rating: 1 }
+        form: {title: "", body: "", business_id: null, user_id: 1, rating: 0 }
     }
 }
 

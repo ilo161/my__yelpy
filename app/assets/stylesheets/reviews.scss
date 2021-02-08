@@ -135,4 +135,40 @@
         max-width: 625px;
         // border: 1px solid red;
         border-radius: 4px;
+
+    }
+
+    .review-text-input::placeholder{
+        color: rgb(182, 176, 183);
+    }
+
+    // bottom of submit review form
+    .submit-review-long-container{
+        padding: 16px;
+    }
+
+    .submit-review-long-container{
+        background-color: #f43939;
+        padding: 8px 4px;
+        color: white;
+        border-radius: 4px;
+        font-size:17px;
+        font-weight: 600;
+        margin: 32px 0;
+        // margin-right: 10px;
+        width: 200px;
+        text-align: center;
+    }
+
+    span.width-200{
+        width: 200px;
+        text-align: center;
+    }
+
+    .error-msg-review-container{
+        margin-top: 24px;
+    }
+
+    .error-msg{
+        color: red;
     }
