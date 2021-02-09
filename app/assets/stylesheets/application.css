@@ -526,3 +526,16 @@ input[type="submit"] {
 .max-w-400{
     max-width: 400px;
 }
+
+.bold{
+    font-weight: bold;
+}
+
+.legal-font{
+    font-size: 12px;
+    line-height: 1.5em;
+}
+
+.mr-5{
+    margin-right: 5px;
+}

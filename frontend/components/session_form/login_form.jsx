@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, Route, Redirect, withRouter } from 'react-router';
+import { Link } from "react-router-dom";
+import { Route, Redirect, withRouter } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { closeModal } from '../../actions/modal_actions';
@@ -34,25 +35,27 @@ class LoginForm extends React.Component {
     }
 
     render() {
-        const {isModal, openModal, closeModal} = this.props;
-        const exSym = <FontAwesomeIcon className="exit-x-content" icon={faTimes} size="1x" />
-        const closeModalDiv = (<div onClick={() => closeModal()} className="exit-x-box">
-                                  <div className="exit-x-author">
-                                  {exSym}
-                                  </div>
-                                </div>)
-
+        const {isModal, openModal, closeModal, closeModalDiv, renderSignForm} = this.props;
+        const pathToSignUp = (<Link to="/signup" />)
+        // const exSym = <FontAwesomeIcon className="exit-x-content" icon={faTimes} size="1x" />
+        // const closeModalDiv = (<div onClick={() => closeModal()} className="exit-x-box">
+        //                           <div className="exit-x-author">
+        //                           {exSym}
+        //                           </div>
+        //                         </div>)
+        debugger
         return (
             // <div className={this.props.isModal ? "login-form-modal-container" : "login-form"}>
             //     <form className={this.props.isModal ? "login-form-modal" : null} onSubmit={this.handleSubmit}>
             <div className="login-form-modal-container max-w-400">
+                {/* {closeModalDiv} */}
                 {isModal ? closeModalDiv : null}
                 <form className="login-form-modal" onSubmit={this.handleSubmit}>
                     <div className="login-form-text-container">
                         
                             <p className="top-login-form-text">Log in to Yelp</p>
                         <div className="mt-8">
-                            <p className="sec-header-login-form">New to Yelp? <span onClick={() => openModal("signup")} className="sign-up-link">Sign up!</span></p>
+                            <p className="sec-header-login-form">New to Yelp? <span onClick={isModal ? () => renderSignForm() : null } className="sign-up-link">Sign up!</span></p>
                         </div>
                         <div className="mt-8">
                             <p>By logging in, you agree to Yelp’s Terms of Service and Privacy Policy.</p>
@@ -95,7 +98,11 @@ class LoginForm extends React.Component {
 
                     <button className="red-login-button lb block-99" >Login</button>
                     <div className="sub-text-box">
-                        <p className="small-text">New to Yelp? <span className="sign-up-link">Sign up!</span></p>
+                        <p className="small-text">New to Yelp? 
+                        {isModal ? <span onClick={isModal ? () => renderSignForm() : null}
+                         className="sign-up-link"> Sign up!</span>  
+                         : 
+                         <Link to="/signup" ><span className="sign-up-link"> Sign up!</span> </Link>}  </p>
                     </div>
                 </form>
             </div>

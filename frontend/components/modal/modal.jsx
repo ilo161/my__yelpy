@@ -3,10 +3,14 @@ import {openModal, closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import {requestLogin, requestSignupUser} from "../../actions/session_actions"
 import LoginFormContainer from '../session_form/login_form_container'
+import SignupFormContainer from '../session_form/sign_up_form_container';
 
-// import SignupFormContainer from '../session_form/signup_form_container';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-function Modal({modal, closeModal, otherForm}) {
+
+
+function Modal({modal, closeModal, renderLoginForm, renderSignForm, closeModalDiv}) {
   if (!modal) {
     return null;
   }
@@ -14,11 +18,11 @@ function Modal({modal, closeModal, otherForm}) {
   let component;
   switch (modal) {
     case 'login':
-      component = <LoginFormContainer isModal={true} />;
+      component = <LoginFormContainer renderSignForm={renderSignForm} closeModalDiv={closeModalDiv} isModal={true} />;
     //   component = <p>login</p>;
       break;
     case 'signup':
-      component = <p>signup</p>;
+      component = <SignupFormContainer renderLoginForm={renderLoginForm}  closeModalDiv={closeModalDiv} isModal={true} />;
       break;
     default:
       return null;
@@ -27,7 +31,6 @@ function Modal({modal, closeModal, otherForm}) {
     <div className="modal-background" onClick={closeModal}>
       <div className="modal-child-400" onClick={e => e.stopPropagation()}>
         { component }
-        {otherForm}
       </div>
     </div>
   );
@@ -41,15 +44,20 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
+     const exSym = <FontAwesomeIcon className="exit-x-content" icon={faTimes} size="1x" />
+    const closeModalDiv = (<div onClick={() => dispatch(closeModal())} className="exit-x-box">
+                                <div className="exit-x-author">
+                                {exSym}
+                                </div>
+                             </div>)
+
+
   return {
     processForm: (user) => dispatch(requestLogin(user)),  
     closeModal: () => dispatch(closeModal()),
-    otherForm: (
-      <button className="signup-clear" 
-      onClick={() => dispatch(openModal('signup'))}>
-        Signup
-      </button>
-    )
+    renderSignForm: () => dispatch(openModal('signup')),
+    renderLoginForm: () => dispatch(openModal('login')),
+    closeModalDiv
   };
 };
 
