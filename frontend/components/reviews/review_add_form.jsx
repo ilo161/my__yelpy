@@ -3,7 +3,7 @@ import {withRouter, Link} from "react-router-dom";
 import SearchCityNavContainer from "../search/search_city_nav_container";
 import RainbowStars from "./rainbow_stars"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar} from '@fortawesome/free-solid-svg-icons';
+import { faStar, faChevronLeft} from '@fortawesome/free-solid-svg-icons';
 
 
 class ReviewAddForm extends React.Component {
@@ -11,7 +11,8 @@ class ReviewAddForm extends React.Component {
         super(props)
 
         this.state = {...this.props.form,
-            errorMessage: ""
+            errorMessage: "",
+            sideBarActive: false
         }
 
         this.update = this.update.bind(this);
@@ -52,6 +53,8 @@ class ReviewAddForm extends React.Component {
 
         if (field === "rating"){
             this.setState({[field]: starRating})
+        } else if (field === "sidebar"){
+            this.setState({sideBarActive: !this.state.sideBarActive})
         } else {
             return e => this.setState({ [field]: e.target.value }) 
         }
@@ -69,13 +72,14 @@ class ReviewAddForm extends React.Component {
     render() {
         
         const {business} = this.props;
+        const chevronLeft = <FontAwesomeIcon icon={faChevronLeft} size="1x" />
        
-        if (business){
-            if (this.state.business_id === null){
+        // if (business){
+        //     if (this.state.business_id === null){
 
-                this.setState({business_id: business.id})
-            }
-        }
+        //         this.setState({business_id: business.id})
+        //     }
+        // }
 
 
         // const myStars = generateAllStars(this.state.starNum);
@@ -92,7 +96,8 @@ class ReviewAddForm extends React.Component {
                 </div>
                 
                 <div className="login-signup-buttons-container">
-                    <Link to="/login" className="login-button">Login</Link>
+                    <button onClick={() => this.props.openModal("login")} className="login-button">Login</button>
+                    {/* <Link to="/login" className="login-button">Login</Link> */}
                     <Link to="/signup" className="signup-clear">Signup</Link>
                 </div>
                 {/* End Flexx */}
@@ -125,6 +130,16 @@ class ReviewAddForm extends React.Component {
 
                         
                 </div>
+                {/* Side Bar */}
+                <section className={this.state.sideBarActive ? "sidebar-container open-sidebar" : "sidebar-container closed-sidebar"}>
+                    <button onClick={() => this.update("sidebar")} className="sidebar-review-button">
+                        {chevronLeft}
+                    </button>
+                    <div className="sidebar-inner">
+
+                    </div>
+
+                </section>
                 
 
             </div>

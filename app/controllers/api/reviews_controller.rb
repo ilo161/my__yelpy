@@ -2,7 +2,7 @@ class Api::ReviewsController < ApplicationController
     def create
         @review = Review.new(review_params)
 
-        if @review.save
+        if @review.save!
             render :show
         else
             render json: {base: ["Please complete all fields"]}, status: 401

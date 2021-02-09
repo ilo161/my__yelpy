@@ -7,10 +7,12 @@ import LoginPageContainer from "./login/login_page_container"
 import SignUpFormContainer from "./session_form/sign_up_form_container";
 import BusinessShowContainer from "./business/business_show_container";
 import ReviewAddFormContainer from "./reviews/review_add_form_container";
+import Modal from "./modal/modal"
 
 const App = () => (
   <div className="master-container">
     {/* <GreetingContainer /> */}
+  <Modal/>
   <Switch>
     <Route exact path="/" component={GreetingContainer}/>
     <Route exact path="/login" component={LoginPageContainer}/>

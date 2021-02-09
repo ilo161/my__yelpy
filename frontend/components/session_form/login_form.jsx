@@ -33,8 +33,8 @@ class LoginForm extends React.Component {
     render() {
 
         return (
-            <div className="login-form">
-                <form onSubmit={this.handleSubmit}>
+            <div className={this.props.isModal ? "login-form-modal-container" : "login-form"}>
+                <form className={this.props.isModal ? "login-form-modal" : null} onSubmit={this.handleSubmit}>
                     <p className="top-login-form-text">Log in to Yelp</p>
                     <p className="sec-header-login-form">New to Yelp? Sign up</p> {/* add link here later */}
                     <p>By logging in, you agree to Yelp’s Terms of Service and <br/>Privacy Policy.</p>
