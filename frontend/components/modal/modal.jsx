@@ -25,7 +25,7 @@ function Modal({modal, closeModal, otherForm}) {
   }
   return (
     <div className="modal-background" onClick={closeModal}>
-      <div className="modal-child" onClick={e => e.stopPropagation()}>
+      <div className="modal-child-400" onClick={e => e.stopPropagation()}>
         { component }
         {otherForm}
       </div>

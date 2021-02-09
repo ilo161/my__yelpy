@@ -28,3 +28,36 @@
   transform: translate(-50%, -50%);
 }
 
+.credentials-input{
+    padding: 13px 13px;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+}
+
+.exit-x-box{
+    position: absolute;
+    // display:inline-block;
+    top: 35px;
+    right: 15px;
+    padding: 8px;
+    width: 24px;
+    height: 24px;
+}
+.exit-x-author{
+    position: relative;
+}
+
+.exit-x-content{
+    position: absolute;
+    cursor: pointer;
+    color:rgb(187, 186, 192);
+    top: 0;
+    right:0;
+    padding: 2px;
+    border: 1px solid transparent;
+}
+
+.exit-x-content:hover{
+    border: 1px solid rgb(187, 186, 192);
+}
+

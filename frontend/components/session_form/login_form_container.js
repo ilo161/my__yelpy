@@ -1,7 +1,8 @@
 import React from "react";
 import {connect} from 'react-redux';
 import LoginForm from "./login_form";
-import { requestLogin } from "../../actions/session_actions"
+import { requestLogin } from "../../actions/session_actions";
+import {openModal, closeModal} from "../../actions/modal_actions"
 
 
 
@@ -16,7 +17,9 @@ const mSTP = state => {
 const mDTP = dispatch => {
 
     return {
-        action: credentials => dispatch(requestLogin(credentials))
+        action: credentials => dispatch(requestLogin(credentials)),
+        openModal: (type) => dispatch(openModal(type)),
+        closeModal: (type) => dispatch(closeModal(type))
     }
 }
 

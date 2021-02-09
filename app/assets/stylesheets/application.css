@@ -112,6 +112,8 @@ input[type="submit"] {
     .login-left-image-right{
         display: flex;
         justify-content: flex-start;
+        max-width: 850px;
+        margin: 20vh auto 0;
 
     }
     /* ends */
@@ -120,26 +122,59 @@ input[type="submit"] {
     .login-slash-login{
         display: flex ;
         justify-content: center;
-        width: 50vw;
+        /* width: 50vw; */
+        max-width: 400px;
         height: 100%;
         /* padding: 20%; */
     }
     .button-logins-box{
-        margin-top: 10px;
+        margin: 10px 0;
     }
 
-    .button-logins-box .lb{
-        margin: 5px;
-        padding: 10px 13px;
+    button.lb{
+        margin-bottom: 18px;
+        padding: 10px 1px;
+        border-radius: 5px;
+       
     }
 
-    .lb{
-        width: 100%
+    .hr-with-text{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        color: #757280;
+        margin: 20px 0;
+    }
+
+    .hr-text{
+        margin: 0 20px 3px;
+    }
+
+    .hr-with-text::before{
+        content: " ";
+        width: 100%;
+        height: 1px;
+        background-color: #757280;;
+    }
+
+    .hr-with-text::after{
+        content: " ";
+        width: 100%;
+        height: 1px;
+        background-color: #757280;;
+    }
+
+    
+    .block-99{
+         display: block;
+         width: 99%
     }
 
     .facebook-button{
         color: white;
         background-color: rgb(22, 108, 240);
+        border: 1px solid rgb(22, 108, 240);
+        
     }
 
     .google-button{
@@ -151,6 +186,7 @@ input[type="submit"] {
     .apple-button{
         color: white;
         background-color: black;
+        border: 1px solid white;
     }
 
     /* ends */
@@ -167,6 +203,7 @@ input[type="submit"] {
         text-align: center;
         padding: 40px;
         background-color: #FFF;
+        border-radius: 8px;
         
         
     }
@@ -211,6 +248,7 @@ input[type="submit"] {
     .sign-up-link{
         font-size: inherit;
         color: rgb(0, 104, 179);
+        cursor: pointer;
     }
 
     /* ENDS login Form */
@@ -222,8 +260,9 @@ input[type="submit"] {
     .image-slash-login{
         display: flex;
         justify-content: center;
-        width: 50vw;
-        height: 70vw;
+        width: 382px;
+        margin-left:80px;
+        /* height: 70vw; */
         /* padding: 20%; */
 
     }
@@ -395,6 +434,11 @@ input[type="submit"] {
         align-items: center;
     }
 
+    .login-form-text-container{
+        padding: 16px 0 0;
+        margin-bottom: 32px;
+    }
+
         .login-button{
             /* height: 40px; */
             color: rgb(38, 55, 53);
@@ -466,9 +510,19 @@ input[type="submit"] {
   z-index: 10;
 }
 
-.modal-child {
+.modal-child-400 {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-width: 400px;
+  
+}
+
+.mt-8{
+    margin-top: 8px;
+}
+
+.max-w-400{
+    max-width: 400px;
 }
