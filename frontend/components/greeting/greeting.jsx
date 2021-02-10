@@ -36,7 +36,10 @@ class Greeting extends React.Component {
 
     componentDidMount(){
 
-        this.props.requestAllBusinesses()
+        this.props.requestAllBusinesses().then((res) => {
+            debugger
+
+        })
     }
 
 

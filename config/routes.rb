@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
       resources :users, except: [:new]
       resources :reviews, except: [:new]
+      get "businesses/search", to: "businesses#search"
       resources :businesses, except: [:new]
       resource :session, only:[:create,:destroy]
   end

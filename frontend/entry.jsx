@@ -13,6 +13,8 @@ import {
 requestUpdateBusiness
  } from "./actions/business_actions"
 
+ import {requestSearchResults} from "./actions/search_actions"
+
 
 
 
@@ -41,6 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
     window.requestBusinesses = requestBusinesses;
     window.requestUpdateBusiness = requestUpdateBusiness;
     // Testing End
+
+    //search
+    window.requestSearchResults = requestSearchResults;
 
 
     ReactDOM.render(<Root store={store}/>, root)  

@@ -58,6 +58,11 @@ class Api::BusinessesController < ApplicationController
         end
     end
 
+    def search
+        @bizs = Business.includes(:reviews).search_by(params[:search])
+        render :search_results
+    end
+
     private
 
     def business_params

@@ -10,4 +10,11 @@ class Business < ApplicationRecord
     class_name: :Review
 
     has_many_attached :photos
+
+    def self.search_by(query)
+        split_query = query.split(" ")
+        mapped_query = split_query.map{|n| "lower(business_name) LIKE '%#{n.downcase}%'"}.join(" OR ")
+
+        Business.where(mapped_query)
+    end
 end
