@@ -24,7 +24,16 @@ class LoginForm extends React.Component {
     handleSubmit(e){
         e.preventDefault();
 
-    this.props.action(this.state).then(this.props.history.push("/"));
+        const url = this.props.location.pathname;
+        const parts = url.split("/")
+
+        if(!parts.includes("login")){
+            this.props.action(this.state).then(() => this.props.closeModal());
+        } else {
+            this.props.action(this.state).then(this.props.history.push("/"));
+        }
+
+    
     
     // this.props.action(this.state).then(<Route path="/login" render={() => <Redirect to="/" />} />);
     }
@@ -35,7 +44,7 @@ class LoginForm extends React.Component {
     }
 
     render() {
-        const {isModal, openModal, closeModal, closeModalDiv, renderSignForm} = this.props;
+        const {isModal, closeModalDiv, renderSignForm} = this.props;
         const pathToSignUp = (<Link to="/signup" />)
         // const exSym = <FontAwesomeIcon className="exit-x-content" icon={faTimes} size="1x" />
         // const closeModalDiv = (<div onClick={() => closeModal()} className="exit-x-box">
@@ -43,7 +52,7 @@ class LoginForm extends React.Component {
         //                           {exSym}
         //                           </div>
         //                         </div>)
-        debugger
+
         return (
             // <div className={this.props.isModal ? "login-form-modal-container" : "login-form"}>
             //     <form className={this.props.isModal ? "login-form-modal" : null} onSubmit={this.handleSubmit}>
@@ -78,7 +87,7 @@ class LoginForm extends React.Component {
                         className="credentials-input"
                         type="text"
                         value={this.state.username}
-                        placeholder="Email"
+                        placeholder="Username"
                         onChange={this.update("username")}
                         />    
                     </label>

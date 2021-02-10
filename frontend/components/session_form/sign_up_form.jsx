@@ -19,7 +19,7 @@ class SignUpForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.action(this.state)
+        this.props.action(this.state).then(this.props.history.push("/"));
     }
 
     update(field){
@@ -27,13 +27,13 @@ class SignUpForm extends React.Component {
     }
 
     render() {
-        const {isModal, openModal, closeModal, closeModalDiv, renderLoginForm} = this.props;
+        const {isModal, closeModalDiv, renderLoginForm} = this.props;
         //  const closeModalDiv = (<div onClick={() => closeModal()} className="exit-x-box">
         //                           <div className="exit-x-author">
         //                           {exSym}
         //                           </div>
         //                         </div>)
-        debugger
+
         return (
 
             <div className="login-form-modal-container max-w-400">

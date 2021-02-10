@@ -27,6 +27,10 @@ if business.reviews.length > 0
             json.total_reviews user_total_review
         end
         
-        json.userAvatarUrl url_for(user.avatar)
+        if user.avatar.attached? == true
+            json.userAvatarUrl url_for(user.avatar)
+        else
+            json.userAvatarUrl nil
+        end
     end
 end

@@ -18,6 +18,7 @@ class ReviewIndexItem extends React.Component {
 
     const { review } = this.props;
     const ratingGiven = review.rating;
+    const demoUserUrl = "https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/user_avatars/empty_avatar_frame.png"
 
     const star = <FontAwesomeIcon icon={faStar} />
     const friends = <FontAwesomeIcon className="grey" icon={faUsers} />
@@ -49,13 +50,13 @@ class ReviewIndexItem extends React.Component {
     }
     starGenerate();
 
-    
+        debugger
         return(
             <>
             <section className="review-item-biz-show flex-row-start">
                 {/* Flex row */}
                 <div className="review-avatar-container flex-row-start">
-                    <img className="avatar-review-item" src={review.userAvatarUrl}></img>
+                    <img className="avatar-review-item" src={review.userAvatarUrl ? review.userAvatarUrl : demoUserUrl}></img>
                     <div className="flex-col-full">
                         <p className="open-sans">{review.author.first_name}</p>  
                         <p className="open-sans-md">{review.author.zip_code}</p> 

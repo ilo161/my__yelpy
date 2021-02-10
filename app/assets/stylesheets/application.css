@@ -113,7 +113,7 @@ input[type="submit"] {
         display: flex;
         justify-content: flex-start;
         max-width: 850px;
-        margin: 20vh auto 0;
+        margin: 10vh auto 0;
 
     }
     /* ends */

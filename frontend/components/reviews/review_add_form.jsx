@@ -37,12 +37,22 @@ class ReviewAddForm extends React.Component {
             this.setState({errorMessage: 
                 "To submit your review, please explain your rating to others."})
         } 
-        else {
-            this.props.action(this.state).then(action => {
+        else if(this.props.currentUserId === null){
+            this.props.openModal("login")
+
+        }else{
             debugger
+            const prevForm = Object.assign({}, this.state);
+            prevForm.user_id = this.props.currentUserId
+
+            this.setState({...prevForm}, () => {
+                this.props.action(this.state).then(action => {
+                debugger
             
-            this.props.history.push(`/biz/${action.review.business_id}`)
+                this.props.history.push(`/biz/${action.review.business_id}`)
         })
+            })
+            
         }
         
         

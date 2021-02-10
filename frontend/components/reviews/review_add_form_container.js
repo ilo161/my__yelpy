@@ -6,12 +6,15 @@ import ReviewAddForm from "./review_add_form";
 
 const mSTP = (state, url) => {
 
-    const id = url.match.params.bizId
-
+    const id = url.match.params.bizId;
+    const currentUserId = state.session.id;
+    debugger
     return {
         id,
         business: state.entities.businesses[id],
-        form: {body: "", business_id: id, user_id: 6, rating: 0 }
+        form: {body: "", business_id: id, user_id: currentUserId, rating: 0 },
+        currentUserId
+
     }
 }
 

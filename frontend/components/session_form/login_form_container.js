@@ -19,7 +19,7 @@ const mDTP = dispatch => {
     return {
         action: credentials => dispatch(requestLogin(credentials)),
         openModal: (type) => dispatch(openModal(type)),
-        closeModal: (type) => dispatch(closeModal(type))
+        closeModal: () => dispatch(closeModal())
     }
 }
 
