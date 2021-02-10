@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
- import { withRouter } from 'react-router';
+import { withRouter } from 'react-router';
 
 
 class SignUpForm extends React.Component {
@@ -27,6 +27,7 @@ class SignUpForm extends React.Component {
         if (!parts.includes("signup")){
             this.props.action(this.state).then(() => this.props.closeModal());
         } else {
+            debugger
             this.props.action(this.state).then(this.props.history.push("/"));
         }
     }
