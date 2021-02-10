@@ -22,7 +22,7 @@ function Modal({modal, closeModal, renderLoginForm, renderSignForm, closeModalDi
     //   component = <p>login</p>;
       break;
     case 'signup':
-      component = <SignupFormContainer renderLoginForm={renderLoginForm}  closeModalDiv={closeModalDiv} isModal={true} />;
+      component = <SignupFormContainer closeModal={closeModal} renderLoginForm={renderLoginForm}  closeModalDiv={closeModalDiv} isModal={true} />;
       break;
     default:
       return null;

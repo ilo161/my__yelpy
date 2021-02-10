@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+ import { withRouter } from 'react-router';
 
 
 class SignUpForm extends React.Component {
@@ -19,7 +20,15 @@ class SignUpForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.action(this.state).then(this.props.history.push("/"));
+
+        const url = this.props.location.pathname;
+        const parts = url.split("/")
+
+        if (!parts.includes("signup")){
+            this.props.action(this.state).then(() => this.props.closeModal());
+        } else {
+            this.props.action(this.state).then(this.props.history.push("/"));
+        }
     }
 
     update(field){
@@ -134,4 +143,4 @@ class SignUpForm extends React.Component {
     }
 }
 
-export default SignUpForm;
+export default withRouter(SignUpForm);
