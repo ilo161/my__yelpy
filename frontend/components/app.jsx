@@ -8,6 +8,7 @@ import SignUpPageContainer from "./login/sign_up_page_container"
 import SignUpFormContainer from "./session_form/sign_up_form_container";
 import BusinessShowContainer from "./business/business_show_container";
 import ReviewAddFormContainer from "./reviews/review_add_form_container";
+import SearchPageResultsContainer from "./search/search_page_results_container";
 import Modal from "./modal/modal"
 
 const App = () => (
@@ -17,10 +18,10 @@ const App = () => (
   <Switch>
     <Route exact path="/" component={GreetingContainer}/>
     <Route exact path="/login" component={LoginPageContainer}/>
+    <Route exact path="/signup" component={SignUpPageContainer}/>
     <Route exact path="/biz/:bizId" component={BusinessShowContainer}/>
     <Route exact path="/biz/:bizId/review/new" component={ReviewAddFormContainer}/>
-    {/* <Route exact path="/review/new" component={ReviewAddFormContainer}/> */}
-    <Route path="/signup" component={SignUpPageContainer}/>
+    <Route path="/search" component={SearchPageResultsContainer}/>
   </Switch>
   </div>
 );

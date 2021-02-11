@@ -41,7 +41,7 @@ class ReviewAddForm extends React.Component {
             this.props.openModal("login")
 
         }else{
-            debugger
+
             const prevForm = Object.assign({}, this.state);
             prevForm.user_id = this.props.currentUserId
 
@@ -108,7 +108,8 @@ class ReviewAddForm extends React.Component {
                 <div className="login-signup-buttons-container">
                     <button onClick={() => this.props.openModal("login")} className="login-button">Login</button>
                     {/* <Link to="/login" className="login-button">Login</Link> */}
-                    <Link to="/signup" className="signup-clear">Signup</Link>
+                    {/* <Link to="/signup" className="signup-clear">Signup</Link> */}
+                    <button onClick={() => this.props.openModal("signup")} className="signup-clear">Signup</button>
                 </div>
                 {/* End Flexx */}
             </ul>

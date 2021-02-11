@@ -36,10 +36,7 @@ class Greeting extends React.Component {
 
     componentDidMount(){
 
-        this.props.requestAllBusinesses().then((res) => {
-            debugger
-
-        })
+        this.props.requestAllBusinesses()
     }
 
 
@@ -79,20 +76,20 @@ class Greeting extends React.Component {
         const sessionLinks = () => {
             return (
             <div className="session-links-container">
-                <div className="top-show-nav">
-                    <ul className="flex-row-start">
+                {/* <div className="top-show-nav"> */}
+                    {/* <ul className="flex-row-start"> */}
                         {/* Items are flexxed */}
-                        <div className="logo-arrange-unit">
-                            <div className="icon-box-nav">
-                                <Link to="/" ><img src={window.yelp_white_sm} width="80px" height="80px"></img></Link>
-                            </div>
-                        </div>
-                        <SearchCityNavContainer/>
-                        <RightHeaderNavContainer/>
+                        {/* <div className="logo-arrange-unit"> */}
+                            {/* <div className="icon-box-nav"> */}
+                                {/* <Link to="/" ><img src={window.yelp_white_sm} width="80px" height="80px"></img></Link> */}
+                            {/* </div> */}
+                        {/* </div> */}
+                        {/* <SearchCityNavContainer/> */}
+                        {/* <RightHeaderNavContainer/> */}
                         {/* End Flexx */}
-                    </ul>
+                    {/* </ul> */}
                     {/* End Header NAV */}
-                </div>
+                {/* </div> */}
 
                 <p>{errors ? listOErrors[0] : null}</p>
                 <nav className="login-signup">

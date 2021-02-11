@@ -12,8 +12,14 @@ class Business < ApplicationRecord
     has_many_attached :photos
 
     def self.search_by(query)
-        split_query = query.split(" ")
-        mapped_query = split_query.map{|n| "lower(business_name) LIKE '%#{n.downcase}%'"}.join(" OR ")
+        query_parts = query.split(" ")
+        query_parts = query_parts.map{|word| word.downcase}
+        mapped_query = query_parts.map{|word| "lower(business_name) LIKE '%#{word}%'"}.join(" OR ")
+
+        if query_parts.any? { |i| ["coffee", "coffeeshop", "espresso", "drip", "house"].include? i }
+            mapped_query += " OR  category = 0"
+        end
+
 
         Business.where(mapped_query)
     end

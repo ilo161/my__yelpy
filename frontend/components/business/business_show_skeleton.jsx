@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 import ReviewIndexItemContainer from "../reviews/review_index_item_container";
 import BusinessInfoBox from "./business_info_box";
 import RightHeaderNavContainer from "../nav_header/right_header_nav_container"
+import SearchNavDropDownsContainer from "../nav_header/search_nav_dropdowns_container"
+import TripleNav from "../nav_header/triple_nav_components"
 
 class BusinessShowSkeleton extends React.Component {
     constructor(props){
@@ -58,42 +60,20 @@ class BusinessShowSkeleton extends React.Component {
 
         return (
             <div className="business-show-container">
-                <div className="top-show-nav">
-                    <ul className="flex-row-start">
+                <TripleNav/>
+                {/* <div className="top-show-nav"> */}
+                    {/* <ul className="flex-row-start"> */}
                         {/* Items are flexxed */}
-                        <div className="icon-box-nav">
-                            <Link to="/" ><img src={window.yelp_white_sm} width="80vw" height="80vh"></img></Link>
-                        </div>
-                        <SearchCityNavContainer/>
-                        <RightHeaderNavContainer/>
+                        {/* <div className="icon-box-nav"> */}
+                            {/* <Link to="/" ><img src={window.yelp_white_sm} width="80vw" height="80vh"></img></Link> */}
+                        {/* </div> */}
+                        {/* <SearchCityNavContainer/> */}
+                        {/* <RightHeaderNavContainer/> */}
                         {/* End Flexx */}
-                    </ul>
-                    <div className="search-nav-dropdowns-container">
-                        <ul className="flex-row-start">
-                            <div className="invisidiv-nav"></div>
-
-                            <nav className="one-button-container">
-                                <Link to="/" className="search-nav-dropdowns">Restaurants</Link>
-                                {arrowDownIcon}
-                            </nav>  
-                            {/* Home Services */}
-                            <nav className="one-button-container">
-                                <Link to="/" className="search-nav-dropdowns">Home Services</Link>
-                                {arrowDownIcon}
-                            </nav>
-                            {/* Auto Services */}
-                            <nav className="one-button-container">
-                            <Link to="/" className="search-nav-dropdowns">Auto Services</Link>
-                                {arrowDownIcon}
-                            </nav>    
-                            <nav className="one-button-container">
-                                <Link to="/" className="search-nav-dropdowns">More</Link>
-                                {arrowDownIcon}
-                            </nav>  
-
-                        </ul>
-                    </div>
-                </div> 
+                    {/* </ul> */}
+                    {/* <SearchNavDropDownsContainer/> */}
+                    
+                {/* </div>  */}
                 {/* PhotoScroller HERE */}
                 <div className="show-photo-scroller flex-row-start">
                     {business ? allPhotosImg : null }

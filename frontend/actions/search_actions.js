@@ -11,8 +11,5 @@ const receiveSearchResults = searchResults => {
 
 export const requestSearchResults = searchQuery => dispatch => {
     return SearchAPIUtil.fetchSearchResults(searchQuery)
-    .then(searchResults => {
-        debugger
-        dispatch(receiveSearchResults(searchResults))
-    })
+    .then(searchResults => dispatch(receiveSearchResults(searchResults)))
 }

@@ -1,5 +1,12 @@
 import RightHeaderNav from "./right_header_nav"
 import {connect} from "react-redux";
+import { openModal } from "../../actions/modal_actions"
 
 
-export default connect(null,null)(RightHeaderNav);
+const mDTP = dispatch => {
+    return {
+        openModal: (type) => dispatch(openModal(type))
+    }
+}
+
+export default connect(null, mDTP)(RightHeaderNav);
