@@ -1,10 +1,125 @@
-.search-results-container{
+.sidebar-search-map-container{
+    display: flex;
     border-top: 1px solid rgb(236, 235, 237);
+    
+    border: 1px red solid;
 }
 
-.sidebar-faux{
-    background-color: purple;
+.left-rail-container{
+    flex-basis: 70%;
+}
+
+.sidebar-search-container{
+    display: flex;
+    padding: 0 40px;
+    
+}
+    .left-sidebar-container{
+
+        flex-basis: 23%;
+    }
+
+        .sidebar-content{
+            display: flex;
+            flex-direction: column;
+            width: 208px;
+            padding: 32px 0 0 0;
+            margin-right: 40px;
+        }
+
+        .sidebar-seperator{
+            padding: 16px 0;
+            border-bottom: 1px solid #eeeeef;
+        }
+
+            .sidebar-header{
+                text-align: left;
+                font-weight: 700;
+            }
+
+            .padding-dollars{
+                padding: 16px 0;
+                border-bottom: 1px solid;
+                border-color: #eeeeef;
+            }
+
+                button.dollar-icons-select{
+                    margin: 4px 0;
+                    // border: 1px solid black;
+                    // border-radius: 30px;
+                }
+
+                    .pill-container{
+
+                    }
+
+                    .m4-tb{
+                        // margin: 4px 0;
+                    }
+
+                    .dollar-icons-select{
+                        flex-grow: 1;    
+                        padding: 7px 0;
+                        text-align: center;
+                    }
+
+                    button.pill-left{
+                        border: 1px solid #bbbac0;
+                        border-radius: 30px;
+                        border-top-right-radius: 0;
+                        border-bottom-right-radius: 0;
+                        border-right: none;
+                    }
+
+                    button.pill-center-l{
+                        border-top: 1px solid; 
+                        border-left: 1px solid;
+                        border-right: 1px solid; 
+                        border-bottom: 1px solid; 
+                        border-color: #bbbac0;
+                    }
+
+                    button.pill-center-r{
+                        border-top: 1px solid;
+                        border-left: none;
+                        border-right: 1px solid;
+                        border-bottom: 1px solid;
+                        border-color: #bbbac0;
+                    }
+
+                    button.pill-right{
+                        border: 1px solid #bbbac0;
+                        border-radius: 30px;
+                        border-top-left-radius: 0;
+                        border-bottom-left-radius: 0;
+                        border-left: none;
+                    }
+
+    .left-rail-search-results-container{
+        flex-basis: 80%;
+        border: 1px solid yellow;
+    }
+
+.right-rail-container{
+    flex-basis: 30%;
+}
+
+.mapbox-faux{
     height: 100px;
     width: 200px;
-    border: 1px solid purple;
+    background-color: green;
+}
+
+.text-size-large{
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.text-size-small{
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.semi-bold{
+    font-weight: 400;
 }
