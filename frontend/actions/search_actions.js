@@ -1,6 +1,7 @@
 import * as SearchAPIUtil from "../util/search_api_util"
 
 export const RECEIVE_SEARCH_RESULTS = "RECEIVE_SEARCH_RESULTS";
+export const SAVE_SEARCH_QUERY = "SAVE_SEARCH_QUERY";
 
 const receiveSearchResults = searchResults => {
     return {
@@ -9,7 +10,19 @@ const receiveSearchResults = searchResults => {
     }
 }
 
+const saveSearchQuery = searchQuery => {
+    return {
+        type: SAVE_SEARCH_QUERY,
+        searchQuery
+    }
+}
+
+
+
 export const requestSearchResults = searchQuery => dispatch => {
     return SearchAPIUtil.fetchSearchResults(searchQuery)
-    .then(searchResults => dispatch(receiveSearchResults(searchResults)))
+    .then(searchResults => {
+        dispatch(receiveSearchResults(searchResults))
+        dispatch(saveSearchQuery(searchQuery))
+    })
 }
