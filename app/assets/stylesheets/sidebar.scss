@@ -17,6 +17,13 @@
     .left-sidebar-container{
 
         flex-basis: 23%;
+        display: none;
+    }
+
+    @media only screen and (min-width: 1300px){
+        .left-sidebar-container{
+            display: block;
+        }
     }
 
         .sidebar-content{
@@ -171,6 +178,21 @@
         flex-basis: 80%;
         border: 1px solid yellow;
     }
+
+    .search-results-content{
+
+    }
+
+    .faux-search{
+        background-color: purple;
+        border: 1px solid purple;
+        // display: block;
+        height: 500px;
+        width: 800px;
+        // height: 100px;
+        // width: 100px;
+    }
+
 
 .right-rail-container{
     flex-basis: 30%;

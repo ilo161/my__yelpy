@@ -1,4 +1,5 @@
 import React from "react"
+import {withRouter}from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -6,6 +7,24 @@ class SearchCityNav extends React.Component{
     constructor(props){
         super(props)
 
+        this.state = {
+            searchQuery: "",
+            cityQuery: "",
+            searchArr: []
+        }
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.update = this.update.bind(this);
+
+    }
+
+    handleSubmit(){
+        this.props.action(this.state.searchQuery).then(() => this.props.history.push(`/search`))
+    }
+
+    update(field){
+
+        return e => this.setState({[field]: e.currentTarget.value })
     }
 
     render() {
@@ -22,19 +41,23 @@ class SearchCityNav extends React.Component{
                         {isSplash ? <span className="hero-nav-header">Find</span> : null}
 
                         <input className={isSplash ? "search-bar white no-border" : "search-bar no-border fade-gray"} type="text"
-                        placeholder={isSplash ? "plumbers, delivery, take-out" : "taco's, cheap dinner, Max's"}></input>
+                        placeholder={isSplash ? "plumbers, delivery, take-out" : "taco's, cheap dinner, Max's"}
+                        value={this.state.searchQuery}
+                        onChange={this.update("searchQuery")}></input>
 
                         <div className="bar-v-line"></div>
                         
                         {isSplash ? <span className="hero-nav-header">Near</span> : null}
                         <input className={isSplash ? "city-search-bar white no-border" : "city-search-bar no-border"} type="text" 
-                        placeholder="Seattle, WA"></input>
+                        placeholder="Seattle, WA"
+                        onChange={this.update("cityQuery")}
+                        value={this.state.cityQuery}></input>
                         
                     </nav>
                    
                     
                 </div>
-                <button className="red-search-submit-button">
+                <button className="red-search-submit-button" onClick={this.handleSubmit}>
                             {searchIcon}
                 </button>
 
@@ -44,4 +67,4 @@ class SearchCityNav extends React.Component{
     }
 }
 
-export default SearchCityNav ;
+export default withRouter(SearchCityNav);

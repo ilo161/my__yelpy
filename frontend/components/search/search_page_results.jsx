@@ -1,7 +1,7 @@
 import React from "react"
 import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import SearchCityNavContainer from "../search/search_city_nav_container";
 import SearchNavDropDownsContainer from "../nav_header/search_nav_dropdowns_container"
 import RightHeaderNavContainer from "../nav_header/right_header_nav_container"
@@ -14,6 +14,12 @@ class SearchPageResults extends React.Component{
     }
 
     render() {
+        const rightChevron = <FontAwesomeIcon icon={faChevronRight} size="1x"/>
+        debugger
+        // const generateQueryChevrons = () {
+
+        // }
+
        
         return (
             <>
@@ -160,7 +166,15 @@ class SearchPageResults extends React.Component{
 
                         {/* Search Results */}
                         <div className="left-rail-search-results-container">
-                            <p>HI</p>
+                           <div className="search-results-content flex-col-start">
+                                <div className="query-tagline">
+                                    <ul className="query-tags-chevron-box">
+
+                                    </ul>
+
+                                </div>
+                           </div>
+                                <p>HI</p>
                         </div>
                     </div>
                 </div>
