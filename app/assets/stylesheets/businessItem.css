@@ -1,0 +1,25 @@
+.result-index-item-container{
+        /* width: 700px; */
+        display: flex;
+        height: 268px;
+        margin: 24px 0;
+        
+        /* word-wrap: break-word; */
+
+}
+
+    .result-index-item-content{
+        flex-grow: 1;
+        display: flex;
+        border: 1px solid purple;
+        padding: 24px;
+    }
+        .result-item-img{
+            width: 200px;
+            height: 200px;
+        }
+
+    .ow{
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }

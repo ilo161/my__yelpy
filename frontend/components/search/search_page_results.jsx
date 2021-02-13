@@ -2,10 +2,8 @@ import React from "react"
 import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import SearchCityNavContainer from "../search/search_city_nav_container";
-import SearchNavDropDownsContainer from "../nav_header/search_nav_dropdowns_container"
-import RightHeaderNavContainer from "../nav_header/right_header_nav_container"
 import TripleNav from "../nav_header/triple_nav_components"
+import SearchResultIndexItemContainer from "./search_result_index_item_container"
 
 class SearchPageResults extends React.Component{
     constructor(props){
@@ -16,9 +14,33 @@ class SearchPageResults extends React.Component{
     render() {
         const rightChevron = <FontAwesomeIcon icon={faChevronRight} size="1x"/>
         debugger
-        // const generateQueryChevrons = () {
+        const generateQueryChevrons = () => {
+            const smallChevron = (<span className="m-lr-8">{rightChevron}</span>)
+            const city = <li>Seattle</li>
+            const cat1 = <li>Food</li>
+            const cat2 = <li>Coffee & Tea</li>
+            return ( <> 
+                    {city}
+                    {smallChevron}
+                    {cat1}
+                    {smallChevron}
+                    {cat2}
+                    </>
+                    )
+        }
 
-        // }
+        const generateQueryHeadline = () => {
+            let queryString = this.props.searchQuery;
+            if(queryString === undefined) queryString = "";
+            queryString += " near "
+            queryString += " Seattle "
+
+           return( <h1 className="text-size-large-plus">{queryString}</h1>)
+        }
+
+        const generateSearchResultIndexItem = () => {
+
+        }
 
        
         return (
@@ -168,11 +190,39 @@ class SearchPageResults extends React.Component{
                         <div className="left-rail-search-results-container">
                            <div className="search-results-content flex-col-start">
                                 <div className="query-tagline">
-                                    <ul className="query-tags-chevron-box">
-
+                                    <ul className="query-tags-chevron-box flex-row-start text-size-md semi-bold-plus">
+                                        {generateQueryChevrons()}
                                     </ul>
-
                                 </div>
+                                {/* Query Headline */}
+                                <div className="query-big-headline">
+                                    {generateQueryHeadline()}
+                                </div>
+                                {/*  Promotion box */}
+                                <div className="promotion-button-container">
+                                    {/* Delivery */}
+                                    <div className="large-button-toggle-box">
+                                        <button className="toggle-box-content">
+                                            <div className="flex-col-start">
+                                                <span className="text-size-large bold">Delivery</span>
+                                                <span>Order in</span>
+                                            </div>
+                                            <img className="toggle-box-img" src="https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/logos/delivery_takeout.svg"></img>
+                                        </button>
+                                    </div>
+                                    {/* Takeout */}
+                                    <div className="large-button-toggle-box">
+                                        <button className="toggle-box-content">
+                                            <div className="flex-col-start">
+                                                <span className="text-size-large bold">Take Out</span>
+                                                <span>Grab and go</span>
+                                            </div>
+                                            <img className="toggle-box-img" src="https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/logos/takeout.svg"></img>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <SearchResultIndexItemContainer business={this.props.searchResults[0]}/>
                            </div>
                                 <p>HI</p>
                         </div>
