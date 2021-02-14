@@ -11,15 +11,55 @@
     .result-index-item-content{
         flex-grow: 1;
         display: flex;
-        border: 1px solid purple;
+        border: 1px solid #eeeeef;
+        border-radius: 5px;
         padding: 24px;
     }
+
+    .result-index-item-container:hover{
+        transition: box-shadow 0.45s;
+        box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2)
+    }
         .result-item-img{
+            object-fit: cover;
             width: 200px;
             height: 200px;
+            border-radius: 5px;
+            margin-right: 25px;
         }
 
     .ow{
         word-wrap: break-word;
         overflow-wrap: break-word;
+    }
+
+.business-meta-data-content{
+    flex-grow: 1;
+}
+
+    .biz-head-left-rail{
+        flex-grow: 4;
+    }
+
+        .review-biz-name{
+            margin: 0 0 6px 0;
+        }
+
+        .ml-5{
+            margin-left: 5px;
+        }
+
+        .category-text{
+            color: #757280;
+            margin: 5px 0;
+        }
+.one-review-content{
+    margin-top: 10px;
+    flex-grow: 1;
+}
+
+    .biz-head-right-rail{
+        text-align: right;
+        flex-grow: 0;
+        color: #757280;
     }

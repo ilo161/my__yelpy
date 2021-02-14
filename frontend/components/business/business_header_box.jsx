@@ -92,7 +92,7 @@ const businessHeaderBox = props => {
         )
     }
 
-    const category = ["Coffee Shop", "Restaurant"]
+    const category = ["Coffee & Tea", "Restaurant"]
     
     // helpemethod...to get stars
     return (

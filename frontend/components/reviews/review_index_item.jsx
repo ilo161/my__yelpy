@@ -50,7 +50,7 @@ class ReviewIndexItem extends React.Component {
     }
     starGenerate();
 
-        debugger
+
         return(
             <>
             <section className="review-item-biz-show flex-row-start">

@@ -13,7 +13,8 @@ class SearchPageResults extends React.Component{
 
     render() {
         const rightChevron = <FontAwesomeIcon icon={faChevronRight} size="1x"/>
-        debugger
+        let allResults;
+
         const generateQueryChevrons = () => {
             const smallChevron = (<span className="m-lr-8">{rightChevron}</span>)
             const city = <li>Seattle</li>
@@ -39,7 +40,17 @@ class SearchPageResults extends React.Component{
         }
 
         const generateSearchResultIndexItem = () => {
+            let collection;
+            collection = this.props.searchResults.map(business => {
+                
+                return <SearchResultIndexItemContainer business={business}/>
+            })
 
+            return collection;
+        }
+
+        if(this.props.searchResults.length > 0){
+            allResults = generateSearchResultIndexItem();
         }
 
        
@@ -222,7 +233,8 @@ class SearchPageResults extends React.Component{
                                     </div>
                                 </div>
 
-                                <SearchResultIndexItemContainer business={this.props.searchResults[0]}/>
+                                {/* <SearchResultIndexItemContainer business={this.props.searchResults[0]}/> */}
+                                {allResults}
                            </div>
                                 <p>HI</p>
                         </div>
