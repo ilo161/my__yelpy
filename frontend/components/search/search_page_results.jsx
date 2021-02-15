@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import TripleNav from "../nav_header/triple_nav_components"
 import SearchResultIndexItemContainer from "./search_result_index_item_container"
+import ResultsMap from "../map/results_map"
 
 class SearchPageResults extends React.Component{
     constructor(props){
@@ -41,9 +42,10 @@ class SearchPageResults extends React.Component{
 
         const generateSearchResultIndexItem = () => {
             let collection;
-            collection = this.props.searchResults.map(business => {
+            collection = this.props.searchResults.map((business, idx) => {
+
+                return <SearchResultIndexItemContainer idx={idx} business={business} key={business.id} /> 
                 
-                return <SearchResultIndexItemContainer business={business}/>
             })
 
             return collection;
@@ -233,23 +235,20 @@ class SearchPageResults extends React.Component{
                                     </div>
                                 </div>
 
-                                {/* <SearchResultIndexItemContainer business={this.props.searchResults[0]}/> */}
+
                                 {allResults}
+
+
                            </div>
-                                <p>HI</p>
+
                         </div>
                     </div>
                 </div>
                 {/* Right Container */}
                 <div className="right-rail-container">
-                    <div className="mapbox-container">
-                        <div className="mapbox-content">
-                            <div className="mapbox-faux">
-
-                            </div>
-                        </div>
-                    </div>
+                    <ResultsMap bizMarkers={allResults}/>
                 </div>
+
             </div>
             
             </>

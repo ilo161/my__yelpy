@@ -25,6 +25,7 @@ class SearchResultIndexItem extends React.Component{
 
         const star = <FontAwesomeIcon icon={faStar} />
 
+        let bizTitle;
         let averageBusinessRating;
         let phoneString;
         let starContainerArr = [];
@@ -87,10 +88,16 @@ class SearchResultIndexItem extends React.Component{
 
         }
 
+        const generateNumericTitle = () => {
+            let title = `${(this.props.idx + 1).toString()}. ${business.business_name}`
+            return title
+        }
+
         // Logic to set Average Rating for a Business
          if(business){
-           phoneString = splitPhoneToString()
+           phoneString = splitPhoneToString();
            categoryStr = generateCategory();
+           bizTitle = generateNumericTitle();
 
            if (business.reviews.length > 0){
                 averageBusinessRating = getAverage();
@@ -114,7 +121,7 @@ class SearchResultIndexItem extends React.Component{
                     <div className="business-meta-data-content flex-col-start">
                         <div className="biz-headline-container flex-row-start">
                             <div className="biz-head-left-rail flex-col-start">
-                                <p className="review-biz-name text-size-large-plus bold"> {business ? <Link to={`/biz/${business.id}`}>{business.business_name}</Link>: null} </p>
+                                <p className="review-biz-name text-size-large-plus bold"> {business ? <Link to={`/biz/${business.id}`}>{bizTitle}</Link>: null} </p>
                                 <div className="flex-row-start flex-row-align">
                                     {starContainerArr}
                                     <p className="ml-5 text-size-md">{business ? business.total_business_reviews : null}</p>
