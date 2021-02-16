@@ -7,7 +7,7 @@ import ReviewAddForm from "./review_add_form";
 const mSTP = (state, url) => {
 
     const id = url.match.params.bizId;
-    const currentUserId = state.session.id;
+    const currentUserId = state.session.currentUser.id;
     debugger
     return {
         id,

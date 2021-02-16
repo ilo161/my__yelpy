@@ -30,7 +30,7 @@ import rootReducer from "../reducers/root_reducer"
 
 const configureStore = ( preloadedState = {} ) => {
     return createStore(rootReducer,
-         preloadedState,applyMiddleware(thunk, logger))
+         preloadedState, applyMiddleware(thunk, logger))
 }
 
 

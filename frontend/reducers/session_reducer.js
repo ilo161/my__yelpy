@@ -6,8 +6,11 @@ import {
 import merge from "lodash/merge"
 
 
+// const _nullUser = Object.freeze({
+//   id: null
+// });
 const _nullUser = Object.freeze({
-  id: null
+    currentUser: null
 });
 
 const sessionReducer = (state = _nullUser, action) => {
@@ -16,10 +19,7 @@ const sessionReducer = (state = _nullUser, action) => {
        let newState = {};
        switch(action.type){
             case RECEIVE_CURRENT_USER:
-                let prevState = merge({}, state);
-                prevState.id = action.currentUser.id;
-                return prevState;
-
+                return Object.assign({}, {currentUser: action.currentUser})
             case LOGOUT_CURRENT_USER:
                 return _nullUser;
             default:

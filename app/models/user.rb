@@ -1,3 +1,4 @@
+
 class User < ApplicationRecord
     validates :username, :first_name, :last_name, :email, :session_token, :password_digest, :zip_code, presence:true
     validates :username, :email, uniqueness:true
@@ -12,6 +13,7 @@ class User < ApplicationRecord
     has_many :reviews,
     foreign_key: :user_id,
     class_name: "Review"
+
 
     def password=(password)
         @password = password

@@ -1,5 +1,6 @@
 import React from 'react'
-import {withRouter} from "react-router-dom"
+import {withRouter} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 class TransparentNav extends React.Component {
 
@@ -13,8 +14,10 @@ class TransparentNav extends React.Component {
                     <a className="nav-header-link">Events</a>
                     <a className="nav-header-link">Talk</a>
                 </ul>
-                <a className="nav-header-link mr-12">Log In</a>
-                <a className="nav-header-link signup-trans">Sign Up</a>
+                {/* <a className="nav-header-link mr-12"> */}
+                {/* <a className="nav-header-link signup-trans"> */}
+                <Link className="nav-header-link mr-12" to="/login">Log In</Link>
+                <Link className="nav-header-link signup-trans" to="/signup">Sign Up</Link>
             </div>
         )
     }

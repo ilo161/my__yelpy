@@ -14,8 +14,24 @@ json.total_business_reviews biz_total_reviews
 
 
 if business.reviews.length > 0
+    # for sorting by ID (Type find)
+    # biz_review_ids = business.reviews.map {|review| review.id}
+    # sorted_biz_review_ids = biz_review_ids.sort.reverse!
 
-    json.reviews business.reviews do |review|
+    
+    
+    #  For some reason my seeds file will ignore order and insert new reviews 
+    # in the middle,
+    # json.reviews business.reviews do |review|
+    
+    #(Type find)
+    # json.reviews sorted_biz_review_ids.each do |id|
+    
+    reviews = business.reviews.order('id DESC') 
+    json.reviews reviews do |review|
+        # temp fix - find via @biz - not efficient. efficiency down. (Type find)
+        # review = business.reviews.find(id)
+
         json.extract! review, :id, :business_id, :user_id, :title, :body, :rating 
 
         user = User.find(review.user_id)

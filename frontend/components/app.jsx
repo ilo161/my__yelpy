@@ -1,6 +1,11 @@
 import React from "react";
 import {Route, Switch} from "react-router-dom";
 
+import {
+  AuthRoute,
+  ProtectedRoute
+} from "../util/route_utils"
+
 import GreetingContainer from "./greeting/greeting_container";
 import LoginFormContainer from "./session_form/login_form_container"
 import LoginPageContainer from "./login/login_page_container"
@@ -17,10 +22,10 @@ const App = () => (
   <Modal/>
   <Switch>
     <Route exact path="/" component={GreetingContainer}/>
-    <Route exact path="/login" component={LoginPageContainer}/>
-    <Route exact path="/signup" component={SignUpPageContainer}/>
+    <AuthRoute exact path="/login" component={LoginPageContainer}/>
+    <AuthRoute exact path="/signup" component={SignUpPageContainer}/>
     <Route exact path="/biz/:bizId" component={BusinessShowContainer}/>
-    <Route exact path="/biz/:bizId/review/new" component={ReviewAddFormContainer}/>
+    <ProtectedRoute exact path="/biz/:bizId/review/new" component={ReviewAddFormContainer}/>
     <Route path="/search" component={SearchPageResultsContainer}/>
   </Switch>
   </div>
