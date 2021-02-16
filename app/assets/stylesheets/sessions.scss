@@ -70,12 +70,90 @@
 .user-medallion-container{
     width: 58px;
     height: 38px;
-    border: 1px solid red
+    position: relative;
+    
+    // border-left: none;
+
 }
 
-.user-medallion-content{
-    background-color: lightgreen;
-    display: block;
-    width: 100%;
-    height: 100%;
-}
+    .user-medallion-content{
+        background: rgba(0, 0, 0, 0.25);
+        // border: 1px solid rgba(0, 0, 0, 0.25);
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        // display: block;
+        // width: 100%;
+        // height: 100%;
+    }
+
+    .avatar-medalion{
+        height: 100%;
+        width: 38px;
+    }
+
+    .medallion-options{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+        .medallion-wrapper{
+            color: white;
+        }
+
+ .medallion-dropdown-container{
+     background-color: white;
+     margin-top: 10px;
+     position: absolute;
+     right: 0;
+     z-index: 11;
+     border: 1px solid rgba(0,0,0, 0.2);
+     border-radius: 3px;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.20);
+     box-sizing: border-box;
+     
+ }   
+
+    .medallion-drop-down-content{
+        // border: 1px solid lightgreen;
+        
+        padding: 12px;
+        min-width: 217px;
+    }
+
+        .avatar-60-60{
+            width: 60px;
+            height: 60px;
+            border-radius: 3px;
+            margin-right: 10px;
+        }
+
+        .user-first{
+            font-size: 14px;
+            line-height: 1.28571em;
+            font-weight: 700;
+        }
+
+        .user-zip{
+            font-size: 12px;
+            line-height: 2.0em;
+            font-weight: 500;
+        }
+
+        .user-count{
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+
+        .drop-down-wrapper{
+            margin-top: 12px;
+            border-top: 1px solid #e6e6e6;
+            padding-top: 11px;
+        }
+
+            .drop-down-logout{
+                cursor: pointer;
+                color: rgb(0, 108, 202);
+            }
