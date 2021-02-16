@@ -30,7 +30,8 @@
               "last_name": "<%= current_user.last_name %>",
               "email": "<%= current_user.email %>",
               "zip_code": <%= current_user.zip_code %>,
-              "user_total_reviews": <%= current_user.reviews.count %>
+              "user_total_reviews": <%= current_user.reviews.count %>,
+              "userAvatarUrl": "<%= url_for(current_user.avatar) %>"
           }
         </script>
     <% end %>
