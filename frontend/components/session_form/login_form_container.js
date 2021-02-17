@@ -10,7 +10,7 @@ const mSTP = state => {
 
     return {
         user: {username: "", password: ""},
-        test: {test: "test"}
+        errors: state.errors.session
     }
 }
 

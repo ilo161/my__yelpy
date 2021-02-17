@@ -10,7 +10,13 @@ class LoginForm extends React.Component {
     constructor(props){
         super(props)
 
-        this.state = this.props.user;
+        this.state = {...this.props.user,
+            userNamePlaceholder: "Username",
+            passwordPlaceholder: "Password",
+            wrongCreds: "Invalid username or password",
+            errors: this.props.errors
+        
+        }
 
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,17 +27,37 @@ class LoginForm extends React.Component {
 
     }
 
+    componentDidUpdate(oldProps){
+        if(oldProps.errors !== this.props.errors){
+            this.setState({username: "", password: ""})
+        }
+    }
+
     handleSubmit(e){
         e.preventDefault();
 
-        const url = this.props.location.pathname;
-        const parts = url.split("/")
-
-        if(!parts.includes("login")){
-            this.props.action(this.state).then(() => this.props.closeModal());
+        if (this.state.username === "" || this.state.password === ""){
+            const msg = "Please fill in all fields"
+            this.setState({userNamePlaceholder: msg, passwordPlaceholder: msg})
+                
         } else {
-            this.props.action(this.state).then(this.props.history.push("/"));
+            const url = this.props.location.pathname;
+            const parts = url.split("/")
+
+            if(!parts.includes("login")){
+                this.props.action(this.state).then((res) => {
+                    debugger
+                this.props.closeModal()
+            });
+            } else {
+                this.props.action(this.state).then((res) => {
+                    debugger
+                    this.props.history.push("/")
+                });
+            }
         }
+
+        
 
     
     
@@ -44,8 +70,10 @@ class LoginForm extends React.Component {
     }
 
     render() {
-        const {isModal, closeModalDiv, renderSignForm} = this.props;
+        const {isModal, closeModalDiv, renderSignForm, errors} = this.props;
         const pathToSignUp = (<Link to="/signup" />)
+
+
         // const exSym = <FontAwesomeIcon className="exit-x-content" icon={faTimes} size="1x" />
         // const closeModalDiv = (<div onClick={() => closeModal()} className="exit-x-box">
         //                           <div className="exit-x-author">
@@ -87,7 +115,7 @@ class LoginForm extends React.Component {
                         className="credentials-input"
                         type="text"
                         value={this.state.username}
-                        placeholder="Username"
+                        placeholder={errors.base ? errors.base[0] : this.state.userNamePlaceholder}
                         onChange={this.update("username")}
                         />    
                     </label>
@@ -98,7 +126,7 @@ class LoginForm extends React.Component {
                         className="credentials-input"
                         type="password"
                         value={this.state.password}
-                        placeholder="Password"
+                        placeholder={errors.base ? errors.base[0] : this.state.passwordPlaceholder}
                         onChange={this.update("password")}
                         />
                     </label>

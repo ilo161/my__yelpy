@@ -91,12 +91,12 @@ class Greeting extends React.Component {
                     {/* End Header NAV */}
                 {/* </div> */}
 
-                <p>{errors ? listOErrors[0] : null}</p>
-                <nav className="login-signup">
+                {/* <p>{errors ? listOErrors[0] : null}</p> */}
+                {/* <nav className="login-signup">
                 </nav>
                 <div className="which-form">
                     {signLoginArray[this.state.signLogin]}
-                </div>
+                </div> */}
                 <GreetingJumboTronContainer/>
                 <div>
                     <ul className="flex-col-full">
@@ -147,7 +147,8 @@ class Greeting extends React.Component {
                 </>
             )
         }
-        return currentUser ? personalGreeting() : sessionLinks();
+        // return currentUser ? personalGreeting() : sessionLinks();
+        return sessionLinks();
 }
 }
     
