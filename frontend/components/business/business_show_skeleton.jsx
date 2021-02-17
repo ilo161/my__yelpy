@@ -47,7 +47,7 @@ class BusinessShowSkeleton extends React.Component {
             //Prepare slideShow images for Resizing
             if (business.photos){
                 allPhotosImg = business.photos.map((image) => {
-                    return <img className="show-photo-scroller-item" src={image.photoUrl}></img>
+                    return <img key={image.photoUrl} className="show-photo-scroller-item" src={image.photoUrl}></img>
                 })
                 allPhotosImg = allPhotosImg.slice(0,4)
             }
@@ -82,7 +82,7 @@ class BusinessShowSkeleton extends React.Component {
                     {/* Flexx Start */}
                     <section className="show-left-column flex-col">
                         {/* Flex Column Start */}
-                        { business ? <BusinessHeaderBox business={business} /> : null }
+                        { business ? <BusinessHeaderBox key={business.id} business={business} /> : null }
 
                         <section className="show-divider-section covid">
                             <p> I am text</p>

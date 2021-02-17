@@ -2,6 +2,13 @@ import RightHeaderNav from "./right_header_nav"
 import {connect} from "react-redux";
 import { openModal } from "../../actions/modal_actions"
 
+const mSTP = state => {
+
+    return {
+        currentUser: state.session.currentUser
+    }
+}
+
 
 const mDTP = dispatch => {
     return {
@@ -9,4 +16,4 @@ const mDTP = dispatch => {
     }
 }
 
-export default connect(null, mDTP)(RightHeaderNav);
+export default connect(mSTP, mDTP)(RightHeaderNav);

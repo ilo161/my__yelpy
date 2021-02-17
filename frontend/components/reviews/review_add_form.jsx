@@ -4,6 +4,7 @@ import SearchCityNavContainer from "../search/search_city_nav_container";
 import RainbowStars from "./rainbow_stars"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faChevronLeft} from '@fortawesome/free-solid-svg-icons';
+import UserMedallion from "../nav_header/user_medallion"
 
 
 class ReviewAddForm extends React.Component {
@@ -27,7 +28,7 @@ class ReviewAddForm extends React.Component {
     
     handleSubmit(e){
         e.preventDefault();
-
+        debugger
         if (this.state.rating === 0){
 
             this.setState({errorMessage: 
@@ -37,7 +38,7 @@ class ReviewAddForm extends React.Component {
             this.setState({errorMessage: 
                 "To submit your review, please explain your rating to others."})
         } 
-        else if(this.props.currentUserId === null){
+        else if(!this.props.currentUserId){
             this.props.openModal("login")
 
         }else{
@@ -70,31 +71,16 @@ class ReviewAddForm extends React.Component {
         }
     }
 
-    // updateStars(e){
-
-    //     console.log(e.currentTarget.attributes[1].nodeValue)
-    //     const starIdx = parseInt(e.currentTarget.attributes[1].nodeValue);
-
-    //     this.setState({starNum: starIdx})
-    // }
 
 
     render() {
         
-        const {business} = this.props;
+        const {business, loggedIn } = this.props;
         const chevronLeft = <FontAwesomeIcon icon={faChevronLeft} size="1x" />
-       
-        // if (business){
-        //     if (this.state.business_id === null){
-
-        //         this.setState({business_id: business.id})
-        //     }
-        // }
-
-
-        // const myStars = generateAllStars(this.state.starNum);
-
-
+        const loginSignup = (<>
+            <button onClick={() => this.props.openModal("login")} className="login-button">Login</button>
+            <button onClick={() => this.props.openModal("signup")} className="signup-clear">Signup</button>
+            </>)
 
     return (
         <>
@@ -106,10 +92,9 @@ class ReviewAddForm extends React.Component {
                 </div>
                 
                 <div className="login-signup-buttons-container">
-                    <button onClick={() => this.props.openModal("login")} className="login-button">Login</button>
-                    {/* <Link to="/login" className="login-button">Login</Link> */}
-                    {/* <Link to="/signup" className="signup-clear">Signup</Link> */}
-                    <button onClick={() => this.props.openModal("signup")} className="signup-clear">Signup</button>
+                    
+                    {loggedIn ? <UserMedallion/> : loginSignup }
+                    
                 </div>
                 {/* End Flexx */}
             </ul>

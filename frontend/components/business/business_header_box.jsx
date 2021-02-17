@@ -66,8 +66,8 @@ const businessHeaderBox = props => {
     }
 
 
-    const starField = () => (
-                    <div className="star-background">
+    const starField = (key) => (
+                    <div key={key} className="star-background">
                         <div className="rating-icons"><span>{star}</span></div>
                     </div>
     )
@@ -76,7 +76,8 @@ const businessHeaderBox = props => {
 
     const starGenerate = () => {
         for (let i = 0; i < averageBusinessRating; i++){
-            starContainerArr.push(starField())
+            let key = i + 99
+            starContainerArr.push(starField(key))
         }
     }
 

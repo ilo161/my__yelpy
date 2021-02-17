@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faStar } from '@fortawesome/free-solid-svg-icons';
 
-import { requestLogin, requestLogout } from "../../actions/session_actions"
+import { requestLogout } from "../../actions/session_actions"
 
 
 const UserMedallion = ({requestLogout, currentUser}) => {
@@ -45,8 +45,8 @@ const UserMedallion = ({requestLogout, currentUser}) => {
         <div className="user-medallion-container">
             <div className="user-medallion-content flex-row-start">
                 <img className="avatar-medalion" src={currentUser.userAvatarUrl} alt={currentUser.first_name}/>
-                <div className="medallion-options flex-col-start">
-                    <div onClick={()=> toggleOptions(!showOptions)} className="medallion-wrapper">
+                <div onClick={()=> toggleOptions(!showOptions)} className="medallion-options flex-col-start">
+                    <div className="medallion-wrapper">
                         {downAngle}
                     </div>
                 </div>

@@ -7,16 +7,21 @@ import ReviewAddForm from "./review_add_form";
 const mSTP = (state, url) => {
 
     const id = url.match.params.bizId;
-    const currentUserId = state.session.currentUser.id;
-    debugger
+    let currentUserId;
+    if( Boolean(state.session.currentUser)){
+        currentUserId = state.session.currentUser.id;
+    }
+
     return {
         id,
         business: state.entities.businesses[id],
         form: {body: "", business_id: id, user_id: currentUserId, rating: 0 },
-        currentUserId
+        currentUserId,
+        loggedIn: Boolean(state.session.currentUser)
 
     }
 }
+
 
 const mDTP = dispatch => {
     return {

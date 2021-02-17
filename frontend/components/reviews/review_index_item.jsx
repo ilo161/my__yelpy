@@ -34,8 +34,8 @@ class ReviewIndexItem extends React.Component {
                     </div>
     )
 
-    const starFieldGrey = () => (
-                    <div className="star-background-grey-sm">
+    const starFieldGrey = (key) => (
+                    <div key={key} className="star-background-grey-sm">
                         <div className="rating-icons-grey-sm"><span>{star}</span></div>
                     </div>
     )
@@ -45,9 +45,11 @@ class ReviewIndexItem extends React.Component {
 
     const starGenerate = () => {
         for (let i = 0; i < ratingGiven; i++){
-            starContainerArr.push(starField())
+            let key = i + 199
+            starContainerArr.push(starField(key))
         }
     }
+
     starGenerate();
 
 
