@@ -16,6 +16,7 @@ class SearchPageResults extends React.Component{
         const rightChevron = <FontAwesomeIcon icon={faChevronRight} size="1x"/>
         let allResults;
 
+
         const generateQueryChevrons = () => {
             const smallChevron = (<span className="m-lr-8">{rightChevron}</span>)
             const city = <li>Seattle</li>
@@ -246,7 +247,7 @@ class SearchPageResults extends React.Component{
                 </div>
                 {/* Right Container */}
                 <div className="right-rail-container">
-                    <ResultsMap bizMarkers={allResults}/>
+                    <ResultsMap bizMarkers={this.props.searchResults} updateBounds={this.props.requestUpdateBounds}/>
                 </div>
 
             </div>

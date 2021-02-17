@@ -11,7 +11,8 @@ import SignUpForm from './sign_up_form';
 const mSTP = (state, url) => {
     return {
         user: {username: "", password: "", firstName: "",
-    lastName: "", email:"", zipCode:""}
+    lastName: "", email:"", zipCode:""},
+        errors: state.errors.session
     }
 }
 

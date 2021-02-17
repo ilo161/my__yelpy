@@ -1,5 +1,6 @@
 import {connect} from "react-redux";
 import SearchPageResults from "./search_page_results";
+import requestUpdateBounds from "../../actions/filter_actions"
 
 
 const mSTP = (state, url) => {
@@ -16,7 +17,7 @@ const mSTP = (state, url) => {
 
 const mDTP = dispatch => {
     return {
-       
+       requestUpdateBounds: dispatch(requestUpdateBounds(bounds))
     }
 }
 

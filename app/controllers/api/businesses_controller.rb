@@ -59,15 +59,23 @@ class Api::BusinessesController < ApplicationController
     end
 
     def search
+        # debugger
         @bizs = Business.includes(:reviews).search_by(params[:search])
+        # @bizs = @bizs.in_bounds(bounds)
         render :search_results
     end
 
     private
 
     def business_params
-        params.require(:business).permit(:business_name, :address, :city, :state, :zip_code, :first_class, :website, :category,
-            :open_time, :close_time, :open_time_sat, :close_time_sat, :open_time_sun, :close_time_sun, :owner_id, photos: [])
+        params.require(:business).permit(:business_name, :address, :city, :state, 
+            :zip_code, :first_class, :website, :category, :open_time, :close_time,
+             :open_time_sat, :close_time_sat, :open_time_sun, :close_time_sun, 
+             :owner_id, :latitude, :longitude, photos: [])
+    end
+
+    def bounds
+        params[:bounds]
     end
     
 end

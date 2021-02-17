@@ -10,17 +10,27 @@ class ResultsMap extends React.Component {
 
   componentDidMount() {
     const mapOptions = {
-      center: { lat: 37.7758, lng: -122.435 }, // this is SF
-      zoom: 13
+      center: { lat: 47.73401867760304, lng: -122.35571371908686 }, // this is SF
+      zoom: 10
     };
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
+    const that = this.map
+    this.map.addListener("idle", () => {
+
+        debugger
+        const bounds = that.getBounds()
+        console.log(bounds)
+    })
     this.MarkerManager = new MarkerManager(this.map);
-    this.MarkerManager.updateMarkers()
+    this.MarkerManager.updateMarkers(this.props.bizMarkers)
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(oldProps) {
 
+    if(oldProps != this.props){
+        this.MarkerManager.updateMarkers(this.props.bizMarkers)
+    }
   }
 
   registerListeners() {

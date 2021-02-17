@@ -8,7 +8,7 @@ class SignUpForm extends React.Component {
     constructor(props){
         super(props)
 
-        this.state = this.props.user;
+        this.state = {...this.props.user, inputErrors:""}
 
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,16 +20,35 @@ class SignUpForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
+        const {username, password, firstName,
+    lastName, email, zipCode} = this.state;
+        if (username === "" || password === "" || firstName === "" ||
+            lastName === "" || email === "" || zipCode === ""){
 
-        const url = this.props.location.pathname;
-        const parts = url.split("/")
+            this.setState({inputErrors: "Please fill in all fields"})
 
-        if (!parts.includes("signup")){
-            this.props.action(this.state).then(() => this.props.closeModal());
+        } else if(password.length <= 5){
+            this.setState({inputErrors: "Password must be at least 6 characters"})
         } else {
-            debugger
-            this.props.action(this.state).then(this.props.history.push("/"));
+            const url = this.props.location.pathname;
+            const parts = url.split("/")
+
+            if (!parts.includes("signup")){
+
+                this.props.action(this.state).then(() => {
+
+                    this.props.closeModal()
+                });
+            } else {
+
+                this.props.action(this.state).then(() => {
+
+                    this.props.history.push("/")
+                });
+            }
         }
+
+        
     }
 
     update(field){
@@ -37,12 +56,8 @@ class SignUpForm extends React.Component {
     }
 
     render() {
-        const {isModal, closeModalDiv, renderLoginForm} = this.props;
-        //  const closeModalDiv = (<div onClick={() => closeModal()} className="exit-x-box">
-        //                           <div className="exit-x-author">
-        //                           {exSym}
-        //                           </div>
-        //                         </div>)
+        const {isModal, closeModalDiv, renderLoginForm, errors} = this.props;
+      
 
         return (
 
@@ -63,6 +78,13 @@ class SignUpForm extends React.Component {
                         {/* </div> */}
                         <button type="text" disabled={true} className="google-button lb block-99">Continue with Google</button>
                         <button type="text" disabled={true} className="apple-button lb block-99">Continue with Apple</button>
+                    </div>
+
+
+
+                    <div className="error-msg-review-container">
+                        <p className="error-msg" >{this.state.inputErrors}</p>
+                        <span className="error-msg" >{errors.base ? errors.base[1] : null}</span>
                     </div>
                     
                     <div className="input-row">

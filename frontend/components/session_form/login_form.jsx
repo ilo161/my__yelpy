@@ -45,15 +45,9 @@ class LoginForm extends React.Component {
             const parts = url.split("/")
 
             if(!parts.includes("login")){
-                this.props.action(this.state).then((res) => {
-                    debugger
-                this.props.closeModal()
-            });
+                this.props.action(this.state).then(() => this.props.closeModal());
             } else {
-                this.props.action(this.state).then((res) => {
-                    debugger
-                    this.props.history.push("/")
-                });
+                this.props.action(this.state).then(() => this.props.history.push("/"));
             }
         }
 
@@ -74,16 +68,9 @@ class LoginForm extends React.Component {
         const pathToSignUp = (<Link to="/signup" />)
 
 
-        // const exSym = <FontAwesomeIcon className="exit-x-content" icon={faTimes} size="1x" />
-        // const closeModalDiv = (<div onClick={() => closeModal()} className="exit-x-box">
-        //                           <div className="exit-x-author">
-        //                           {exSym}
-        //                           </div>
-        //                         </div>)
 
         return (
-            // <div className={this.props.isModal ? "login-form-modal-container" : "login-form"}>
-            //     <form className={this.props.isModal ? "login-form-modal" : null} onSubmit={this.handleSubmit}>
+
             <div className="login-form-modal-container max-w-400">
                 {/* {closeModalDiv} */}
                 {isModal ? closeModalDiv : null}

@@ -24,8 +24,9 @@ class Api::UsersController < ApplicationController
             login!(@user)
             render :show
         else
-            
-            render json: @user.errors.full_messages, status: 422
+
+            render json: {base: ['invalid credentials', "username or email already exists"]}, status: 401
+            # render json: @user.errors.full_messages, status: 422
         end
     end
     

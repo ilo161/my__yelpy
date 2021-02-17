@@ -19,7 +19,7 @@ class SearchCityNav extends React.Component{
     }
 
     handleSubmit(){
-        this.props.action(this.state.searchQuery).then(() => this.props.history.push(`/search`))
+        this.props.action(this.state.searchQuery, 25).then(() => this.props.history.push(`/search`))
     }
 
     update(field){

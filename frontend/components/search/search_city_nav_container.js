@@ -13,7 +13,7 @@ const mSTP = (state, url) => {
 
 const mDTP = dispatch => {
     return {
-        action: searchQuery => dispatch(requestSearchResults(searchQuery)),
+        action: (searchQuery, filters) => dispatch(requestSearchResults(searchQuery, filters)),
     }
 }
 

@@ -16,7 +16,7 @@ class Api::SessionsController < ApplicationController
             render "api/users/show"
         else
 
-            render json: {base: ['invalid credentials', "username already exists"]}, status: 401
+            render json: {base: ['invalid credentials', "username or email already exists"]}, status: 401
         end
 
     end
