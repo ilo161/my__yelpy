@@ -5,12 +5,16 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import TripleNav from "../nav_header/triple_nav_components"
 import SearchResultIndexItemContainer from "./search_result_index_item_container"
 import ResultsMap from "../map/results_map"
+// import { requestUpdateBounds } from "../../actions/filter_actions"
 
 class SearchPageResults extends React.Component{
     constructor(props){
         super(props)
 
+
     }
+
+    
 
     render() {
         const rightChevron = <FontAwesomeIcon icon={faChevronRight} size="1x"/>
@@ -56,7 +60,7 @@ class SearchPageResults extends React.Component{
             allResults = generateSearchResultIndexItem();
         }
 
-       
+
         return (
             <>
             <TripleNav/>
@@ -247,7 +251,8 @@ class SearchPageResults extends React.Component{
                 </div>
                 {/* Right Container */}
                 <div className="right-rail-container">
-                    <ResultsMap bizMarkers={this.props.searchResults} updateBounds={this.props.requestUpdateBounds}/>
+                    {/* <ResultsMap bizMarkers={this.props.searchResults} updateBounds={this.props.requestUpdateBounds} /> */}
+                    <ResultsMap bizMarkers={this.props.searchResults} />
                 </div>
 
             </div>
@@ -258,4 +263,4 @@ class SearchPageResults extends React.Component{
     }
 }
 
-export default SearchPageResults ;
+export default SearchPageResults;

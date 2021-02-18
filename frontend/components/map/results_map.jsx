@@ -6,6 +6,7 @@ import MarkerManager from '../../util/marker_manager';
 
 
 
+
 class ResultsMap extends React.Component {
 
   componentDidMount() {
@@ -15,15 +16,16 @@ class ResultsMap extends React.Component {
     };
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
-    const that = this.map
-    this.map.addListener("idle", () => {
 
-        debugger
-        const bounds = that.getBounds()
-        console.log(bounds)
-    })
-    this.MarkerManager = new MarkerManager(this.map);
+    this.handleMarkerClick = this.handleMarkerClick.bind(this);
+    
+    // this.registerListeners();
+    this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick);
     this.MarkerManager.updateMarkers(this.props.bizMarkers)
+  }
+
+  handleMarkerClick(biz){
+    this.props.history.push(`/biz/${biz.id}`)
   }
 
   componentDidUpdate(oldProps) {
@@ -34,16 +36,21 @@ class ResultsMap extends React.Component {
   }
 
   registerListeners() {
-   
+    const {updateBounds} = this.props;
+
+
+    google.maps.event.addListener(this.map, "idle", (poodle) => {
+        const { north, east, south, west } = this.map.getBounds().toJSON();   
+        const bounds = {
+            northEast: {lat: north, lng: east},
+            southWest: {lat: south, lng: west}
+        }
+        updateBounds(bounds);
+
+    })
+
   }
 
-  handleMarkerClick(bench) {
-
-  }
-
-  handleClick(coords) {
-
-  }
 
   render() {
     return (
