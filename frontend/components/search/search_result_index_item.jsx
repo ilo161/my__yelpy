@@ -163,7 +163,7 @@ class SearchResultIndexItem extends React.Component{
                             </div> */}
 
                         {/* </div> */}
-                            <span>No Results</span>
+                            <span className="no-results">No Results - Try searching for "coffee" or "restaurants"</span>
                     {/* </div> */}
 
                 </div>

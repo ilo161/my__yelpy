@@ -58,6 +58,8 @@ class SearchPageResults extends React.Component{
 
         if(this.props.searchResults.length > 0){
             allResults = generateSearchResultIndexItem();
+        } else {
+            allResults = <SearchResultIndexItemContainer/>
         }
 
 

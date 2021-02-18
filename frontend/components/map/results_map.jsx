@@ -10,10 +10,20 @@ import MarkerManager from '../../util/marker_manager';
 class ResultsMap extends React.Component {
 
   componentDidMount() {
-    const mapOptions = {
-      center: { lat: 47.73401867760304, lng: -122.35571371908686 }, // this is SF
-      zoom: 10
-    };
+    let mapOptions;
+
+    if(this.props.bizMarkers.length > 0){
+        mapOptions = {center: {lat: this.props.bizMarkers[0].latitude, 
+                      lng: this.props.bizMarkers[0].longitude },
+                      zoom: 11
+                     }
+    } else {
+        mapOptions = {
+            center: { lat: 47.73401867760304, lng: -122.35571371908686 }, // this is Seattle
+            zoom: 10
+        };
+    }
+
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
 
@@ -30,7 +40,7 @@ class ResultsMap extends React.Component {
 
   componentDidUpdate(oldProps) {
 
-    if(oldProps != this.props){
+    if(oldProps.bizMarkers != this.props.bizMarkers){
         this.MarkerManager.updateMarkers(this.props.bizMarkers)
     }
   }

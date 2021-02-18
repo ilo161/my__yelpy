@@ -21,8 +21,7 @@ class TransparentNav extends React.Component {
                     <a className="nav-header-link">Events</a>
                     <a className="nav-header-link">Talk</a>
                 </ul>
-                {/* <a className="nav-header-link mr-12"> */}
-                {/* <a className="nav-header-link signup-trans"> */}
+               
                 {currentUser ? <UserMedallion/> : loginSignup }
                 
                 

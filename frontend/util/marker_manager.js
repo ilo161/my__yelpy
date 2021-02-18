@@ -12,20 +12,21 @@ export default class MarkerManager {
       
 
       if(Boolean(bizMarkers)){
+
         const myBizMarkers = {};
         bizMarkers.forEach(biz => myBizMarkers[biz.id] = biz)
-
+        debugger
         bizMarkers.filter(biz => !this.markers[biz.id])
         .forEach((biz, idx) => this.createMarkerFromBiz(biz, idx))
 
-        debugger
+        // debugger
         Object.keys(this.markers)
         .filter(key => {
-            debugger
+            // debugger
            return !myBizMarkers[key]
         })
         .forEach(key => {
-            debugger
+            // debugger
             this.removeMarker(key)
         })
 
@@ -45,15 +46,15 @@ export default class MarkerManager {
 
   createMarkerFromBiz(biz, idx){
     const bizId = biz.id;
-    // const myLatLng = {lat: biz.latitude, lng: biz.longitude};
+
     const position = new google.maps.LatLng(biz.latitude, biz.longitude);
-    debugger
+
     const marker = new google.maps.Marker({
                 position,
                 map: this.map,
                 title: biz.business_name,
-                label: (idx + 1).toString()
-            });
+                label: null
+            })
 
     const infowindow = new google.maps.InfoWindow({
         content: `<h2>${biz.business_name}</h2>`,
@@ -75,7 +76,7 @@ export default class MarkerManager {
   }
 
   removeMarker(bizId) {
-      debugger
+
     this.markers[bizId].setMap(null);
     delete this.markers[bizId];
   }

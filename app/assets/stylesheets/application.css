@@ -344,6 +344,8 @@ input[type="submit"] {
         /* border-radius: 4px 0 0 4px; */
     }
 
+    
+
     .bar-v-line{
         content: "";
         /* top: 12px; */
@@ -369,11 +371,30 @@ input[type="submit"] {
         height: 23px;
         margin: 0;
         padding: 0;
+        position: relative;
         /* border: none; */
         /* height: 2rem; */
         /* padding: 13px 16px; */
         /* border-radius: 4px 0 0 4px; */
     }
+
+     .myRelative{
+        position: relative;
+        /* width: 1px; */
+    }
+
+    .search-active{
+        position: absolute;
+        top: 40px;
+        text-align: center;
+        right: 100px;
+        width: 200px;
+        background-color: rgba(150, 189, 229, 0.8);
+        color: white;
+        border: 1px solid white;
+        border-radius: 3px;
+    } 
+
     .no-border{
         border: none;
     }
