@@ -318,15 +318,18 @@
         border-top: 1px solid #eeeeef
     }
 
+        .section-subline{
+            margin-bottom: 20px;
+        }
+
     .covid{
-        height: 121px;
-        border: 1px solid fuchsia;
+        height: 90px;
     }
 
     .on-the-menu{
         height: 121px;
-        border: 1px solid green;
     }
+
 
     .website-menu{
         height: 121px;
@@ -341,4 +344,8 @@
 
     .no-results{
         margin: 0 auto;
+    }
+
+    .section-headline{
+        margin-bottom: 26px;
     }

@@ -20,7 +20,8 @@ class BusinessShowSkeleton extends React.Component {
     }
 
     componentDidMount() {
-        this.props.requestBusinesses().then( () => this.props.requestBusiness(this.props.id));
+        this.props.requestBusiness(this.props.id)
+        // this.props.requestBusinesses().then( () => this.props.requestBusiness(this.props.id));
 
         
         // this.props.requestBusiness(this.props.id)
@@ -83,12 +84,30 @@ class BusinessShowSkeleton extends React.Component {
                     <section className="show-left-column flex-col">
                         {/* Flex Column Start */}
                         { business ? <BusinessHeaderBox key={business.id} business={business} /> : null }
-
-                        <section className="show-divider-section covid">
-                            <p> I am text</p>
+                        {/* covid - 19 */}
+                        <section className="show-divider-section covid flex-col-start">
+                            <div className="section-headline">
+                                <strong className="text-size-20 query-big-headline">COVID-19 Updates</strong>
+                            </div>
+                            <p>Contact the business for more information about recent service changes.</p>
                         </section>
-                        <section className="show-divider-section on-the-menu">
-                            <p>On the Menu</p>
+                        {/* On the Menu */}
+                        <section className="show-divider-section on-the-menu flex-col-start">
+                            <div className="section-headline">
+                                <strong className="text-size-20 query-big-headline">On the Menu</strong>
+                            </div>
+                            <div className="section-subline">
+                                <p className="text-size-large query-big-headline">Popular Here</p>
+                            </div>
+                            {/* card scroller */}
+                            <div className="card-photo-scroller-container">
+                                <div className="card-photo-content flex-row-start">
+                                    <div className="card-photo">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
                         </section>
                         {/* Website Menu Component */}
                         <section className="show-divider-section website-menu">

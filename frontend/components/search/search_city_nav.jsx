@@ -39,7 +39,6 @@ class SearchCityNav extends React.Component{
     }
 
     showBlip(field){
-        debugger
         this.setState({[field]: !this.state[field]})
     }
 
