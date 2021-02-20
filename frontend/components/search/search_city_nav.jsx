@@ -76,7 +76,7 @@ class SearchCityNav extends React.Component{
                         {isSplash ? <span className="hero-nav-header">Find</span> : null}
 
                         
-                            <input type="text" className={isSplash ? "search-bar white no-border" : "search-bar no-border fade-gray"} type="text"
+                            <input type="text" className={isSplash ? "search-bar white no-border" : "search-bar no-border"} type="text"
                             onFocus={isSplash ? () => this.showBlip("showBlipFind") : null}
                             onBlur={isSplash ? () => this.showBlip("showBlipFind") : null}
                             placeholder={isSplash ? "plumbers, delivery, take-out" : "taco's, cheap dinner, Max's"}

@@ -10,6 +10,8 @@ import BusinessInfoBox from "./business_info_box";
 import RightHeaderNavContainer from "../nav_header/right_header_nav_container"
 import SearchNavDropDownsContainer from "../nav_header/search_nav_dropdowns_container"
 import TripleNav from "../nav_header/triple_nav_components"
+import MenuPhotos from "./menu_photos"
+import ResultsMap from "../map/results_map"
 
 class BusinessShowSkeleton extends React.Component {
     constructor(props){
@@ -33,11 +35,59 @@ class BusinessShowSkeleton extends React.Component {
 
     render() {
         
-        const { business } = this.props;
+        const { business, menuItems } = this.props;
         
 
         let allReviews = [];
         let allPhotosImg;
+        let menuPhotoScroller;
+        let cityStZip;
+        let storeHours;
+
+        const generateAddressString = () => {
+            let addressString = ""
+
+            addressString += business.city + ", " 
+            addressString += business.state + ", "
+            addressString += business.zip_code.toString()
+
+            return addressString
+        }
+
+        const queryGoogleMaps = () => {
+            let url = "https://www.google.com/maps/place/";
+            let address = business.address;
+            let addressPartsWithPlus = address.split(" ").join("+") + "+";
+
+
+            let city = business.city + "+";
+            let state = business.state + "+";
+            let zipCode = business.zip_code + "/";
+
+            url += addressPartsWithPlus + city + state + zipCode
+
+            return url
+
+
+        }
+
+        const generateStoreHours = () => {
+            const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+            const weeklyOpenTime = `${business.open_time.toString()} :00 ${business.open_time < 12 ? "AM" : "PM"} -` 
+            const weeklyCloseTime = `${business.close_time.toString()} :00 ${business.close_time >= 12 ? "PM" : "AM"}` 
+
+            const oneDay = days.map((day, idx) => (
+                        <div key={day} className="flex-row-start">
+                            <span className="text-size-large mr-30 day-width semi-bold-plus">{day}</span>
+                            <span className="text-size-large semi-bold-plus mr-2">{weeklyOpenTime}</span>
+                            <span className="text-size-large semi-bold-plus">{weeklyCloseTime}</span>
+                        </div>
+                     )
+            )
+
+            return oneDay;
+
+        }
 
         if (business){
             if (business.reviews){
@@ -52,13 +102,26 @@ class BusinessShowSkeleton extends React.Component {
                 })
                 allPhotosImg = allPhotosImg.slice(0,4)
             }
+
+            if(menuItems){
+                menuPhotoScroller = menuItems.map(menuObj => (
+                    <MenuPhotos key={menuObj.text} photo={menuObj.photo} text={menuObj.text}/>
+                ))
+            }
+
+            cityStZip = generateAddressString();
+            storeHours = generateStoreHours();
+
+
         }
+
+
 
 
 
         
         const arrowDownIcon = <FontAwesomeIcon icon={faAngleDown}/>
-
+        // debugger
         return (
             <div className="business-show-container">
                 <TripleNav/>
@@ -102,21 +165,51 @@ class BusinessShowSkeleton extends React.Component {
                             {/* card scroller */}
                             <div className="card-photo-scroller-container">
                                 <div className="card-photo-content flex-row-start">
-                                    <div className="card-photo">
-                                        
-                                    </div>
+                                    {menuPhotoScroller}
                                 </div>
                             </div>
+                            
+                           
 
                         </section>
                         {/* Website Menu Component */}
-                        <section className="show-divider-section website-menu">
+                        {/* <section className="show-divider-section website-menu">
                             <p>Website menu</p>
                             <p>will contain menu links from the owner</p>
-                        </section>
+                        </section> */}
                         {/* Location and Hours COMPONENT HERE!!! WITH MAP! */}
-                        <section className="show-divider-section website-menu">
-                            <p>Location Hours</p>
+                        <section className="show-divider-section flex-col-start">
+                            <div className="section-headline">
+                                <strong className="text-size-20 query-big-headline">Location & Hours</strong>
+                            </div>
+                            <div className="map-time-container flex-row-start">
+                                {/* >1 */}
+                                <div className="map-wrapper flex-col-start">
+                                    {/* \/ */}
+                                    {business ? <ResultsMap bizShowPage={true} bizMarkers={[business]}/> : null}
+                                    <div className="address-directions-container flex-row-start">
+                                        {/* > */}
+                                        <div className="address-content flex-col-start">
+                                            {/* \/ */}
+                                            <p className="text-size-large semi-bold-plus">{business ? business.address : null}</p>
+                                            <p className="text-size-large semi-bold-plus">{business ? cityStZip : null}</p>
+                                        </div>
+                                        <button className="get-directions-button"><a className="open-sans" 
+                                        target="_blank" rel="noopener noreferrer"
+                                        href={business ? queryGoogleMaps() : null}>Get Directions</a>
+
+                                        </button>
+                                    </div>
+                                </div>
+                                {/* >2 */}
+                                <div className="hours-wrapper flex-col-start">
+                                    <ul className="flex-col-start">
+                                        {storeHours}
+                                    </ul>
+
+                                
+                                </div>
+                            </div>
                         </section>
                         {/* Amenitites and More */}
                         <section className="show-divider-section website-menu">

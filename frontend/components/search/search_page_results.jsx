@@ -254,7 +254,7 @@ class SearchPageResults extends React.Component{
                 {/* Right Container */}
                 <div className="right-rail-container">
                     {/* <ResultsMap bizMarkers={this.props.searchResults} updateBounds={this.props.requestUpdateBounds} /> */}
-                    <ResultsMap bizMarkers={this.props.searchResults} />
+                     <ResultsMap bizMarkers={this.props.searchResults} />
                 </div>
 
             </div>

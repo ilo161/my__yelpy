@@ -51,6 +51,7 @@ class SearchResultIndexItem extends React.Component{
 
         const splitPhoneToString = () => {
             let phoneString = "";
+            debugger
             let phoneArr = Array.from(business.phone.toString());
             phoneArr.splice(0,0, "("); 
             phoneArr.splice(4,0, ")"); 

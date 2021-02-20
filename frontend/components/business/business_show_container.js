@@ -12,8 +12,9 @@ const mSTP = (state, url) => {
         if(state.entities.businesses[id].category === 0){
         menuUrl = "https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/coffee_drinks/";
         menuItems = ["drip_coffee.jpg", "latte.jpg", "matcha.jpg", "latte_glass.jpg", "cinnamon_coffee.jpg"];
+        let menutext = ["Drip Coffee", "Latte", "Matcha Latte", "Specialty Latte", "Cinnamon Coffees"];
 
-        menuItems.forEach((drink, idx) => menuItems[idx] = menuUrl + drink)
+        menuItems.forEach((drink, idx) => menuItems[idx] = {photo: (menuUrl + drink), text: menutext[idx]})
 
         }
     }
@@ -21,7 +22,7 @@ const mSTP = (state, url) => {
     return {
         id,
         business: state.entities.businesses[id],
-        menuUrl
+        menuItems
     }
 }
 

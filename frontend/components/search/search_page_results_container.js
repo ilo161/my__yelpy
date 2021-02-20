@@ -9,8 +9,9 @@ const mSTP = (state, url) => {
     const searchResults = Object.values(state.entities.search)
     const searchResLen = searchResults.length;
 
+    // the following key "seachResults" contains the Biz Obj and Search Query as
+    // a string in the last index
     return {
-
         searchResults: searchResults.slice(0, searchResLen - 1),
         searchQuery: state.entities.search.searchQuery
     }

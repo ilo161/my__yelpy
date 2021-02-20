@@ -10,19 +10,33 @@ import MarkerManager from '../../util/marker_manager';
 class ResultsMap extends React.Component {
 
   componentDidMount() {
-    let mapOptions;
+    let mapOptions = this.setMapOptions()
 
-    if(this.props.bizMarkers.length > 0){
-        mapOptions = {center: {lat: this.props.bizMarkers[0].latitude, 
-                      lng: this.props.bizMarkers[0].longitude },
-                      zoom: 11
-                     }
-    } else {
-        mapOptions = {
-            center: { lat: 47.73401867760304, lng: -122.35571371908686 }, // this is Seattle
-            zoom: 10
-        };
-    }
+
+      // debugger
+      // if(this.props.bizMarkers.length === 0){
+      //      mapOptions = {
+      //             center: { lat: 47.73401867760304, lng: -122.35571371908686 }, // this is Seattle
+      //             zoom: 10
+      //         };
+      // } else if(this.props.bizMarkers.length === 1){
+      //      mapOptions = {center: {lat: this.props.bizMarkers[0].latitude, 
+      //                       lng: this.props.bizMarkers[0].longitude },
+      //                       zoom: 14
+      //                     }
+      // } else {
+      //    mapOptions = {center: {lat: this.props.bizMarkers[0].latitude, 
+      //                       lng: this.props.bizMarkers[0].longitude },
+      //                       zoom: 11
+      //                     }
+      // }
+
+             
+          // } else {
+              //
+      // }
+
+    
 
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
@@ -41,8 +55,36 @@ class ResultsMap extends React.Component {
   componentDidUpdate(oldProps) {
 
     if(oldProps.bizMarkers != this.props.bizMarkers){
+        this.map.setOptions(this.setMapOptions())
         this.MarkerManager.updateMarkers(this.props.bizMarkers)
     }
+  }
+
+  setMapOptions(){
+    let mapOptions;
+
+
+      // debugger
+      if(this.props.bizMarkers.length === 0){
+           mapOptions = {
+                  center: { lat: 47.73401867760304, lng: -122.35571371908686 }, // this is Seattle
+                  zoom: 10
+              };
+      } else if(this.props.bizMarkers.length === 1){
+             // zoom in close when showing one single business
+           mapOptions = {center: {lat: this.props.bizMarkers[0].latitude, 
+                            lng: this.props.bizMarkers[0].longitude },
+                            zoom: 14
+                          }
+      } else {
+        // display seattle
+         mapOptions = {center: {lat: this.props.bizMarkers[0].latitude, 
+                            lng: this.props.bizMarkers[0].longitude },
+                            zoom: 11
+                          }
+      }
+
+      return mapOptions
   }
 
   registerListeners() {
@@ -64,7 +106,9 @@ class ResultsMap extends React.Component {
 
   render() {
     return (
-      <div id="map-container" ref={ map => this.mapNode = map }>
+      <div id={this.props.bizShowPage ? "map-container-show-page" : "map-container"} 
+
+      ref={ map => this.mapNode = map }>
         Map
       </div>
     );
