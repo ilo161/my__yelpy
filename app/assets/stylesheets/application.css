@@ -569,6 +569,14 @@ input[type="submit"] {
     margin-right: 30px;
 }
 
+.mb-9{
+    margin-bottom: 9px;
+}
+
+.mr-10{
+    margin-right: 10px;
+}
+
 #map-container{
     height: 500px;
 }

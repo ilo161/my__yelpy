@@ -245,7 +245,7 @@ biz3 = Business.create!({
         open_time_sat: 9,
         open_time_sun: 15,
         close_time_sat: 9,
-        close_time_sun: 15
+        close_time_sun: 18
       })
 
 # file3 = open("https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/coffee_shops/beans_carafe_VT.jpg")

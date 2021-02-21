@@ -72,18 +72,84 @@ class BusinessShowSkeleton extends React.Component {
         }
 
         const generateStoreHours = () => {
-            const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-            const weeklyOpenTime = `${business.open_time.toString()} :00 ${business.open_time < 12 ? "AM" : "PM"} -` 
-            const weeklyCloseTime = `${business.close_time.toString()} :00 ${business.close_time >= 12 ? "PM" : "AM"}` 
+            // const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+            const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            let isOpen;
+            const daySpanClasses = "text-size-large mr-30 day-width semi-bold-plus"
+            const daySpanBoldClasses = daySpanClasses + " max-bold"
 
-            const oneDay = days.map((day, idx) => (
-                        <div key={day} className="flex-row-start">
-                            <span className="text-size-large mr-30 day-width semi-bold-plus">{day}</span>
-                            <span className="text-size-large semi-bold-plus mr-2">{weeklyOpenTime}</span>
-                            <span className="text-size-large semi-bold-plus">{weeklyCloseTime}</span>
-                        </div>
-                     )
-            )
+            debugger
+            const dateNow = new Date();
+            const currHr = dateNow.getHours();
+            const currDay = dateNow.getDay();
+            if( currHr >= business.open_time && currHr < business.close_time ){
+                isOpen = <span className="open-green">Open </span>;
+            } else {
+                isOpen = <span className="closed-red">Closed </span>;
+            }
+
+            let weeklyOpenTime;
+            let weeklyCloseTime;
+
+            let satOpenTime;
+            let sunOpenTime;
+
+            let satCloseTime;
+            let sunCloseTime;
+
+            // Correct military time to US Readable
+            if (business.open_time > 12) weeklyOpenTime = (business.open_time - 12).toString();
+            
+
+            if (business.open_time_sat > 12) satOpenTime = (business.open_time_sat - 12).toString();
+            
+
+            if (business.open_time_sun > 12) sunOpenTime = (business.open_time_sun - 12).toString();
+            
+
+            if (business.close_time > 12) weeklyCloseTime = (business.close_time - 12).toString();
+
+            if (business.close_time_sat > 12) satCloseTime = (business.close_time_sat - 12).toString();
+            
+            if (business.close_time_sun > 12) sunCloseTime = (business.close_time_sun - 12).toString();
+            
+
+            weeklyOpenTime = `${weeklyOpenTime ? weeklyOpenTime : business.open_time.toString()} :00 ${business.open_time < 12 ? "AM - " : "PM - "}` 
+            weeklyCloseTime = `${weeklyCloseTime ? weeklyCloseTime : business.close_time.toString()} :00 ${business.close_time < 12 ? "AM" : "PM"}` 
+
+            satOpenTime = `${satOpenTime ? satOpenTime : business.open_time_sat.toString()} :00 ${business.open_time_sat < 12 ? "AM - " : "PM - "}`
+            sunOpenTime = `${sunOpenTime ? sunOpenTime : business.open_time_sun.toString()} :00 ${business.open_time_sun < 12 ? "AM - " : "PM - "}`
+
+            satCloseTime = `${satCloseTime ? satCloseTime : business.close_time_sat.toString()} :00 ${business.close_time_sat < 12 ? "AM" : "PM"}`
+            sunCloseTime = `${sunCloseTime ? sunCloseTime : business.close_time_sun.toString()} :00 ${business.close_time_sun < 12 ? "AM" : "PM"}`
+
+            const oneDay = days.map((day, idx) => {
+                if(idx <  5){
+                    return (<div key={day} className="flex-row-start daily-hour mb-9">
+                                <span className={currDay === idx ? daySpanBoldClasses : daySpanClasses}>{day}</span>
+                                <span className="text-size-large semi-bold-plus mr-5">{weeklyOpenTime}</span>
+                                <span className="text-size-large semi-bold-plus mr-10">{weeklyCloseTime}</span>
+                                {currDay === idx ? isOpen : null}
+                            </div>)
+                } else if (idx === 5){
+                    return (<div key={day} className="flex-row-start daily-hour mb-9">
+                                <span className={currDay === idx ? daySpanBoldClasses : daySpanClasses}>{day}</span>
+                                <span className="text-size-large semi-bold-plus mr-5">{satOpenTime}</span>
+                                <span className="text-size-large semi-bold-plus mr-10">{satCloseTime}</span>
+                                {currDay === idx ? isOpen : null}
+                            </div>
+                    )
+                } else {
+                    return(<div key={day} className="flex-row-start daily-hour mb-9">
+                                <span className={currDay === idx ? daySpanBoldClasses : daySpanClasses}>{day}</span>
+                                <span className="text-size-large semi-bold-plus mr-5">{sunOpenTime}</span>
+                                <span className="text-size-large semi-bold-plus mr-10">{sunCloseTime}</span>
+                                {currDay === idx ? isOpen : null}
+                            </div>)
+                }
+                        
+                     
+            })
 
             return oneDay;
 
