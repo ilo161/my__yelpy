@@ -127,7 +127,7 @@ class ReviewAddForm extends React.Component {
                         
                 </div>
                 {/* Side Bar */}
-                <section className={this.state.sideBarActive ? "sidebar-container open-sidebar" : "sidebar-container closed-sidebar"}>
+                {/* <section className={this.state.sideBarActive ? "sidebar-container open-sidebar" : "sidebar-container closed-sidebar"}>
                     <button onClick={() => this.update("sidebar")} className="sidebar-review-button">
                         {chevronLeft}
                     </button>
@@ -135,7 +135,7 @@ class ReviewAddForm extends React.Component {
 
                     </div>
 
-                </section>
+                </section> */}
                 
 
             </div>
