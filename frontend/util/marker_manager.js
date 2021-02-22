@@ -15,31 +15,21 @@ export default class MarkerManager {
 
         const myBizMarkers = {};
         bizMarkers.forEach(biz => myBizMarkers[biz.id] = biz)
-        debugger
+
         bizMarkers.filter(biz => !this.markers[biz.id])
         .forEach((biz, idx) => this.createMarkerFromBiz(biz, idx))
 
-        // debugger
+
         Object.keys(this.markers)
         .filter(key => {
-            // debugger
+
            return !myBizMarkers[key]
         })
         .forEach(key => {
-            // debugger
+
             this.removeMarker(key)
         })
 
-       
-        //  bizMarkers.forEach((biz, idx) => {
-        
-        
-        //   if (!this.markers[biz.id]){
-        //       this.createMarkerFromBiz(biz, idx)
-        //   }
-        // })
-
-        console.log("time to update")
       }
       
   }

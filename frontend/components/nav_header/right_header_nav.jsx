@@ -17,13 +17,11 @@ class RightHeaderNav extends React.Component {
         return(
              <div className="right-header-nav">
                 <div className="biz-review-nav-text">
-                    <Link className="header-link" to="/">For Businesses!</Link>
-                    <Link className="header-link" to="/">Write a Review</Link>
+                    <span className="header-link">For Businesses!</span>
+                    <span className="header-link">Write a Review</span>
                 </div>
                 <div className="login-signup-buttons-container">
-                    {/* <Link to="/login" className="login-button">Login</Link> */}
                     {currentUser ? <UserMedallion/> : loginSignup }
-                    {/* <Link to="/signup" className="signup-clear">Signup</Link> */}
                 </div>
             </div>
         )

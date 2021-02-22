@@ -50,12 +50,6 @@ class LoginForm extends React.Component {
                 this.props.action(this.state).then(() => this.props.history.push("/"));
             }
         }
-
-        
-
-    
-    
-    // this.props.action(this.state).then(<Route path="/login" render={() => <Redirect to="/" />} />);
     }
 
 
@@ -64,8 +58,9 @@ class LoginForm extends React.Component {
     }
 
     render() {
-        const {isModal, closeModalDiv, renderSignForm, errors} = this.props;
+        const {isModal, closeModalDiv, renderSignForm, errors, closeModal} = this.props;
         const pathToSignUp = (<Link to="/signup" />)
+        const demoUserObj = {username: "DemoUser", password: "123456"}
 
 
 
@@ -121,6 +116,7 @@ class LoginForm extends React.Component {
                     <p className="forgot-password-small">Forgot Password?</p>
 
                     <button className="red-login-button lb block-99" >Login</button>
+                    
                     <div className="sub-text-box">
                         <p className="small-text">New to Yelp? 
                         {isModal ? <span onClick={isModal ? () => renderSignForm() : null}
@@ -129,6 +125,7 @@ class LoginForm extends React.Component {
                          <Link to="/signup" ><span className="sign-up-link"> Sign up!</span> </Link>}  </p>
                     </div>
                 </form>
+                <button onClick={() => this.props.action(demoUserObj).then(()=> closeModal())} className="red-login-button lb block-99">Demo User Login</button>
             </div>
         )
     }

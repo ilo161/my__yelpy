@@ -15,21 +15,21 @@ class SearchNavDropDowns extends React.Component {
                             <div className="invisidiv-nav"></div>
 
                             <nav className="one-button-container">
-                                <Link to="/" className="search-nav-dropdowns">Restaurants</Link>
+                                <span className="search-nav-dropdowns">Restaurants</span>
                                 {arrowDownIcon}
                             </nav>  
                             {/* Home Services */}
                             <nav className="one-button-container">
-                                <Link to="/" className="search-nav-dropdowns">Home Services</Link>
+                                <span className="search-nav-dropdowns">Home Services</span>
                                 {arrowDownIcon}
                             </nav>
                             {/* Auto Services */}
                             <nav className="one-button-container">
-                            <Link to="/" className="search-nav-dropdowns">Auto Services</Link>
+                            <span className="search-nav-dropdowns">Auto Services</span>
                                 {arrowDownIcon}
                             </nav>    
                             <nav className="one-button-container">
-                                <Link to="/" className="search-nav-dropdowns">More</Link>
+                                <span className="search-nav-dropdowns">More</span>
                                 {arrowDownIcon}
                             </nav>  
 

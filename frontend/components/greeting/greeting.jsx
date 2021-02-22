@@ -7,6 +7,7 @@ import LoginFormContainer from "../session_form/login_form_container"
 import { requestLogin } from '../../actions/session_actions';
 // import  OrderInContainer  from "../nav_header/order_in_header_container";
 import SearchCityNavContainer from "../search/search_city_nav_container";
+import SearchResultIndexItemContainer from "../search/search_result_index_item_container";
 
 // JumboTron
 import GreetingJumboTronContainer from "./greeting_jumbotron_container"
@@ -68,37 +69,28 @@ class Greeting extends React.Component {
             // allBizIndex = allBiz.map
         }
 
+        const generateSearchResultIndexItem = () => {
+            let collection;
+            collection = this.props.allBiz.map((business, idx) => {
+
+                return <SearchResultIndexItemContainer idx={idx} business={business} key={business.business_name} /> 
+                
+            })
+
+            return collection;
+        }
+
         if (this.props.allBiz){
-            allBizIndexArr = allBizIndex(allBiz)
+            // allBizIndexArr = allBizIndex(allBiz)
+            allBizIndexArr = generateSearchResultIndexItem()
         }
 
 
         const sessionLinks = () => {
             return (
             <div className="session-links-container">
-                {/* <div className="top-show-nav"> */}
-                    {/* <ul className="flex-row-start"> */}
-                        {/* Items are flexxed */}
-                        {/* <div className="logo-arrange-unit"> */}
-                            {/* <div className="icon-box-nav"> */}
-                                {/* <Link to="/" ><img src={window.yelp_white_sm} width="80px" height="80px"></img></Link> */}
-                            {/* </div> */}
-                        {/* </div> */}
-                        {/* <SearchCityNavContainer/> */}
-                        {/* <RightHeaderNavContainer/> */}
-                        {/* End Flexx */}
-                    {/* </ul> */}
-                    {/* End Header NAV */}
-                {/* </div> */}
-
-                {/* <p>{errors ? listOErrors[0] : null}</p> */}
-                {/* <nav className="login-signup">
-                </nav>
-                <div className="which-form">
-                    {signLoginArray[this.state.signLogin]}
-                </div> */}
                 <GreetingJumboTronContainer/>
-                <div>
+                <div className="splash-all">
                     <ul className="flex-col-full">
                         {this.props.allBiz ? allBizIndexArr : null}
                     </ul>
@@ -137,7 +129,7 @@ class Greeting extends React.Component {
                             </ul>
                         </nav>
                         <GreetingJumboTronContainer/>
-                        <div>
+                        <div className="splash-all">
                             <p>hello form mars</p>
                             <ul className="flex-col-full">
                                 {this.props.allBiz ? allBizIndexArr : null}

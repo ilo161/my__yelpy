@@ -28,7 +28,7 @@ class ReviewAddForm extends React.Component {
     
     handleSubmit(e){
         e.preventDefault();
-        debugger
+
         if (this.state.rating === 0){
 
             this.setState({errorMessage: 
@@ -48,7 +48,7 @@ class ReviewAddForm extends React.Component {
 
             this.setState({...prevForm}, () => {
                 this.props.action(this.state).then(action => {
-                debugger
+
             
                 this.props.history.push(`/biz/${action.review.business_id}`)
         })

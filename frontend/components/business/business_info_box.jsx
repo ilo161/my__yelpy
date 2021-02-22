@@ -6,6 +6,9 @@ import { faDirections, faPhoneVolume, faExternalLinkAlt } from '@fortawesome/fre
 
 const BusinessInfoBox = ({business}) => {
 // https://www.google.com/maps/place/38616+Highmeadow+Dr,+Palmdale,+CA+93551/
+    let phoneString;
+
+    // This Fn creates a google map query string to add to an anchor tag
     const queryGoogleMaps = () => {
         let url = "https://www.google.com/maps/place/";
         let address = business.address;
@@ -19,9 +22,18 @@ const BusinessInfoBox = ({business}) => {
         url += addressPartsWithPlus + city + state + zipCode
 
         return url
-
-
     }
+
+    const splitPhoneToString = () => {
+            let phoneArr = Array.from(business.phone.toString());
+            phoneArr.splice(0,0, "("); 
+            phoneArr.splice(4,0, ")"); 
+            phoneArr.splice(5,0, " "); 
+            phoneArr.splice(9,0, "-"); 
+
+            return phoneArr.join("")
+
+        }
 
     //Icons
     const urlOut = <FontAwesomeIcon icon={faExternalLinkAlt}/>
@@ -39,7 +51,7 @@ const BusinessInfoBox = ({business}) => {
                 {/* Phone */}
             <div className="flex-row-start align-content-center order-info-item">
                 <span className="blackish-icon">{phone}</span>
-                <p className="open-sans">{business.phone ? business.phone : " Phone # not present"}</p>
+                <p className="open-sans">{business.phone ? splitPhoneToString() : " Phone # not present"}</p>
                 </div>
                 {/* Map */}
             <div className="flex-row-start align-content-center order-info-item">

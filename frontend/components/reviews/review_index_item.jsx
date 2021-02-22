@@ -75,8 +75,8 @@ class ReviewIndexItem extends React.Component {
                         <p> {review.created_at}</p>
                     </section>
                     <section className="small-data flex-row-start">
-                        <p> 2 photos </p>
-                        <p> 1 checkin</p>
+                        {/* <p> 2 photos </p>
+                        <p> 1 checkin</p> */}
                     </section>
                     <section className="review-show open-sans">
                         {review.body}   

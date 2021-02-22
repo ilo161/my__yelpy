@@ -59,7 +59,6 @@ class Api::BusinessesController < ApplicationController
     end
 
     def search
-        # debugger
         @bizs = Business.includes(:reviews).search_by(params[:search])
         # @bizs = @bizs.in_bounds(bounds)
         render :search_results

@@ -10,13 +10,21 @@ const mSTP = (state, url) => {
 
     if(state.entities.businesses[id]){
         if(state.entities.businesses[id].category === 0){
-        menuUrl = "https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/coffee_drinks/";
-        menuItems = ["drip_coffee.jpg", "latte.jpg", "matcha.jpg", "latte_glass.jpg", "cinnamon_coffee.jpg"];
-        let menutext = ["Drip Coffee", "Latte", "Matcha Latte", "Specialty Latte", "Cinnamon Coffees"];
+            menuUrl = "https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/coffee_drinks/";
+            menuItems = ["drip_coffee.jpg", "latte.jpg", "matcha.jpg", "latte_glass.jpg", "cinnamon_coffee.jpg"];
+            let menutext = ["Drip Coffee", "Latte", "Matcha Latte", "Specialty Latte", "Cinnamon Coffees"];
 
-        menuItems.forEach((drink, idx) => menuItems[idx] = {photo: (menuUrl + drink), text: menutext[idx]})
+            menuItems.forEach((drink, idx) => menuItems[idx] = {photo: (menuUrl + drink), text: menutext[idx]})
+
+        } else if(state.entities.businesses[id].category === 1){
+            menuUrl = "https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/mexican_menu/";
+            menuItems = ["tacos_LS.jpg", "nachos_LS.jpg", "elote_LS.jpg", "margarita_LS.jpg", "aqua_pop_LS.jpg"];
+            let menutext = ["Tacos", "Nachos", "Street Corn", "Margaritas", "Frozen Dessert"];
+
+            menuItems.forEach((drink, idx) => menuItems[idx] = {photo: (menuUrl + drink), text: menutext[idx]})
 
         }
+
     }
 
     return {

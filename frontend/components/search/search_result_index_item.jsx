@@ -50,8 +50,6 @@ class SearchResultIndexItem extends React.Component{
 
 
         const splitPhoneToString = () => {
-            let phoneString = "";
-            debugger
             let phoneArr = Array.from(business.phone.toString());
             phoneArr.splice(0,0, "("); 
             phoneArr.splice(4,0, ")"); 
@@ -77,7 +75,7 @@ class SearchResultIndexItem extends React.Component{
         const generateOneReview = () => {
             let oneReview;
             oneReview = Array.from(business.reviews[0].body).splice(0,500);
-            // debugger
+
             oneReview = `" ${oneReview.join("")} "`
             return oneReview
         }

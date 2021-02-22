@@ -27,6 +27,8 @@
 }
 
     .order-delivery-takeout{
+        position: sticky;
+        top: 0px;
         padding: 24px;
         // height: 268px;
         height: auto;
@@ -390,6 +392,11 @@
             background-color: rgb(220, 219, 220);
         }
     
+
+        .md-icon{
+            font-size: 19px;
+        }
+
     .website-menu{
         height: 121px;
         border: 1px solid teal;
@@ -397,6 +404,7 @@
 
     .blackish-icon{
         color: rgb(38, 35, 53);
+        width: 25px;
         margin-right: 20px;
         font-size: 20px;
     }
@@ -408,3 +416,9 @@
     .section-headline{
         margin-bottom: 26px;
     }
+
+.splash-all{
+    min-width: 880px;
+    max-width: 880px;
+    margin: 0 auto;
+}

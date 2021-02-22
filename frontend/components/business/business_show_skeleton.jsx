@@ -2,7 +2,7 @@ import React from "react";
 import BusinessHeaderBox from "./business_header_box";
 import SearchCityNavContainer from "../search/search_city_nav_container";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown, faShoppingBag, faWifi } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 // import ReviewIndexItem from "../reviews/review_index_item"
 import ReviewIndexItemContainer from "../reviews/review_index_item_container";
@@ -72,22 +72,49 @@ class BusinessShowSkeleton extends React.Component {
         }
 
         const generateStoreHours = () => {
-            // const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
             const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
             let isOpen;
+            let isOpenBoolean;
             const daySpanClasses = "text-size-large mr-30 day-width semi-bold-plus"
             const daySpanBoldClasses = daySpanClasses + " max-bold"
 
-            debugger
+            //close over FN to set the <span> on IF ON this given day it is indeed open or closed
+            const isOpenFn = (isOpenBoolean) => {
+                isOpen = <span className={isOpenBoolean ? "open-green" : "closed-red"}>
+                    {isOpenBoolean ? "Open now" : "Closed now"}</span>;
+            }
+
+
             const dateNow = new Date();
             const currHr = dateNow.getHours();
             const currDay = dateNow.getDay();
-            if( currHr >= business.open_time && currHr < business.close_time ){
-                isOpen = <span className="open-green">Open </span>;
-            } else {
-                isOpen = <span className="closed-red">Closed </span>;
-            }
 
+            // This sets a Green text for OPEN or Red text for CLOSED on Location and Hours section.
+
+            if (currDay >= 1 && currDay <= 5){
+                if (currHr >= business.open_time && currHr < business.close_time ){
+                    // isOpenBoolean = true;
+                    isOpenFn(true);
+                } else {
+                    isOpenFn(false);
+                }
+            } else if(currDay === 6){
+                if (currHr >= business.open_time_sat && currHr < business.close_time_sat ){
+                    // isOpenBoolean = true;
+                    isOpenFn(true);
+                } else {
+                    isOpenFn(false)
+                }
+            } else {
+                if (currHr >= business.open_time_sun && currHr < business.close_time_sun ){
+                    isOpenFn(true);
+                } else {
+                    isOpenFn(false);
+                }
+            }
+            
+
+           
             let weeklyOpenTime;
             let weeklyCloseTime;
 
@@ -100,13 +127,10 @@ class BusinessShowSkeleton extends React.Component {
             // Correct military time to US Readable
             if (business.open_time > 12) weeklyOpenTime = (business.open_time - 12).toString();
             
-
             if (business.open_time_sat > 12) satOpenTime = (business.open_time_sat - 12).toString();
             
-
             if (business.open_time_sun > 12) sunOpenTime = (business.open_time_sun - 12).toString();
             
-
             if (business.close_time > 12) weeklyCloseTime = (business.close_time - 12).toString();
 
             if (business.close_time_sat > 12) satCloseTime = (business.close_time_sat - 12).toString();
@@ -114,31 +138,31 @@ class BusinessShowSkeleton extends React.Component {
             if (business.close_time_sun > 12) sunCloseTime = (business.close_time_sun - 12).toString();
             
 
-            weeklyOpenTime = `${weeklyOpenTime ? weeklyOpenTime : business.open_time.toString()} :00 ${business.open_time < 12 ? "AM - " : "PM - "}` 
-            weeklyCloseTime = `${weeklyCloseTime ? weeklyCloseTime : business.close_time.toString()} :00 ${business.close_time < 12 ? "AM" : "PM"}` 
+            weeklyOpenTime = `${weeklyOpenTime ? weeklyOpenTime : business.open_time.toString()}:00 ${business.open_time < 12 ? "AM - " : "PM - "}` 
+            weeklyCloseTime = `${weeklyCloseTime ? weeklyCloseTime : business.close_time.toString()}:00 ${business.close_time < 12 ? "AM" : "PM"}` 
 
-            satOpenTime = `${satOpenTime ? satOpenTime : business.open_time_sat.toString()} :00 ${business.open_time_sat < 12 ? "AM - " : "PM - "}`
-            sunOpenTime = `${sunOpenTime ? sunOpenTime : business.open_time_sun.toString()} :00 ${business.open_time_sun < 12 ? "AM - " : "PM - "}`
+            satOpenTime = `${satOpenTime ? satOpenTime : business.open_time_sat.toString()}:00 ${business.open_time_sat < 12 ? "AM - " : "PM - "}`
+            sunOpenTime = `${sunOpenTime ? sunOpenTime : business.open_time_sun.toString()}:00 ${business.open_time_sun < 12 ? "AM - " : "PM - "}`
 
-            satCloseTime = `${satCloseTime ? satCloseTime : business.close_time_sat.toString()} :00 ${business.close_time_sat < 12 ? "AM" : "PM"}`
-            sunCloseTime = `${sunCloseTime ? sunCloseTime : business.close_time_sun.toString()} :00 ${business.close_time_sun < 12 ? "AM" : "PM"}`
+            satCloseTime = `${satCloseTime ? satCloseTime : business.close_time_sat.toString()}:00 ${business.close_time_sat < 12 ? "AM" : "PM"}`
+            sunCloseTime = `${sunCloseTime ? sunCloseTime : business.close_time_sun.toString()}:00 ${business.close_time_sun < 12 ? "AM" : "PM"}`
 
-            const oneDay = days.map((day, idx) => {
-                if(idx <  5){
+            const sunThroughSat = days.map((day, idx) => {
+                if(idx >= 1 && idx <= 5){
                     return (<div key={day} className="flex-row-start daily-hour mb-9">
                                 <span className={currDay === idx ? daySpanBoldClasses : daySpanClasses}>{day}</span>
                                 <span className="text-size-large semi-bold-plus mr-5">{weeklyOpenTime}</span>
                                 <span className="text-size-large semi-bold-plus mr-10">{weeklyCloseTime}</span>
                                 {currDay === idx ? isOpen : null}
                             </div>)
-                } else if (idx === 5){
+                } else if (idx === 6){
+
                     return (<div key={day} className="flex-row-start daily-hour mb-9">
                                 <span className={currDay === idx ? daySpanBoldClasses : daySpanClasses}>{day}</span>
                                 <span className="text-size-large semi-bold-plus mr-5">{satOpenTime}</span>
                                 <span className="text-size-large semi-bold-plus mr-10">{satCloseTime}</span>
                                 {currDay === idx ? isOpen : null}
-                            </div>
-                    )
+                            </div>)
                 } else {
                     return(<div key={day} className="flex-row-start daily-hour mb-9">
                                 <span className={currDay === idx ? daySpanBoldClasses : daySpanClasses}>{day}</span>
@@ -150,8 +174,10 @@ class BusinessShowSkeleton extends React.Component {
                         
                      
             })
-
-            return oneDay;
+            const sunday = [sunThroughSat.shift()]
+            //reorder the day to start on monday
+            const monThroughSun = sunThroughSat.concat(sunday);
+            return monThroughSun;
 
         }
 
@@ -187,23 +213,13 @@ class BusinessShowSkeleton extends React.Component {
 
         
         const arrowDownIcon = <FontAwesomeIcon icon={faAngleDown}/>
-        // debugger
+        const takeoutIcon = <FontAwesomeIcon icon={faShoppingBag} size="1x"/>
+        const wifiIcon = <FontAwesomeIcon icon={faWifi} size="1x"/>
+
         return (
             <div className="business-show-container">
                 <TripleNav/>
-                {/* <div className="top-show-nav"> */}
-                    {/* <ul className="flex-row-start"> */}
-                        {/* Items are flexxed */}
-                        {/* <div className="icon-box-nav"> */}
-                            {/* <Link to="/" ><img src={window.yelp_white_sm} width="80vw" height="80vh"></img></Link> */}
-                        {/* </div> */}
-                        {/* <SearchCityNavContainer/> */}
-                        {/* <RightHeaderNavContainer/> */}
-                        {/* End Flexx */}
-                    {/* </ul> */}
-                    {/* <SearchNavDropDownsContainer/> */}
-                    
-                {/* </div>  */}
+                
                 {/* PhotoScroller HERE */}
                 <div className="show-photo-scroller flex-row-start">
                     {business ? allPhotosImg : null }
@@ -238,12 +254,7 @@ class BusinessShowSkeleton extends React.Component {
                            
 
                         </section>
-                        {/* Website Menu Component */}
-                        {/* <section className="show-divider-section website-menu">
-                            <p>Website menu</p>
-                            <p>will contain menu links from the owner</p>
-                        </section> */}
-                        {/* Location and Hours COMPONENT HERE!!! WITH MAP! */}
+                        {/* Location and Hours with Map! */}
                         <section className="show-divider-section flex-col-start">
                             <div className="section-headline">
                                 <strong className="text-size-20 query-big-headline">Location & Hours</strong>
@@ -272,25 +283,33 @@ class BusinessShowSkeleton extends React.Component {
                                     <ul className="flex-col-start">
                                         {storeHours}
                                     </ul>
-
-                                
                                 </div>
                             </div>
                         </section>
                         {/* Amenitites and More */}
-                        <section className="show-divider-section website-menu">
-                            <p>Amenities and More</p>
+                        <section className="show-divider-section flex-col-start">
+                            {/* 1-\/ */}
+                            <div className="section-headline">
+                                <strong className="text-size-20 query-big-headline">Amenities and More</strong>
+                            </div>
+                            {/* 2 \/ */}
+                            <div className="flex-row-start">
+                                <div className="md-icon">{takeoutIcon}</div>
+                                <span className="ml-25 text-size-large mr-60 semi-bold-plus">Offers Takeout</span>
+
+                                <div className="md-icon">{wifiIcon}</div>
+                                <span className="ml-25 text-size-large semi-bold-plus">Contactless Pay</span>
+                            </div>
+                            <div className="flex-row-start">
+                                
+                            </div>
                         </section>
                         {/* Ask the community */}
-                        <section className="show-divider-section website-menu">
-                            <p>Ask the Community</p>
+                        <section className="show-divider-section">
                         </section>
-                        {/* Recommended Reviews */}
-                        <section className="show-divider-section website-menu">
-                            <p>Recommended Reviews</p>
-                        </section>
+                        
                         { business ? allReviews : null}
-                        {/* {business ? <ReviewIndexItem business={business} key={business.id}/> : "banana"} */}
+                        
                         {/* Flex Column end below */}
                     </section>
                     

@@ -12,33 +12,6 @@ class ResultsMap extends React.Component {
   componentDidMount() {
     let mapOptions = this.setMapOptions()
 
-
-      // debugger
-      // if(this.props.bizMarkers.length === 0){
-      //      mapOptions = {
-      //             center: { lat: 47.73401867760304, lng: -122.35571371908686 }, // this is Seattle
-      //             zoom: 10
-      //         };
-      // } else if(this.props.bizMarkers.length === 1){
-      //      mapOptions = {center: {lat: this.props.bizMarkers[0].latitude, 
-      //                       lng: this.props.bizMarkers[0].longitude },
-      //                       zoom: 14
-      //                     }
-      // } else {
-      //    mapOptions = {center: {lat: this.props.bizMarkers[0].latitude, 
-      //                       lng: this.props.bizMarkers[0].longitude },
-      //                       zoom: 11
-      //                     }
-      // }
-
-             
-          // } else {
-              //
-      // }
-
-    
-
-
     this.map = new google.maps.Map(this.mapNode, mapOptions);
 
     this.handleMarkerClick = this.handleMarkerClick.bind(this);
@@ -63,8 +36,6 @@ class ResultsMap extends React.Component {
   setMapOptions(){
     let mapOptions;
 
-
-      // debugger
       if(this.props.bizMarkers.length === 0){
            mapOptions = {
                   center: { lat: 47.73401867760304, lng: -122.35571371908686 }, // this is Seattle

@@ -20,12 +20,16 @@ class Business < ApplicationRecord
             mapped_query += " OR  category = 0"
         end
 
+        if query_parts.any? { |i| ["restaurant", "restaurants", "mexican", "taco", "tacos",
+        "burrito", "burritos", "salsa", "spicy", "tostada"].include? i }
+            mapped_query += " OR  category = 1"
+        end
+
 
         Business.where(mapped_query)
     end
 
     def self.in_bounds(bounds)
-        # debugger
         self.where("latitude < ?", bounds[:northEast][:lat])
             .where("latitude > ?", bounds[:southWest][:lat])
             .where("longitude > ?", bounds[:southWest][:lng])

@@ -26,9 +26,9 @@ class RainbowStars extends React.Component {
 
      updateStars(e){
         let starIdx;
-        // debugger
+
         // let starsArray;
-        // console.log(e.currentTarget.attributes[1].nodeValue)
+
         if(e.type !== "mouseleave"){
             starIdx = parseInt(e.currentTarget.attributes[1].nodeValue);
             
@@ -40,7 +40,7 @@ class RainbowStars extends React.Component {
         if(e.type === "click"){
             this.setState({starNum: starIdx, rating: (starIdx + 1)}, () => {
                 const rating = starIdx + 1
-                // debugger
+
                 this.props.update("rating", rating)
             })
         }
@@ -60,7 +60,7 @@ class RainbowStars extends React.Component {
         const {isReviewForm} = this.props;
         let myStars;
         let ratingText;
-        // let colorizedStarsArray;
+
 
         const starFieldGrey = (color, i, padding = "") => (
 
@@ -70,33 +70,13 @@ class RainbowStars extends React.Component {
                     </li>
          )
 
-        // const colorizeStars = (howMany) => {
-        //     // colorizedStarsArray = document.getElementsByClassName("stars-array")[0].childNodes;
-        //     colorizedStarsArray = document.getElementsByClassName("star-background-lt-grey-md");
-        //     let newArray = []
-        //     for(let i = 0; i < 5; i++){
-        //             colorizedStarsArray[i].classList.remove(...allColors)
-                    
-        //         }
-        //     let allColorsCopy = allColors.slice(0);
-        //     let paintThisColor = allColorsCopy.splice(howMany, 1);
-
-            
-
-        //         for(let i = 0; i <= howMany; i++){
-        //             colorizedStarsArray[i].classList.add(paintThisColor)
-        //             newArray.push(colorizedStarsArray[i])
-        //         }
-
-        //     return newArray;
-        // }
 
         const generateAllStars = (howMany) => {
             let collectionStars = [];
-            // debugger
+
             switch(howMany){
                 case 0:
-                    // debugger
+
                     for(let i = 0; i < 5; i++){
                         if(i <= howMany){
                             collectionStars.push(starFieldGrey(allColors[1], i));

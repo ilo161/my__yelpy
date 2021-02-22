@@ -20,7 +20,6 @@ const saveSearchQuery = searchQuery => {
 
 
 export const requestSearchResults = (searchQuery, filters) => dispatch => {
-    // debugger
     return SearchAPIUtil.fetchSearchResults({searchQuery, filters})
     .then(searchResults => {
         dispatch(receiveSearchResults(searchResults))
