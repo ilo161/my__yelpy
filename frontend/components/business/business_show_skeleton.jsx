@@ -1,14 +1,10 @@
 import React from "react";
 import BusinessHeaderBox from "./business_header_box";
-import SearchCityNavContainer from "../search/search_city_nav_container";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faShoppingBag, faWifi } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
 // import ReviewIndexItem from "../reviews/review_index_item"
 import ReviewIndexItemContainer from "../reviews/review_index_item_container";
 import BusinessInfoBox from "./business_info_box";
-import RightHeaderNavContainer from "../nav_header/right_header_nav_container"
-import SearchNavDropDownsContainer from "../nav_header/search_nav_dropdowns_container"
 import TripleNav from "../nav_header/triple_nav_components"
 import MenuPhotos from "./menu_photos"
 import ResultsMap from "../map/results_map"

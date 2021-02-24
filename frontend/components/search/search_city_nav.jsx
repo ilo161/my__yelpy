@@ -12,7 +12,9 @@ class SearchCityNav extends React.Component{
             cityQuery: "",
             searchArr: [],
             showBlipFind: false,
-            showBlipCity: false
+            showBlipCity: false,
+            isSplashInputPlaceHolder: "plumbers, delivery, take-out",
+            notSplashInputPlaceHolder: "taco's, cheap dinner, Max's",
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,7 +24,14 @@ class SearchCityNav extends React.Component{
     }
 
     handleSubmit(){
-        this.props.action(this.state.searchQuery).then(() => {
+        debugger
+        if (this.state.searchQuery === ""){
+            this.setState({isSplashInputPlaceHolder: "Please fill me in", 
+                           notSplashInputPlaceHolder: "Please fill me in"})
+
+        } else {
+            debugger
+            this.props.action(this.state.searchQuery).then(() => {
             const url = this.props.location.pathname;
             const parts = url.split("/")
 
@@ -30,7 +39,10 @@ class SearchCityNav extends React.Component{
                 this.props.history.push(`/search`)
                 
             }
-       })
+            })
+        }
+
+        
     }
 
     update(field){
@@ -68,10 +80,13 @@ class SearchCityNav extends React.Component{
 
         return (
             
-            <div className={isSplash ? "flex-row-start" : "header-container"} >
+            <form onSubmit={e => {
+                    e.preventDefault()
+                    this.handleSubmit
+                }} className={isSplash ? "flex-row-start" : "header-container"} >
              {/* <div className="flex-row-start">  */}
-                <div className={isSplash ? "search-city-nav-container" : "search-city-nav-container search-shadow search-nav-max-width"}>
-                    <nav className="flex-row-start" >
+                <div  className={isSplash ? "search-city-nav-container" : "search-city-nav-container search-shadow search-nav-max-width"}>
+                    <div className="flex-row-start" >
                         {/* Flexx Start */}
                         {isSplash ? <span className="hero-nav-header">Find</span> : null}
 
@@ -79,7 +94,7 @@ class SearchCityNav extends React.Component{
                             <input type="text" className={isSplash ? "search-bar white no-border" : "search-bar no-border"} type="text"
                             onFocus={isSplash ? () => this.showBlip("showBlipFind") : null}
                             onBlur={isSplash ? () => this.showBlip("showBlipFind") : null}
-                            placeholder={isSplash ? "plumbers, delivery, take-out" : "taco's, cheap dinner, Max's"}
+                            placeholder={isSplash ? this.state.isSplashInputPlaceHolder : this.state.notSplashInputPlaceHolder}
                             value={this.state.searchQuery}
                             onChange={this.update("searchQuery")}></input>
                             {isSplash ? findPopup : null}
@@ -101,15 +116,15 @@ class SearchCityNav extends React.Component{
 
                             
 
-                    </nav>
+                    </div>
                    
                     
                 </div>
-                <button className="red-search-submit-button" onClick={this.handleSubmit}>
+                <button type="submit" className="red-search-submit-button" onClick={this.handleSubmit}>
                             {searchIcon}
                 </button>
 
-            </div>
+            </form>
             
         )
     }

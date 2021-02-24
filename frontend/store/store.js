@@ -29,16 +29,16 @@ import rootReducer from "../reducers/root_reducer"
 // }
 
 //Type A for Debugging with Logger
-// const configureStore = ( preloadedState = {} ) => {
-//     return createStore(rootReducer,
-//          preloadedState, applyMiddleware(thunk, logger))
-// }
-
-//Type B for production
 const configureStore = ( preloadedState = {} ) => {
     return createStore(rootReducer,
-         preloadedState, applyMiddleware(thunk))
+         preloadedState, applyMiddleware(thunk, logger))
 }
+
+//Type B for production
+// const configureStore = ( preloadedState = {} ) => {
+//     return createStore(rootReducer,
+//          preloadedState, applyMiddleware(thunk))
+// }
 
 
 export default configureStore;

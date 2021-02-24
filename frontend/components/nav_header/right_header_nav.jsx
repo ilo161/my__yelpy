@@ -17,8 +17,8 @@ class RightHeaderNav extends React.Component {
         return(
              <div className="right-header-nav">
                 <div className="biz-review-nav-text">
-                    <span className="header-link">For Businesses!</span>
-                    <span className="header-link">Write a Review</span>
+                    {/* <span className="header-link">For Businesses!</span> */}
+                    {/* <span className="header-link">Write a Review</span> */}
                 </div>
                 <div className="login-signup-buttons-container">
                     {currentUser ? <UserMedallion/> : loginSignup }

@@ -1,5 +1,6 @@
 import TransparentNav from "./transparent_nav"
 import {connect} from "react-redux";
+import { requestSearchResults } from "../../actions/search_actions"
 
 
 const mSTP = state => {
@@ -9,4 +10,10 @@ const mSTP = state => {
     }
 }
 
-export default connect(mSTP, null)(TransparentNav);
+const mDTP = dispatch => {
+    return{
+        action: (searchQuery, filters) => dispatch(requestSearchResults(searchQuery, filters)),
+    }
+}
+
+export default connect(mSTP, mDTP)(TransparentNav);
