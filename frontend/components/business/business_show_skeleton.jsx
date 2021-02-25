@@ -9,6 +9,7 @@ import TripleNav from "../nav_header/triple_nav_components"
 import MenuPhotos from "./menu_photos"
 import ResultsMap from "../map/results_map"
 
+
 class BusinessShowSkeleton extends React.Component {
     constructor(props){
         super(props)
@@ -25,8 +26,10 @@ class BusinessShowSkeleton extends React.Component {
         // this.props.requestBusiness(this.props.id)
     }
 
-    componentDidUpdate(){
+    componentDidUpdate(oldProps){
+        // if(oldProps.business.reviews !== this.props.business.reviews){
 
+        // }
     }
 
     render() {
@@ -301,7 +304,7 @@ class BusinessShowSkeleton extends React.Component {
                             </div>
                         </section>
                         {/* Ask the community */}
-                        <section className="show-divider-section">
+                        <section id="start-review-anchor" className="show-divider-section">
                         </section>
                         
                         { business ? allReviews : null}

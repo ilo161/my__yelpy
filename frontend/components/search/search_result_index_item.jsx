@@ -74,9 +74,9 @@ class SearchResultIndexItem extends React.Component{
 
         const generateOneReview = () => {
             let oneReview;
-            oneReview = Array.from(business.reviews[0].body).splice(0,500);
+            oneReview = Array.from(business.reviews[0].body).splice(0,370);
 
-            oneReview = `" ${oneReview.join("")} "`
+            oneReview = `"${oneReview.join("")}"`
             return oneReview
         }
 
@@ -136,7 +136,7 @@ class SearchResultIndexItem extends React.Component{
                         </div>
                         {/* One Review */}
                         <div className="one-review-content">
-                            <span className="open-sans semi-bold text-size-md">{oneReview}</span>
+                            <p className="open-sans semi-bold text-size-md">{oneReview}</p>
                         </div>
 
 

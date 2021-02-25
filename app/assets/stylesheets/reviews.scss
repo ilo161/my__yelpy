@@ -27,6 +27,20 @@
         border-radius:4px;
     }
 
+    .review-stars-date-container{
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .min-w-250{
+            padding-left: 50px;
+            min-width: 250px;
+        }
+
+        .all-stars-review{
+            min-width: 140px;
+        }
+
     .review-text-box-container{
         width:466px;
         margin-top: 8px;
@@ -34,6 +48,7 @@
 
     .review-show{
         margin-bottom: 12px;
+        overflow-wrap: break-word;
     }
 
     .rating-text-container{

@@ -73,11 +73,10 @@ class SignUpForm extends React.Component {
                     </div>
 
                      <div className="button-logins-box">
-                        {/* <div className="block"> */}
-                        <button type="text" disabled={true} className="facebook-button lb block-99">Continue with Facebook</button> 
-                        {/* </div> */}
+                        {/* No Render */}
+                        {/* <button type="text" disabled={true} className="facebook-button lb block-99">Continue with Facebook</button> 
                         <button type="text" disabled={true} className="google-button lb block-99">Continue with Google</button>
-                        <button type="text" disabled={true} className="apple-button lb block-99">Continue with Apple</button>
+                        <button type="text" disabled={true} className="apple-button lb block-99">Continue with Apple</button> */}
                     </div>
 
 

@@ -31,9 +31,9 @@ class TransparentNav extends React.Component {
             <div className="trans-nav-container flex-row-start">
                 <ul className="header-nav flex-row-start">
                     <p onClick={this.handleSubmit.bind(this)} className="nav-header-link">Write a Review</p>
-                    <a href="https://github.com/ilo161/my__yelpy" rel="noopener noreferrer" className="nav-header-link">Yelpy Github</a>
-                    <a href="https://ilo161.github.io" rel="noopener noreferrer" className="nav-header-link">Hire Me</a>
-                    <a href="https://www.linkedin.com/in/sergio-medina-36937668/" rel="noopener noreferrer" className="nav-header-link">Linked In</a>
+                    <a href="https://github.com/ilo161/my__yelpy" target="_blank" rel="noopener noreferrer" className="nav-header-link">Yelpy Github</a>
+                    <a href="https://ilo161.github.io" target="_blank" rel="noopener noreferrer" className="nav-header-link">Hire Me</a>
+                    <a href="https://www.linkedin.com/in/sergio-medina-36937668/" target="_blank" rel="noopener noreferrer" className="nav-header-link">Linked In</a>
                 </ul>
                
                 {currentUser ? <UserMedallion/> : loginSignup }

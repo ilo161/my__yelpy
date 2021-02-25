@@ -24,13 +24,13 @@ class SearchCityNav extends React.Component{
     }
 
     handleSubmit(){
-        debugger
+
         if (this.state.searchQuery === ""){
             this.setState({isSplashInputPlaceHolder: "Please fill me in", 
                            notSplashInputPlaceHolder: "Please fill me in"})
 
         } else {
-            debugger
+
             this.props.action(this.state.searchQuery).then(() => {
             const url = this.props.location.pathname;
             const parts = url.split("/")

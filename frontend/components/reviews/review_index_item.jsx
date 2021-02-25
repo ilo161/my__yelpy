@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faUsers, faCamera, faGlasses} from '@fortawesome/free-solid-svg-icons';
+import { faStar, faUsers, faCamera, faGlasses, faTrash} from '@fortawesome/free-solid-svg-icons';
 import {faLightbulb, faLaughBeam} from "@fortawesome/free-regular-svg-icons"
 // import { render } from "react-dom";
 
@@ -9,6 +9,27 @@ import {faLightbulb, faLaughBeam} from "@fortawesome/free-regular-svg-icons"
 class ReviewIndexItem extends React.Component {
     constructor(props){
         super(props)
+
+        this.state = {
+            deleteErrorMsg: ""
+        }
+    }
+
+    handleDestroy(){
+        const {loggedIn, currentUserId, review, destroyReview} = this.props;
+
+        if(!loggedIn){
+            this.setState({deleteErrorMsg: "You are not logged in."})
+        } 
+        else if(review.user_id !== currentUserId){
+            this.setState({deleteErrorMsg: "Only the reviewer may delete."})
+        } else {
+
+            destroyReview(review)
+
+        }
+
+
     }
     
 
@@ -16,7 +37,7 @@ class ReviewIndexItem extends React.Component {
     render() {
 
 
-    const { review } = this.props;
+    const { review, destroyReview, loggedIn, currentUserId } = this.props;
     const ratingGiven = review.rating;
     const demoUserUrl = "https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/user_avatars/empty_avatar_frame.png"
 
@@ -26,6 +47,7 @@ class ReviewIndexItem extends React.Component {
     const bulb = <FontAwesomeIcon className="grey" icon={faLightbulb} />
     const laugh = <FontAwesomeIcon className="grey" icon={faLaughBeam} />
     const glasses = <FontAwesomeIcon className="grey" icon={faGlasses} />
+    const trashIcon = <FontAwesomeIcon onClick={this.handleDestroy.bind(this)} className="grey" icon={faTrash} />
     
 
     const starField = () => (
@@ -70,8 +92,10 @@ class ReviewIndexItem extends React.Component {
                 </div>
                 <div className="review-text-box-container flex-col-full">
                     {/* Is flex Column */}
-                    <section className="review-stars-date-container flex-row-start">
-                        {starContainerArr}
+                    <section className="review-stars-date-container">
+                        <div className="flex-row-start all-stars-review">{starContainerArr}</div>
+                        <p className="error-msg min-w-250">{this.state.deleteErrorMsg}</p>
+                        <div >{trashIcon}</div>
                         <p> {review.created_at}</p>
                     </section>
                     <section className="small-data flex-row-start">

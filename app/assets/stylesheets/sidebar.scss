@@ -6,6 +6,7 @@
 
 .left-rail-container{
     flex-basis: 70%;
+    max-width: 70%;
 }
 
 .sidebar-search-container{
@@ -17,6 +18,11 @@
 
         flex-basis: 23%;
         display: none;
+    }
+
+    .left-sidebar-container:hover{
+        filter: blur(0.5rem);
+        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)
     }
 
     @media only screen and (min-width: 1300px){

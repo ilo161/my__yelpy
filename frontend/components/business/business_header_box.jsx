@@ -7,6 +7,7 @@ import { faStar as starOut }  from '@fortawesome/free-regular-svg-icons';
 import { faShareSquare, faBookmark }  from '@fortawesome/free-regular-svg-icons';
 
 const businessHeaderBox = props => {
+    
 
     const star = <FontAwesomeIcon icon={faStar} />
     const checked = <FontAwesomeIcon icon={faCheckCircle} />
@@ -95,7 +96,7 @@ const businessHeaderBox = props => {
 
     const category = ["Coffee & Tea", "Restaurant"]
     
-    // helpemethod...to get stars
+    
     return (
         <div className="business-header-container"> 
             <div className="flex-row-start bottom-m-8">
@@ -109,7 +110,9 @@ const businessHeaderBox = props => {
                 {starContainerArr.length > 0 ? starContainerArr : <div className="invisidiv-review"></div>}
 
                 <p className="business-num-reviews"><span>{props.business.total_business_reviews}</span> Reviews</p>
-                <p className="business-details-reviews">Details</p>
+                {/* No Render */}
+                {/* <p  className="business-details-reviews">Details</p> */}
+                
             </div>
             {/* Flex End ^^ */}
             <div className="flex-row-start bottom-m-8">
@@ -121,7 +124,8 @@ const businessHeaderBox = props => {
                 <div className="icon-space">{dollar}</div>
 
                 <p className="business-details-category-text">{category[props.business.category]}</p>
-                <button className="small-edit-category-business-button">Edit</button>
+                {/* No Render */}
+                {/* <button className="small-edit-category-business-button">Edit</button> */}
             </div>
             {/* Flexx End ^^ */}
             <div className="flex-row-start bottom-m-8">
@@ -134,9 +138,10 @@ const businessHeaderBox = props => {
                 <button onClick={() => redirectTo() }className="open-sans red-button long-160"> <i className="starOutline-button" >{starOutline}</i>
                 Write a Review
                 </button>
-                <button className="open-sans white-button-med"> <i className="icon-outline">{cameraOutline}</i>Add Photo</button>
+                {/* No Render */}
+                {/* <button className="open-sans white-button-med"> <i className="icon-outline">{cameraOutline}</i>Add Photo</button>
                 <button className="open-sans white-button-sm"> <i className="icon-outline">{shareOutline}</i>Share</button>
-                <button className="open-sans white-button-sm"> <i className="icon-outline">{bookmarkOutline}</i>Save</button>
+                <button className="open-sans white-button-sm"> <i className="icon-outline">{bookmarkOutline}</i>Save</button> */}
                 
 
             </div>

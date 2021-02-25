@@ -6,3 +6,11 @@ export const createReview = (review) => {
         contentType: "application/json"
     });
 }
+
+export const destroyReview = (reviewId) => {
+    return $.ajax({
+        url:`/api/reviews/${reviewId}`,
+        method: "DELETE"
+    });
+}
+

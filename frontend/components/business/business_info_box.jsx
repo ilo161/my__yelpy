@@ -54,17 +54,18 @@ const BusinessInfoBox = ({business}) => {
                 <p className="open-sans">{business.phone ? splitPhoneToString() : " Phone # not present"}</p>
                 </div>
                 {/* Map */}
-            <div className="flex-row-start align-content-center order-info-item">
+            <div className="flex-row-start align-content-center order-info-item no-border">
                 <span className="blackish-icon">{map}</span>
                 <p className="open-sans"><a className="hyperlink-teal open-sans" 
                 target="_blank" rel="noopener noreferrer"
                 href={business ? queryGoogleMaps() : null}>Get Directions</a></p>
                 </div>
                 {/* Message Business */}
-            <div className="flex-row-start align-content-center order-info-item no-border">
+                {/* No Render */}
+            {/* <div className="flex-row-start align-content-center order-info-item no-border">
                 <span className="blackish-icon">{comments}</span>
                 <p className="hyperlink-teal open-sans">Message the Business</p>
-                </div>
+            </div> */}
             
         </div>
 

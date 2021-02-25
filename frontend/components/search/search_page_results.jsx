@@ -17,15 +17,26 @@ class SearchPageResults extends React.Component{
     
 
     render() {
+        const {searchResults} = this.props; 
         const rightChevron = <FontAwesomeIcon icon={faChevronRight} size="1x"/>
         let allResults;
 
 
-        const generateQueryChevrons = () => {
+        const generateQueryChevrons = (searchResult) => {
             const smallChevron = (<span className="m-lr-8">{rightChevron}</span>)
             const city = <li>Seattle</li>
             const cat1 = <li>Food</li>
-            const cat2 = <li>Coffee & Tea</li>
+            const coffeeCat = <li>Coffee & Tea</li> 
+            const restaurantCat = <li>Restaurants</li> 
+            const noResultsCat = <li>No Results</li> 
+            debugger
+            const cat2 = searchResult !== null ?
+                        searchResult.category === 0 ? 
+                        coffeeCat
+                        :
+                        restaurantCat
+                        :
+                        noResultsCat
             return ( <> 
                     {city}
                     {smallChevron}
@@ -211,17 +222,19 @@ class SearchPageResults extends React.Component{
                            <div className="search-results-content flex-col-start">
                                 <div className="query-tagline">
                                     <ul className="query-tags-chevron-box flex-row-start text-size-md semi-bold-plus">
-                                        {generateQueryChevrons()}
+                                        {searchResults.length > 0 ? generateQueryChevrons(searchResults[0]) : generateQueryChevrons(null)}
                                     </ul>
                                 </div>
                                 {/* Query Headline */}
                                 <div className="query-big-headline">
                                     {generateQueryHeadline()}
                                 </div>
+
+                                {/* No Render */}
                                 {/*  Promotion box */}
-                                <div className="promotion-button-container">
+                                {/* <div className="promotion-button-container"> */}
                                     {/* Delivery */}
-                                    <div className="large-button-toggle-box">
+                                    {/* <div className="large-button-toggle-box">
                                         <button className="toggle-box-content">
                                             <div className="flex-col-start">
                                                 <span className="text-size-large bold">Delivery</span>
@@ -229,9 +242,9 @@ class SearchPageResults extends React.Component{
                                             </div>
                                             <img className="toggle-box-img" src="https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/logos/delivery_takeout.svg"></img>
                                         </button>
-                                    </div>
+                                    </div> */}
                                     {/* Takeout */}
-                                    <div className="large-button-toggle-box">
+                                    {/* <div className="large-button-toggle-box">
                                         <button className="toggle-box-content">
                                             <div className="flex-col-start">
                                                 <span className="text-size-large bold">Take Out</span>
@@ -240,7 +253,7 @@ class SearchPageResults extends React.Component{
                                             <img className="toggle-box-img" src="https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/logos/takeout.svg"></img>
                                         </button>
                                     </div>
-                                </div>
+                                </div> */}
 
 
                                 {allResults}
