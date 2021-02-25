@@ -36,7 +36,14 @@
 
 .business-meta-data-content{
     flex-grow: 1;
+    max-width: 300px;
 }
+
+@media (min-width: 1300px){
+        .business-meta-data-content{
+            flex-grow: 1;
+        }
+    }
 
     .biz-head-left-rail{
         flex-grow: 4;
@@ -54,7 +61,7 @@
             color: #757280;
             margin: 5px 0;
         }
-        
+
 .one-review-content{
     max-width: 500px;
     overflow-wrap: break-word;
