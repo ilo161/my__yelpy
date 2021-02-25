@@ -1,5 +1,5 @@
 # README
-## My__Yelpy
+## My__Yelpy [Live Link](https://my--yelpy.herokuapp.com/#/)
 
 #### My yelpy is a spin off of [yelp.com](https://www.yelp.com) Yelp is a business listing and review site for users to explore businesses nearby and for them to leave their thoughts on their experience at said business.
 
@@ -14,7 +14,6 @@ This business show page is the bread and vegan butter of my__yelpy.com because i
 ![Business Header Box](https://github.com/ilo161/my__yelpy/blob/main/app/assets/images/business_header_box.png "Business Header Box")
 ![StarGenerator](https://github.com/ilo161/my__yelpy/blob/main/app/assets/images/star_generator.png "Star Generator")
 
-https://github.com/ilo161/my__yelpy/blob/main/app/assets/images/star_generator.png
 
 ```// Method(s) to extract Average Review for a Business
     const getAverage = () => {
