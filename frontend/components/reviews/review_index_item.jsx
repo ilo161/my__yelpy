@@ -105,11 +105,12 @@ class ReviewIndexItem extends React.Component {
                     <section className="review-show open-sans">
                         {review.body}   
                     </section>
-                    <section className="reaction-buttons-container flex-row-start">
+                    {/* No Render */}
+                    {/* <section className="reaction-buttons-container flex-row-start">
                         <button className="reaction">{bulb}  Useful</button>
                         <button className="reaction">{laugh} Funny</button>
                         <button className="reaction">{glasses} Cool</button>
-                    </section>
+                    </section> */}
                 </div>
             </section>
             
