@@ -29,7 +29,7 @@ class SearchPageResults extends React.Component{
             const coffeeCat = <li>Coffee & Tea</li> 
             const restaurantCat = <li>Restaurants</li> 
             const noResultsCat = <li>No Results</li> 
-            debugger
+
             const cat2 = searchResult !== null ?
                         searchResult.category === 0 ? 
                         coffeeCat

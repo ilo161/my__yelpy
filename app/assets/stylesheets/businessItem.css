@@ -36,10 +36,10 @@
 
 .business-meta-data-content{
     flex-grow: 1;
-    max-width: 300px;
+    min-width: 300px;
 }
 
-@media (min-width: 1300px){
+@media (max-width: 1300px){
         .business-meta-data-content{
             flex-grow: 1;
         }
