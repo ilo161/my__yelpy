@@ -19,44 +19,112 @@ const businessHeaderBox = props => {
 
     let openTime;
     let closeTime;
+    let amPm
     let isOpen = <span>null</span>;
     // Business Hours dissect
     if (props.business.open_time){
         let dateNow = new Date();
         const currHr = dateNow.getHours();
-        if( currHr >= props.business.open_time && currHr < props.business.close_time ){
-            isOpen = <span className="open-green">Open </span>;
-        } else {
-            isOpen = <span className="closed-red">Closed </span>;
+        const currDay = dateNow.getDay();
+        // const currDay = 0;
+
+        switch(currDay){
+            case 0:
+                if (currHr >= props.business.open_time_sun && currHr < props.business.close_time_sun ){
+                    isOpen = <span className="open-green">Open </span>;
+                    } else {
+                        isOpen = <span className="closed-red">Closed </span>;
+                }
+
+                    openTime = props.business.open_time_sun.toString()+":00 "
+                    amPm  = props.business.open_time_sun >= 12 ? "PM" : "AM"
+                    openTime += amPm 
+                    openTime = <span>{openTime}</span>
+
+                    if (props.business.close_time_sun < 11){
+                        closeTime = props.business.close_time_sun.toString()+":00 "
+                    } else {
+                        closeTime = (props.business.close_time_sun - 12).toString()+":00 "
+                    }
+
+                    amPm  = props.business.close_time_sun >= 12 ? "PM" : "AM"
+                    closeTime += amPm
+                    closeTime = <span>{closeTime}</span>
+
+                break;
+
+            case 6:
+                if (currHr >= props.business.open_time_sat && currHr < props.business.close_time_sat ){
+                    isOpen = <span className="open-green">Open </span>;
+                    } else {
+                        isOpen = <span className="closed-red">Closed </span>;
+                    }
+
+                    openTime = props.business.open_time_sat.toString()+":00 "
+                    amPm  = props.business.open_time_sat >= 12 ? "PM" : "AM"
+                    openTime += amPm 
+                    openTime = <span>{openTime}</span>
+
+                    if (props.business.close_time_sat < 11){
+                        closeTime = props.business.close_time_sat.toString()+":00 "
+                    } else {
+                        closeTime = (props.business.close_time_sat - 12).toString()+":00 "
+                    }
+
+                    amPm  = props.business.close_time_sat >= 12 ? "PM" : "AM"
+                    closeTime += amPm
+                    closeTime = <span>{closeTime}</span>
+                    
+                break;
+
+            default:
+
+            if (currHr >= props.business.open_time && currHr < props.business.close_time ){
+                isOpen = <span className="open-green">Open </span>;
+            } else {
+                isOpen = <span className="closed-red">Closed </span>;
+            }
+
+
+            openTime = props.business.open_time.toString()+":00 "
+            amPm  = props.business.open_time >= 12 ? "PM" : "AM"
+            openTime += amPm 
+            openTime = <span>{openTime}</span>
+
+            if (props.business.close_time < 11){
+                closeTime = props.business.close_time.toString()+":00 "
+            } else {
+                closeTime = (props.business.close_time - 12).toString()+":00 "
+            }
+
+            amPm  = props.business.close_time >= 12 ? "PM" : "AM"
+            closeTime += amPm
+            closeTime = <span>{closeTime}</span>
+
+            break;
         }
-
-
-        openTime = props.business.open_time.toString()+":00 "
-        let amPm  = props.business.open_time >= 12 ? "PM" : "AM"
-        openTime += amPm 
-        openTime = <span>{openTime}</span>
-
-        if (props.business.close_time < 11){
-            closeTime = props.business.close_time.toString()+":00 "
-        } else {
-            closeTime = (props.business.close_time - 12).toString()+":00 "
-        }
-
-        amPm  = props.business.close_time >= 12 ? "PM" : "AM"
-        closeTime += amPm
-        closeTime = <span>{closeTime}</span>
+        
 
     }
 
     // Method(s) to extract Average Review for a Business
     const getAverage = () => {
         let ratingSum = 0;
+        let integerOfAvrg;
+        let floatAvrg;
 
         props.business.reviews.forEach(review => {
             ratingSum += review.rating
         })
 
-        return (Math.floor(ratingSum / props.business.total_business_reviews))
+        floatAvrg = ratingSum / props.business.total_business_reviews;
+        integerOfAvrg = Math.floor(ratingSum / props.business.total_business_reviews)
+
+        if( floatAvrg >= (integerOfAvrg + 0.5)) return Math.ceil(floatAvrg)
+        return integerOfAvrg
+        
+
+        // return (Math.floor(ratingSum / props.business.total_business_reviews))
         
     }
 

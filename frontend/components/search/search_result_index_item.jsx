@@ -63,12 +63,20 @@ class SearchResultIndexItem extends React.Component{
     
         const getAverage = () => {
             let ratingSum = 0;
+            let integerOfAvrg;
+            let floatAvrg;
 
             business.reviews.forEach(review => {
                 ratingSum += review.rating
             })
 
-            return (Math.floor(ratingSum / business.total_business_reviews))
+            floatAvrg = ratingSum / business.total_business_reviews;
+            integerOfAvrg = Math.floor(ratingSum / business.total_business_reviews)
+
+            if( floatAvrg >= (integerOfAvrg + 0.5)) return Math.ceil(floatAvrg)
+            return integerOfAvrg
+
+            // return (Math.floor(ratingSum / business.total_business_reviews))
             
         }
 

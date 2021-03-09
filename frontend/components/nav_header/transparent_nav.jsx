@@ -34,6 +34,7 @@ class TransparentNav extends React.Component {
                     <a href="https://github.com/ilo161/my__yelpy" target="_blank" rel="noopener noreferrer" className="nav-header-link">Yelpy Github</a>
                     <a href="https://ilo161.github.io" target="_blank" rel="noopener noreferrer" className="nav-header-link">Hire Me</a>
                     <a href="https://www.linkedin.com/in/sergio-medina-36937668/" target="_blank" rel="noopener noreferrer" className="nav-header-link">Linked In</a>
+                    <a href="https://ilo161.github.io/images/Sergio_Medina_Resume.pdf" target="_blank" rel="noopener noreferrer" className="nav-header-link">Resume</a>
                 </ul>
                
                 {currentUser ? <UserMedallion/> : loginSignup }
