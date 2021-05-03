@@ -36,8 +36,9 @@ class Greeting extends React.Component {
     }
 
     componentDidMount(){
-        // this.props.requestBusiness(1)
-        this.props.requestAllBusinesses()
+        this.props.requestBusiness(1)
+        .then(() => this.props.requestBusiness(2))
+        // this.props.requestAllBusinesses()
     }
 
 

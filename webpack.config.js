@@ -24,5 +24,11 @@ module.exports = {
       }
     ]
   },
-  devtool: 'source-map'
+  devtool: 'source-map',
+  devServer: {
+    inline: true,
+    contentBase: './app',
+    port: 9000,
+    host: '0.0.0.0'
+  }
 };

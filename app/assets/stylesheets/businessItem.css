@@ -1,3 +1,22 @@
+@media only screen and (max-width: 629px){
+    .result-index-item-container{
+        display: flex;
+        background-color: pink;
+        margin: 24px 0;
+
+    }   
+    
+    .result-index-item-content{
+        flex-grow: 1;
+        display: flex;
+        border: 1px solid #eeeeef;
+        border-radius: 5px;
+        padding: 12px; 
+    }
+    
+
+}
+
 .result-index-item-container{
         /* width: 700px; */
         display: flex;

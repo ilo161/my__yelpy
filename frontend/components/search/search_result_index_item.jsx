@@ -112,19 +112,10 @@ class SearchResultIndexItem extends React.Component{
                 oneReview = generateOneReview();
             }
         }
+        const isMobile = window.innerWidth < 629;
+        // console.log(isMobile)
 
-        
-        
-        
-
-
-        return (
-            business ?
-            <div onClick={() => this.props.history.push(`/biz/${business.id}`) } className="result-index-item-container">
-                <div className="result-index-item-content">
-                    <img className="result-item-img" src={business ? business.photos[3].photoUrl : null}/>
-
-                    {/* Text information - Column */}
+        const bizDetailsDsktp =  
                     <div className="business-meta-data-content flex-col-start">
                         <div className="biz-headline-container flex-row-start">
                             <div className="biz-head-left-rail flex-col-start">
@@ -149,6 +140,20 @@ class SearchResultIndexItem extends React.Component{
 
 
                     </div>
+        
+        
+        
+        
+
+
+        return (
+            business ?
+            <div onClick={() => this.props.history.push(`/biz/${business.id}`) } className="result-index-item-container">
+                <div className="result-index-item-content">
+                    <img className="result-item-img" src={business ? business.photos[3].photoUrl : null}/>
+
+                    {/* Text information - Column */}
+                    {isMobile ? null : bizDetailsDsktp}
 
                 </div>
             </div>
